@@ -53,7 +53,7 @@ public class LoginAndRegisterController {
         try {
             Stage stage = (Stage) loginMessage.getScene().getWindow();
             // TODO: login.fxml file
-            Parent openRegistrationTab = FXMLLoader.load(getClass().getResource("../fxml/register.fxml"));
+            Parent openRegistrationTab = FXMLLoader.load(getClass().getClassLoader().getResource("register.fxml"));
             Scene scene = new Scene(openRegistrationTab, 600, 400);
             stage.setScene(scene);
         } catch (IOException e) {
