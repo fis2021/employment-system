@@ -86,13 +86,6 @@ public class RegisterController {
 
     }
 
-    private boolean isEmailValid(String email) {
-        return false;
-    }
-
-    private boolean isFieldEmpty(String firstName) {
-        return false;
-    }
 
     public void cancelButtonOnAction(ActionEvent actionEvent) {
         try {
