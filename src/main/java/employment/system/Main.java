@@ -1,5 +1,7 @@
 package employment.system;
 
+import employment.system.services.FileSystemService;
+import employment.system.services.UserService;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,11 +15,20 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        initDirectory();
+        UserService.initDatabase();
 
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
         primaryStage.setTitle("TM-NOW");
         primaryStage.setScene(new Scene(root, 500, 500));
         primaryStage.show();
+    }
+
+
+    private void initDirectory() {
+        Path applicationHomePath = FileSystemService.APPLICATION_HOME_PATH;
+        if (!Files.exists(applicationHomePath))
+            applicationHomePath.toFile().mkdirs();
     }
 
 
