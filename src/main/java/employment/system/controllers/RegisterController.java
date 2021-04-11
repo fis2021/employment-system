@@ -74,18 +74,15 @@ public class RegisterController {
         try {
             UserService.addUser(firstNameField.getText(), lastNameField.getText(), emailField.getText(), passwordField.getText(), null);
 
-//           Stage stage = (Stage) registerButton.getScene().getWindow();
-//           // TODO:  replace with a new window where it will be shown that registration was successful
-//           Parent openRegistrationTab = FXMLLoader.load(getClass().getResource("../fxml/successfulRegistration.fxml"));
-//           Scene scene = new Scene(openRegistrationTab, 600, 400);
-//           stage.setScene(scene);
+           Stage stage = (Stage) registerButton.getScene().getWindow();
+           Parent openRegistrationTab = FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
+           Scene scene = new Scene(openRegistrationTab, 600, 400);
+           stage.setScene(scene);
         } catch (UserWithThisEmailAlreadyExistsException e) {
             registrationMessage.setText(e.getMessage());
+        } catch (IOException e) {
+          e.printStackTrace();
         }
-
-//      } catch (IOException e) {
-//          e.printStackTrace();
-//      }
     }
 
 
