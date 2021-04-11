@@ -74,7 +74,7 @@ public class RegisterController {
         // replace with a new window where it will be shown that registration was successful
         try {
             Stage stage = (Stage) registerButton.getScene().getWindow();
-            Parent openRegistrationTab = FXMLLoader.load(getClass().getResource("../fxml/successfulRegistration.fxml"));
+            Parent openRegistrationTab = FXMLLoader.load(getClass().getClassLoader().getResource("successfulRegistration.fxml"));
             Scene scene = new Scene(openRegistrationTab, 600, 400);
             stage.setScene(scene);
 
