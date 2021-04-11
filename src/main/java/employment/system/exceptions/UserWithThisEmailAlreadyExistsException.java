@@ -9,7 +9,7 @@ public class UserWithThisEmailAlreadyExistsException extends Exception {
         this.email = email;
     }
 
-    public String getUsername() {
+    public String getEmail() {
         return email;
     }
 }
