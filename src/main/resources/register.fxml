@@ -5,9 +5,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
 <GridPane alignment="center" hgap="10" prefHeight="400" prefWidth="600" vgap="10"
-        xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
-        fx:controller="employment.system.controllers.RegisterController">
+          xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+          fx:controller="employment.system.controllers.RegisterController">
 
     <padding>
         <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
@@ -29,13 +31,21 @@
 
     <Label prefHeight="24.0" prefWidth="63.0" text="Password:" GridPane.columnIndex="1" GridPane.rowIndex="5" />
     <PasswordField fx:id="passwordField" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+
     <Label prefHeight="19.0" prefWidth="63.0" text="Password:" GridPane.columnIndex="1" GridPane.rowIndex="6" />
     <PasswordField fx:id="reenteredPasswordField" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-    <Text fx:id="registrationMessage" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="2" GridPane.rowIndex="7" />
 
-    <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="2" GridPane.rowIndex="9">
-        <Button fx:id="registerButton" onAction="#registerButtonAction" text="Register" />
-    </HBox>
+    <Label prefHeight="19.0" prefWidth="63.0" text="Role:" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+    <ChoiceBox fx:id="roleChoiceBox" value=" " GridPane.columnIndex="2" GridPane.rowIndex="7">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="Recruiter" />
+                <String fx:value="Employee" />
+            </FXCollections>
+        </items>
+    </ChoiceBox>
+
+    <Text fx:id="registrationMessage" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="2" GridPane.rowIndex="8" />
 
     <Button fx:id="cancelButton" cancelButton="true" mnemonicParsing="false" onAction="#cancelButtonOnAction" text="Cancel" GridPane.columnIndex="1" GridPane.rowIndex="9" />
     <columnConstraints>
