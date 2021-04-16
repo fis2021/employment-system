@@ -1,5 +1,6 @@
 package employment.system.services;
 
+import employment.system.checkers.RegisterChecker;
 import employment.system.user.User;
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
@@ -8,7 +9,6 @@ import org.dizitart.no2.objects.ObjectRepository;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.Objects;
 
 import static employment.system.services.FileSystemService.getPathToFile;
 import employment.system.exceptions.UserWithThisEmailAlreadyExistsException;
@@ -27,20 +27,12 @@ public class UserService {
     }
 
     public static void addUser(String firstName, String lastName, String email, String password, String role) throws UserWithThisEmailAlreadyExistsException {
-        checkUserDoesNotAlreadyExist(email);
+        RegisterChecker.checkEmailDoesNotAlreadyExist(email);
         userRepository.insert(new User(firstName, lastName,email, encodePassword(firstName, password), role));
     }
 
 
-    private static void checkUserDoesNotAlreadyExist(String email) throws UserWithThisEmailAlreadyExistsException {
-        for (User user : userRepository.find()) {
-            if (Objects.equals(email, user.getEmail()))
-                throw new UserWithThisEmailAlreadyExistsException(email);
-        }
-    }
-
-
-    private static String encodePassword(String salt, String password) {
+    public static String encodePassword(String salt, String password) {
         MessageDigest md = getMessageDigest();
         md.update(salt.getBytes(StandardCharsets.UTF_8));
 
@@ -59,5 +51,13 @@ public class UserService {
             throw new IllegalStateException("SHA-512 does not exist!");
         }
         return md;
+    }
+
+    public static ObjectRepository<User> getUserRepository() {
+        return userRepository;
+    }
+
+    public static void setUserRepository(ObjectRepository<User> userRepository) {
+        UserService.userRepository = userRepository;
     }
 }
