@@ -1,7 +1,8 @@
 package employment.system.controllers;
 
 
-import employment.system.checkers.EmailValidation;
+import employment.system.checkers.EmailChecker;
+import employment.system.checkers.LoginChecker;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,6 +16,7 @@ import javafx.stage.Stage;
 
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 public class LoginAndRegisterController {
 
@@ -31,28 +33,53 @@ public class LoginAndRegisterController {
         String email = emailField.getText();
         String password = passwordField.getText();
 
+        if (LoginChecker.hasCoolDown()) {
+            long seconds = LoginChecker.timeRemainingSeconds();
+            loginMessage.setText("Too many incorrect attempts. Try again in " + ((int) (seconds / 60)) +
+                    " minutes and " + (seconds % 60) + " seconds.");
+
+            return;
+        }
+
         if (email.isEmpty()) {
             loginMessage.setText("Please type in your email!");
             return;
         }
-        if (!EmailValidation.validate(email)) {
+
+        if (password.isEmpty()) {
+            loginMessage.setText("Please type in your password!");
+        }
+
+        if (!EmailChecker.validate(email)) {
             loginMessage.setText("The email is not valid!");
             return;
         }
 
-        if (password.isEmpty()) {
-            loginMessage.setText("Password cannot be empty");
-            return;
-        }
+        if (LoginChecker.isLoginValid(email, password)) {
+            try {
+                Stage stage = (Stage) loginMessage.getScene().getWindow();
+                Parent openViewJobsTab = FXMLLoader.load(getClass().getClassLoader().getResource("successful_registration.fxml"));
+                Scene scene = new Scene(openViewJobsTab, 600, 400);
+                stage.setScene(scene);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            int blockTime = LoginChecker.blockPCUserTime();
 
-        loginMessage.setText("Incorrect login!");
+            if (blockTime != 0) {
+                loginMessage.setText("Too many incorrect attempts. You can try again in " + blockTime + " minutes");
+
+            } else {
+                loginMessage.setText("Incorrect login!");
+            }
+        }
     }
 
 
     public void registerButtonOnAction(ActionEvent actionEvent) throws Exception {
         try {
             Stage stage = (Stage) loginMessage.getScene().getWindow();
-            // TODO: login.fxml file
             Parent openRegistrationTab = FXMLLoader.load(getClass().getClassLoader().getResource("register.fxml"));
             Scene scene = new Scene(openRegistrationTab, 600, 400);
             stage.setScene(scene);
