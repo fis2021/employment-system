@@ -14,30 +14,30 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 
-
 import java.io.IOException;
-import java.util.concurrent.TimeUnit;
+
 
 public class LoginAndRegisterController {
 
 
     @FXML
-    public Text loginMessage;
+    private Text loginMessage;
     @FXML
-    public PasswordField passwordField;
+    private PasswordField passwordField;
     @FXML
-    public TextField emailField;
+    private TextField emailField;
 
 
     public void loginButtonOnAction(ActionEvent actionEvent) throws Exception {
         String email = emailField.getText();
         String password = passwordField.getText();
 
-        if (LoginChecker.hasCoolDown()) {
-            long seconds = LoginChecker.timeRemainingSeconds();
-            loginMessage.setText("Too many incorrect attempts. Try again in " + ((int) (seconds / 60)) +
-                    " minutes and " + (seconds % 60) + " seconds.");
+        LoginChecker.update();
 
+        if (LoginChecker.hasCoolDown()) {
+            long seconds = LoginChecker.coolDownTimeRemainingInSeconds();
+            loginMessage.setText("Incorrect attempt. Try again in " + ((int) (seconds / 60))
+                    + " minutes and " + (seconds % 60) + " seconds.");
             return;
         }
 
@@ -65,11 +65,10 @@ public class LoginAndRegisterController {
                 e.printStackTrace();
             }
         } else {
-            int blockTime = LoginChecker.blockPCUserTime();
-
-            if (blockTime != 0) {
-                loginMessage.setText("Too many incorrect attempts. You can try again in " + blockTime + " minutes");
-
+            if (LoginChecker.maxLogInAttempts()) {
+                loginMessage.setText("Too many incorrect attempts. You can try again in " + LoginChecker.BLOCK_TIME_IN_MIN_AMOUNT + " minutes");
+                LoginChecker.setCoolDown();
+                System.out.println("aloha");
             } else {
                 loginMessage.setText("Incorrect login!");
             }

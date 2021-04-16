@@ -19,7 +19,6 @@ public class LoginChecker {
 
 
     public static boolean isLoginValid(String email, String password) {
-
         if (!checkIfEmailAndPasswordMatch(email, UserService.encodePassword(email, password))) {
             totalPCUserAttempts += 1;
             return false;
@@ -29,22 +28,10 @@ public class LoginChecker {
         return true;
     }
 
-    public static int blockPCUserTime() {
-        int amountOfTime = 0;
 
-        if (totalPCUserAttempts >= MAX_ATTEMPTS_LIMIT) {
-            amountOfTime = BLOCK_TIME_IN_MIN_AMOUNT;
-            if (!isCoolDownActivated || !hasCoolDown()) {
-                setCoolDown();
-                isCoolDownActivated = true;
-            }
-        }
-
-        return amountOfTime;
-    }
-
-    private static void setCoolDown() {
+    public static void setCoolDown() {
         coolDownStart = (long) System.currentTimeMillis();
+        isCoolDownActivated = true;
     }
 
     public static boolean checkIfEmailAndPasswordMatch(String email, String password) {
@@ -56,21 +43,26 @@ public class LoginChecker {
         return false;
     }
 
-    public static long timeRemainingSeconds() {
-        System.out.println(System.currentTimeMillis() - coolDownStart);
-        long output = (long)(BLOCK_TIME_IN_MIN_AMOUNT * 60) - (long) (System.currentTimeMillis() - coolDownStart) / 1000;
-        //System.out.println(output);
-        return output;
+    public static long coolDownTimeRemainingInSeconds() {
+        return (long) (BLOCK_TIME_IN_MIN_AMOUNT * 60) - passedTimeInSecondsFromFailedAttempt();
+    }
+
+    public static boolean hasCoolDown() {
+        return isCoolDownActivated;
+    }
+
+    private static long passedTimeInSecondsFromFailedAttempt() {
+        return (System.currentTimeMillis() - coolDownStart) / 1000;
+    }
+
+    public static boolean maxLogInAttempts() {
+        return totalPCUserAttempts >= MAX_ATTEMPTS_LIMIT;
     }
 
 
-    public static boolean hasCoolDown() {
-        if (!isCoolDownActivated) {
-            return false;
+    public static void update() {
+        if (passedTimeInSecondsFromFailedAttempt() >= (BLOCK_TIME_IN_MIN_AMOUNT * 60)) {
+            isCoolDownActivated = false;
         }
-
-        long timePassed = System.currentTimeMillis() - coolDownStart;
-        //System.out.println(timePassed);
-        return timePassed >= (BLOCK_TIME_IN_MIN_AMOUNT * 60000) ? false : true;
     }
 }
