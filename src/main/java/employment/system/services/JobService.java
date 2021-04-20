@@ -1,7 +1,6 @@
 package employment.system.services;
 
-import employment.system.exceptions.UserWithThisEmailAlreadyExistsException;
-import employment.system.user.User;
+
 
 public class JobService {
 
