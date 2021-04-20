@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<GridPane alignment="center" hgap="10" prefHeight="400" prefWidth="600" vgap="10"
+          xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+          fx:controller="employment.system.controllers.AddNewJobController">
+
+    <padding>
+        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+    </padding>
+
+    <Text id="title-text" text="ADDING A NEW JOB" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+
+    <Label text="Name of Job:" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+    <TextField fx:id="jobNameField" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+
+    <Label text="Company:" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+    <TextField fx:id="companyField" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+
+    <Label text="Department:" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
+    <TextField fx:id="departmentField" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+
+    <Label text="Program:" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+
+    <TextField fx:id="programField" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+
+    <Label text="Location:" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+
+    <TextField fx:id="locationField" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+
+    <Label text="Minimum Salary:" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+
+    <TextField fx:id="minimumSalaryField" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+
+    <Text fx:id="addNewJobMessage" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+
+    <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="2" GridPane.rowIndex="9">
+        <Button fx:id="addNewJobButton" onAction="#addNewJobButtonAction" text="Add" />
+    </HBox>
+
+    <Button fx:id="cancelButton" cancelButton="true" mnemonicParsing="false" onAction="#cancelButtonOnAction" text="Cancel" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+    <columnConstraints>
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints />
+        <RowConstraints maxHeight="42.60000000000001" minHeight="12.600000000000009" prefHeight="20.60000000000001" />
+        <RowConstraints maxHeight="30.599999999999994" minHeight="0.5999999999999943" prefHeight="22.599999999999994" />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+    </rowConstraints>
+</GridPane>

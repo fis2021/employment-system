@@ -45,6 +45,10 @@
         </items>
     </ChoiceBox>
 
+    <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="2" GridPane.rowIndex="9">
+        <Button fx:id="registerButton" onAction="#registerButtonAction" text="Register" />
+    </HBox>
+
     <Text fx:id="registrationMessage" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="2" GridPane.rowIndex="8" />
 
     <Button fx:id="cancelButton" cancelButton="true" mnemonicParsing="false" onAction="#cancelButtonOnAction" text="Cancel" GridPane.columnIndex="1" GridPane.rowIndex="9" />
