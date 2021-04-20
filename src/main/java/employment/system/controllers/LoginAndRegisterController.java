@@ -1,7 +1,8 @@
 package employment.system.controllers;
 
 
-import employment.system.checkers.EmailValidation;
+import employment.system.checkers.EmailChecker;
+import employment.system.checkers.LoginChecker;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,46 +14,71 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 
-
 import java.io.IOException;
+
 
 public class LoginAndRegisterController {
 
 
     @FXML
-    public Text loginMessage;
+    private Text loginMessage;
     @FXML
-    public PasswordField passwordField;
+    private PasswordField passwordField;
     @FXML
-    public TextField emailField;
+    private TextField emailField;
 
 
     public void loginButtonOnAction(ActionEvent actionEvent) throws Exception {
         String email = emailField.getText();
         String password = passwordField.getText();
 
+        LoginChecker.update();
+
+        if (LoginChecker.hasCoolDown()) {
+            long seconds = LoginChecker.coolDownTimeRemainingInSeconds();
+            loginMessage.setText("Incorrect attempt. Try again in " + ((int) (seconds / 60))
+                    + " minutes and " + (seconds % 60) + " seconds.");
+            return;
+        }
+
         if (email.isEmpty()) {
             loginMessage.setText("Please type in your email!");
             return;
         }
-        if (!EmailValidation.validate(email)) {
+
+        if (password.isEmpty()) {
+            loginMessage.setText("Please type in your password!");
+        }
+
+        if (!EmailChecker.validate(email)) {
             loginMessage.setText("The email is not valid!");
             return;
         }
 
-        if (password.isEmpty()) {
-            loginMessage.setText("Password cannot be empty");
-            return;
+        if (LoginChecker.isLoginValid(email, password)) {
+            try {
+                Stage stage = (Stage) loginMessage.getScene().getWindow();
+                Parent openViewJobsTab = FXMLLoader.load(getClass().getClassLoader().getResource("successful_registration.fxml"));
+                Scene scene = new Scene(openViewJobsTab, 600, 400);
+                stage.setScene(scene);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            if (LoginChecker.maxLogInAttempts()) {
+                loginMessage.setText("Too many incorrect attempts. You can try again in " + LoginChecker.BLOCK_TIME_IN_MIN_AMOUNT + " minutes");
+                LoginChecker.setCoolDown();
+                System.out.println("aloha");
+            } else {
+                loginMessage.setText("Incorrect login!");
+            }
         }
-
-        loginMessage.setText("Incorrect login!");
     }
 
 
     public void registerButtonOnAction(ActionEvent actionEvent) throws Exception {
         try {
             Stage stage = (Stage) loginMessage.getScene().getWindow();
-            // TODO: login.fxml file
             Parent openRegistrationTab = FXMLLoader.load(getClass().getClassLoader().getResource("register.fxml"));
             Scene scene = new Scene(openRegistrationTab, 600, 400);
             stage.setScene(scene);

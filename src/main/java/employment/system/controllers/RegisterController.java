@@ -2,7 +2,7 @@ package employment.system.controllers;/*
  ~ Created by Anca Esanu on 6 Aprilie 2021 ~
  */
 
-import employment.system.checkers.EmailValidation;
+import employment.system.checkers.EmailChecker;
 import employment.system.exceptions.UserWithThisEmailAlreadyExistsException;
 import employment.system.services.UserService;
 import javafx.event.ActionEvent;
@@ -51,7 +51,7 @@ public class RegisterController {
             return;
         }
 
-        if (!EmailValidation.validate(email)){
+        if (!EmailChecker.validate(email)){
             registrationMessage.setText("Please enter a valid email!");
             return;
         }
