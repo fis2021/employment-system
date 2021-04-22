@@ -47,7 +47,8 @@
         <Button fx:id="addNewJobButton" onAction="#addNewJobButtonAction" text="Add" />
     </HBox>
 
-    <Button fx:id="cancelButton" cancelButton="true" mnemonicParsing="false" onAction="#cancelButtonOnAction" text="Cancel" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+    <Button fx:id="cancelButton" cancelButton="true" mnemonicParsing="false" onAction="#cancelButtonOnAction" text="Cancel"
+            GridPane.columnIndex="1" GridPane.rowIndex="9" />
     <columnConstraints>
         <ColumnConstraints />
         <ColumnConstraints />
