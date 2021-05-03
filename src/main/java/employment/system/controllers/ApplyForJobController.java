@@ -1,7 +1,7 @@
 package employment.system.controllers;
 
 
-import employment.system.checkers.EmailValidation;
+import employment.system.checkers.EmailChecker;
 import employment.system.services.ApplyService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -54,7 +54,7 @@ public class ApplyForJobController {
             return;
         }
 
-        if (!EmailValidation.validate(email)){
+        if (!EmailChecker.validate(email)){
             applyForJobMessage.setText("Please enter a valid email!");
             return;
         }
