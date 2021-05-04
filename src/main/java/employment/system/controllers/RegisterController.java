@@ -72,16 +72,16 @@ public class RegisterController {
         }
 
         try {
-            UserService.addUser(firstNameField.getText(), lastNameField.getText(), emailField.getText(), passwordField.getText(), null);
+            UserService.addUser(emailField.getText(), firstNameField.getText(), lastNameField.getText(), passwordField.getText(), null);
 
-           Stage stage = (Stage) registerButton.getScene().getWindow();
-           Parent openRegistrationTab = FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
-           Scene scene = new Scene(openRegistrationTab, 600, 400);
-           stage.setScene(scene);
+            Stage stage = (Stage) registerButton.getScene().getWindow();
+            Parent openRegistrationTab = FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
+            Scene scene = new Scene(openRegistrationTab, 600, 400);
+            stage.setScene(scene);
         } catch (UserWithThisEmailAlreadyExistsException e) {
-            registrationMessage.setText(e.getMessage());
+            registrationMessage.setText("This email is already used by another account.");
         } catch (IOException e) {
-          e.printStackTrace();
+            e.printStackTrace();
         }
     }
 

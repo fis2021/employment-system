@@ -14,7 +14,8 @@ public class RegisterChecker {
 
     public static void checkEmailDoesNotAlreadyExist(String email) throws UserWithThisEmailAlreadyExistsException {
         for (User user : UserService.getUserRepository().find()) {
-            if (Objects.equals(email, user.getEmail())) {
+            String otherEmail = user.getEmail();
+            if (Objects.equals(email, otherEmail)) {
                 throw new UserWithThisEmailAlreadyExistsException(email);
             }
         }
