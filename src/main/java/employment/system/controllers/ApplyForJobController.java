@@ -18,25 +18,16 @@ import java.io.IOException;
 
 public class ApplyForJobController {
     @FXML
-    private Button cancelButton;
-    @FXML
-    private Button applyForJobButton;
-    @FXML
-    private Text applyForJobMessage;
-    @FXML
-    private TextField firstNameField;
-    @FXML
-    private TextField lastNameField;
-    @FXML
-    private TextField emailField;
-    @FXML
-    private TextField ageField;
-    @FXML
-    private TextField nativeLanguageField;
-    @FXML
-    private TextField otherLanguagesField;
-    @FXML
-    private TextField addressField;
+    public Button cancelButton;
+    public Button applyForJobButton;
+    public Text applyForJobMessage;
+    public TextField firstNameField;
+    public TextField lastNameField;
+    public TextField emailField;
+    public TextField ageField;
+    public TextField nativeLanguageField;
+    public TextField otherLanguagesField;
+    public TextField addressField;
 
     public void applyForJobButtonAction(ActionEvent actionEvent) {
         String firstName =  firstNameField.getText();
@@ -53,7 +44,7 @@ public class ApplyForJobController {
             return;
         }
 
-        if (lastName.isEmpty()) {
+        if(lastName.isEmpty()) {
             applyForJobMessage.setText("Please enter your last  name!");
             return;
         }
@@ -63,7 +54,7 @@ public class ApplyForJobController {
             return;
         }
 
-        if (!EmailChecker.validate(email)) {
+        if (!EmailChecker.validate(email)){
             applyForJobMessage.setText("Please enter a valid email!");
             return;
         }
@@ -84,7 +75,7 @@ public class ApplyForJobController {
             ApplyService.apply(firstNameField.getText(), lastNameField.getText(), emailField.getText(), ageField.getText(), addressField.getText(), nativeLanguageField.getText(), otherLanguagesField.getText());
 
             Stage stage = (Stage) applyForJobButton.getScene().getWindow();
-            Parent openRegistrationTab = FXMLLoader.load(getClass().getClassLoader().getResource("successfulApplying.fxml"));
+            Parent openRegistrationTab = FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
             Scene scene = new Scene(openRegistrationTab, 600, 400);
             stage.setScene(scene);
 

@@ -7,40 +7,33 @@ package employment.system.checkers;
 import employment.system.services.UserService;
 import employment.system.user.User;
 
+
 import java.util.Objects;
+
+import static employment.system.services.UserService.verifyUserPassword;
 
 public class LoginChecker {
 
-    private static int totalPCUserAttempts = 0;
+    public static int totalPCUserAttempts = 0;
     private static final int MAX_ATTEMPTS_LIMIT = 5;
     public static final int BLOCK_TIME_IN_MIN_AMOUNT = 10;
     private static long coolDownStart;
-    private static boolean isCoolDownActivated = false;
+    private static boolean isCoolDownActivated;
 
 
     public static boolean isLoginValid(String email, String password) {
-        if (!checkIfEmailAndPasswordMatch(email, UserService.encodePassword(email, password))) {
-            totalPCUserAttempts += 1;
-            return false;
-        } else {
-            totalPCUserAttempts = 0;
+        for (User user : UserService.getUserRepository().find()) {
+            if (Objects.equals(email, user.getEmail()) && verifyUserPassword(password, user.getPassword(), email)) {
+                return true;
+            }
         }
-        return true;
+        return false;
     }
 
 
     public static void setCoolDown() {
         coolDownStart = (long) System.currentTimeMillis();
         isCoolDownActivated = true;
-    }
-
-    public static boolean checkIfEmailAndPasswordMatch(String email, String password) {
-        for (User user : UserService.getUserRepository().find()) {
-            if (Objects.equals(email, user.getEmail()) && Objects.equals(password, user.getPassword())) {
-                return true;
-            }
-        }
-        return false;
     }
 
     public static long coolDownTimeRemainingInSeconds() {
@@ -55,7 +48,7 @@ public class LoginChecker {
         return (System.currentTimeMillis() - coolDownStart) / 1000;
     }
 
-    public static boolean maxLogInAttempts() {
+    public static boolean hasMaxLogInAttempts() {
         return totalPCUserAttempts >= MAX_ATTEMPTS_LIMIT;
     }
 
@@ -64,5 +57,19 @@ public class LoginChecker {
         if (passedTimeInSecondsFromFailedAttempt() >= (BLOCK_TIME_IN_MIN_AMOUNT * 60)) {
             isCoolDownActivated = false;
         }
+    }
+
+    public static boolean emailExistsInDataBase(String email) {
+        for (User user : UserService.getUserRepository().find()) {
+            String otherEmail = user.getEmail();
+            if (Objects.equals(email, otherEmail)) {
+                return false;
+            }
+        }
+        return  true;
+    }
+
+    public static void resetAttempts() {
+        totalPCUserAttempts = 0;
     }
 }
