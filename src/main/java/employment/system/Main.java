@@ -18,7 +18,7 @@ public class Main extends Application {
         initDirectory();
         UserService.initDatabase();
 
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("applyForJob.fxml"));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
         primaryStage.setTitle("TM-NOW");
         primaryStage.setScene(new Scene(root, 500, 500));
         primaryStage.show();

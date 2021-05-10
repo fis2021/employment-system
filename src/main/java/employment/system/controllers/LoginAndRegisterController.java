@@ -55,8 +55,14 @@ public class LoginAndRegisterController {
             return;
         }
 
+        if (LoginChecker.emailExistsInDataBase(email)) {
+            loginMessage.setText("This email has no account associated to it!");
+            return;
+        }
+
         if (LoginChecker.isLoginValid(email, password)) {
             try {
+                LoginChecker.resetAttempts();
                 Stage stage = (Stage) loginMessage.getScene().getWindow();
                 Parent openViewJobsTab = FXMLLoader.load(getClass().getClassLoader().getResource("successful_registration.fxml"));
                 Scene scene = new Scene(openViewJobsTab, 600, 400);
@@ -65,10 +71,10 @@ public class LoginAndRegisterController {
                 e.printStackTrace();
             }
         } else {
-            if (LoginChecker.maxLogInAttempts()) {
+            LoginChecker.totalPCUserAttempts += 1;
+            if (LoginChecker.hasMaxLogInAttempts()) {
                 loginMessage.setText("Too many incorrect attempts. You can try again in " + LoginChecker.BLOCK_TIME_IN_MIN_AMOUNT + " minutes");
                 LoginChecker.setCoolDown();
-                System.out.println("aloha");
             } else {
                 loginMessage.setText("Incorrect login!");
             }
