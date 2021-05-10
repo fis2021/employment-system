@@ -1,6 +1,7 @@
 package employment.system.controllers;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -10,7 +11,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class SuccessfulRegistrationController {
-    public Button okButtonField;
+    @FXML
+    private Button okButtonField;
 
     public void okButtonOnAction(ActionEvent actionEvent) {
         try {

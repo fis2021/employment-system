@@ -66,7 +66,8 @@ public class LoginAndRegisterController {
             }
         } else {
             if (LoginChecker.maxLogInAttempts()) {
-                loginMessage.setText("Too many incorrect attempts. You can try again in " + LoginChecker.BLOCK_TIME_IN_MIN_AMOUNT + " minutes");
+                loginMessage.setText("Too many incorrect attempts. You can try again in "
+                        + LoginChecker.BLOCK_TIME_IN_MIN_AMOUNT + " minutes");
                 LoginChecker.setCoolDown();
                 System.out.println("aloha");
             } else {

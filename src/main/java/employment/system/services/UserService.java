@@ -28,7 +28,7 @@ public class UserService {
 
     public static void addUser(String firstName, String lastName, String email, String password, String role) throws UserWithThisEmailAlreadyExistsException {
         RegisterChecker.checkEmailDoesNotAlreadyExist(email);
-        userRepository.insert(new User(firstName, lastName,email, encodePassword(firstName, password), role));
+        userRepository.insert(new User(firstName, lastName, email, encodePassword(firstName, password), role));
     }
 
 

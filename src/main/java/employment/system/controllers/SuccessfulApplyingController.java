@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class SuccessfulApplyingController {
-    public Button okButtonField;
+    private Button okButtonField;
 
     public void okButtonOnAction(ActionEvent actionEvent) {
         try {

@@ -1,7 +1,6 @@
 package employment.system.controllers;
 
 import employment.system.services.JobService;
-import employment.system.services.UserService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,15 +16,23 @@ import java.io.IOException;
 
 public class AddNewJobController {
     @FXML
-    public Button cancelButton;
-    public Button addNewJobButton;
-    public Text addNewJobMessage;
-    public TextField jobNameField;
-    public TextField companyField;
-    public TextField departmentField;
-    public TextField programField;
-    public TextField locationField;
-    public TextField minimumSalaryField;
+    private Button cancelButton;
+    @FXML
+    private Button addNewJobButton;
+    @FXML
+    private Text addNewJobMessage;
+    @FXML
+    private TextField jobNameField;
+    @FXML
+    private TextField companyField;
+    @FXML
+    private TextField departmentField;
+    @FXML
+    private TextField programField;
+    @FXML
+    private TextField locationField;
+    @FXML
+    private TextField minimumSalaryField;
 
     public void addNewJobButtonAction(ActionEvent actionEvent) {
         String jobName =  jobNameField.getText();
@@ -41,7 +48,7 @@ public class AddNewJobController {
             return;
         }
 
-        if(location.isEmpty()) {
+        if (location.isEmpty()) {
             addNewJobMessage.setText("Please enter location of work!");
             return;
         }
@@ -67,7 +74,8 @@ public class AddNewJobController {
         }
 
         try {
-            JobService.addJob(jobNameField.getText(), companyField.getText(), departmentField.getText(), programField.getText(), locationField.getText(), minimumSalaryField.getText());
+            JobService.addJob(jobNameField.getText(), companyField.getText(), departmentField.getText(),
+                    programField.getText(), locationField.getText(), minimumSalaryField.getText());
 
             Stage stage = (Stage) addNewJobButton.getScene().getWindow();
             Parent openRegistrationTab = FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
