@@ -8,23 +8,41 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 
 public class ViewJobsController {
-
-    public Label companyNameField;
-    public Label jobPositionNameField;
-    public Label jobLocationField;
-    public Label jobScheduleField;
-    public Label jobSalaryField;
-    public Label jobDescriptionField;
-    public ImageView imageField;
-    public Label jobRequirementsField;
+    @FXML
+    private Button applyButton;
+    @FXML
+    private Label companyNameField;
+    @FXML
+    private Label jobPositionNameField;
+    @FXML
+    private Label jobLocationField;
+    @FXML
+    private Label jobScheduleField;
+    @FXML
+    private Label jobSalaryField;
+    @FXML
+    private Label jobDescriptionField;
+    @FXML
+    private ImageView imageField;
+    @FXML
+    private Label jobRequirementsField;
+    @FXML
+    private Button profileButton;
     @FXML
     private TableView<Job> jobTable;
     @FXML
@@ -39,9 +57,25 @@ public class ViewJobsController {
 
 
     public void profileButtonOnAction(ActionEvent actionEvent) {
+        try {
+            Stage stage = (Stage) profileButton.getScene().getWindow();
+            Parent openProfileTab = FXMLLoader.load(getClass().getClassLoader().getResource("employee_profile.fxml"));
+            Scene scene = new Scene(openProfileTab, 600, 400);
+            stage.setScene(scene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void applyButtonOnAction(ActionEvent actionEvent) {
+        try {
+            Stage stage = (Stage) applyButton.getScene().getWindow();
+            Parent openApplicationTab = FXMLLoader.load(getClass().getClassLoader().getResource("apply_for_job.fxml"));
+            Scene scene = new Scene(openApplicationTab, 600, 400);
+            stage.setScene(scene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void createTable() {

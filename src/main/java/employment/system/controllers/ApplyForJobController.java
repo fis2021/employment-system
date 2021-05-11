@@ -75,7 +75,7 @@ public class ApplyForJobController {
             ApplyService.apply(firstNameField.getText(), lastNameField.getText(), emailField.getText(), ageField.getText(), addressField.getText(), nativeLanguageField.getText(), otherLanguagesField.getText());
 
             Stage stage = (Stage) applyForJobButton.getScene().getWindow();
-            Parent openApplyingTab = FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
+            Parent openApplyingTab = FXMLLoader.load(getClass().getClassLoader().getResource("successful_applying.fxml"));
             Scene scene = new Scene(openApplyingTab, 600, 400);
             stage.setScene(scene);
 
@@ -89,7 +89,7 @@ public class ApplyForJobController {
     public void cancelButtonOnAction(ActionEvent actionEvent) {
         try {
             Stage stage = (Stage) cancelButton.getScene().getWindow();
-            Parent openRegistrationTab = FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
+            Parent openRegistrationTab = FXMLLoader.load(getClass().getClassLoader().getResource("view_job_offers.fxml"));
             Scene scene = new Scene(openRegistrationTab, 600, 400);
             stage.setScene(scene);
         } catch (IOException e) {

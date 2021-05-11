@@ -7,7 +7,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
       prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="employment.system.controllers.SuccessfulRegistrationController">
+      fx:controller="employment.system.controllers.SuccessfulApplyingController">
     <children>
         <Text layoutX="27.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Successful Application"
               textAlignment="CENTER" wrappingWidth="545.0719604492188">
@@ -15,7 +15,7 @@
                 <Font size="32.0" />
             </font>
         </Text>
-        <Button fx:id="okButtonField" onAction="#okButtonOnAction" layoutX="237.0" layoutY="221.0" mnemonicParsing="false"
+        <Button fx:id="okButton" onAction="#okButtonOnAction" layoutX="237.0" layoutY="221.0" mnemonicParsing="false"
                 prefHeight="31.0" prefWidth="126.0" text="Ok" />
     </children>
 </Pane>
