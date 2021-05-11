@@ -23,7 +23,8 @@ import java.io.IOException;
 
 
 public class ViewJobsController {
-
+    @FXML
+    private Button applyButton;
     @FXML
     private Label companyNameField;
     @FXML
@@ -67,6 +68,14 @@ public class ViewJobsController {
     }
 
     public void applyButtonOnAction(ActionEvent actionEvent) {
+        try {
+            Stage stage = (Stage) applyButton.getScene().getWindow();
+            Parent openApplicationTab = FXMLLoader.load(getClass().getClassLoader().getResource("apply_for_job.fxml"));
+            Scene scene = new Scene(openApplicationTab, 600, 400);
+            stage.setScene(scene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void createTable() {

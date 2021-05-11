@@ -12,11 +12,12 @@ import java.io.IOException;
 
 public class SuccessfulRegistrationController {
     @FXML
-    private Button okButtonField;
+    private Button okButton;
+
 
     public void okButtonOnAction(ActionEvent actionEvent) {
         try {
-            Stage stage = (Stage) okButtonField.getScene().getWindow();
+            Stage stage = (Stage) okButton.getScene().getWindow();
             Parent openRegistrationTab = FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
             Scene scene = new Scene(openRegistrationTab, 600, 400);
             stage.setScene(scene);

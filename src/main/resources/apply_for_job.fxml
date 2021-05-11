@@ -61,7 +61,7 @@
 
 
     <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="2" GridPane.rowIndex="11">
-        <Button fx:id="applyForJobButton" onAction="#applyForJobButtonAction" text="Add" />
+        <Button fx:id="applyForJobButton" onAction="#applyForJobButtonAction" text="Apply" />
     </HBox>
 
     <Button fx:id="cancelButton" cancelButton="true" mnemonicParsing="false" onAction="#cancelButtonOnAction" text="Cancel"
