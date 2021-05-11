@@ -80,7 +80,7 @@
                                 </SplitPane>
                             </center>
                             <top>
-                                <Button mnemonicParsing="false" onAction="#profileButtonOnAction" text="My Profile" BorderPane.alignment="CENTER_RIGHT" />
+                                <Button fx:id="profileButton" mnemonicParsing="false" onAction="#profileButtonOnAction" text="My Profile" BorderPane.alignment="CENTER_RIGHT" />
                             </top>
                         </BorderPane>
                     </children>
