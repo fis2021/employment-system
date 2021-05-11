@@ -15,8 +15,8 @@ public class SuccessfulApplyingController {
     public void okButtonOnAction(ActionEvent actionEvent) {
         try {
             Stage stage = (Stage) okButtonField.getScene().getWindow();
-            Parent openRegistrationTab = FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
-            Scene scene = new Scene(openRegistrationTab, 600, 400);
+            Parent openApplyingTab = FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
+            Scene scene = new Scene(openApplyingTab, 600, 400);
             stage.setScene(scene);
         } catch (IOException e) {
             e.printStackTrace();

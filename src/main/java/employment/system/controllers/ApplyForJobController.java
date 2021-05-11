@@ -75,8 +75,8 @@ public class ApplyForJobController {
             ApplyService.apply(firstNameField.getText(), lastNameField.getText(), emailField.getText(), ageField.getText(), addressField.getText(), nativeLanguageField.getText(), otherLanguagesField.getText());
 
             Stage stage = (Stage) applyForJobButton.getScene().getWindow();
-            Parent openRegistrationTab = FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
-            Scene scene = new Scene(openRegistrationTab, 600, 400);
+            Parent openApplyingTab = FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
+            Scene scene = new Scene(openApplyingTab, 600, 400);
             stage.setScene(scene);
 
         } catch (IOException e) {

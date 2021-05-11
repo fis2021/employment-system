@@ -9,7 +9,7 @@
       prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="employment.system.controllers.SuccessfulRegistrationController">
     <children>
-        <Text layoutX="27.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You Were Successfully Applied"
+        <Text layoutX="27.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Successful Application"
               textAlignment="CENTER" wrappingWidth="545.0719604492188">
             <font>
                 <Font size="32.0" />
