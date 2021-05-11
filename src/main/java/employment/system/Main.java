@@ -1,11 +1,13 @@
 package employment.system;
 
+import employment.system.controllers.ViewJobsController;
 import employment.system.services.FileSystemService;
 import employment.system.services.UserService;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.nio.file.Files;
@@ -18,9 +20,18 @@ public class Main extends Application {
         initDirectory();
         UserService.initDatabase();
 
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
-        primaryStage.setTitle("TM-NOW");
-        primaryStage.setScene(new Scene(root, 500, 500));
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(ClassLoader.getSystemResource("login.fxml"));
+        Parent root  = loader.load();
+
+//        ViewJobsController viewJobsController = loader.getController();
+//        viewJobsController.createTable();
+
+        primaryStage.setMaximized(false);
+
+        primaryStage.setTitle("Worker");
+        // primaryStage.setScene(new Scene(root, 500, 370));
+        primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
 
