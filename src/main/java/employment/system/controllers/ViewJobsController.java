@@ -7,6 +7,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -15,6 +16,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -59,8 +61,11 @@ public class ViewJobsController {
             Stage stage = (Stage) profileButton.getScene().getWindow();
             Parent openProfileTab = FXMLLoader.load(getClass().getClassLoader().getResource("employee_profile.fxml"));
             Scene scene = new Scene(openProfileTab, 780, 510);
-            stage.setScene(scene);
             stage.setResizable(false);
+            stage.setScene(scene);
+            Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
+            stage.setX((primScreenBounds.getWidth() - stage.getWidth()) / 2);
+            stage.setY((primScreenBounds.getHeight() - stage.getHeight()) / 2);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -71,8 +76,8 @@ public class ViewJobsController {
             Stage stage = (Stage) applyButton.getScene().getWindow();
             Parent openApplicationTab = FXMLLoader.load(getClass().getClassLoader().getResource("apply_for_job.fxml"));
             Scene scene = new Scene(openApplicationTab, 796, 571);
-            stage.setScene(scene);
             stage.setResizable(false);
+            stage.setScene(scene);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -84,8 +89,7 @@ public class ViewJobsController {
     }
 
 
-    private void initJobData()
-    {
+    private void initJobData() {
         // Add some sample data
         jobData.add(new Job("Full Stack Engineer", "Full Stack", "Google", new Image("google.png")));
         jobData.add(new Job("Full Stack Engineer", "Full Stack", "Amazon", new Image("amazon.png")));

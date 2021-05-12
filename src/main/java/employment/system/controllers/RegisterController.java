@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -19,14 +20,23 @@ import java.io.IOException;
 
 public class RegisterController {
     @FXML
-    public Button cancelButton;
-    public Button registerButton;
-    public TextField emailField;
-    public Text registrationMessage;
-    public TextField passwordField;
-    public TextField reenteredPasswordField;
-    public TextField firstNameField;
-    public TextField lastNameField;
+    private ChoiceBox roleChoiceBox;
+    @FXML
+    private Button cancelButton;
+    @FXML
+    private Button registerButton;
+    @FXML
+    private TextField emailField;
+    @FXML
+    private Text registrationMessage;
+    @FXML
+    private TextField passwordField;
+    @FXML
+    private TextField reenteredPasswordField;
+    @FXML
+    private TextField firstNameField;
+    @FXML
+    private TextField lastNameField;
 
     public void registerButtonAction(ActionEvent actionEvent) {
         String email =  emailField.getText();
@@ -40,7 +50,7 @@ public class RegisterController {
             registrationMessage.setText("Please enter your first name!");
         }
 
-        if(lastName.isEmpty()) {
+        if (lastName.isEmpty()) {
             registrationMessage.setText("Please enter your last  name!");
             return;
         }
@@ -50,7 +60,7 @@ public class RegisterController {
             return;
         }
 
-        if (!EmailChecker.validate(email)){
+        if (!EmailChecker.validate(email)) {
             registrationMessage.setText("Please enter a valid email!");
             return;
         }
@@ -76,8 +86,8 @@ public class RegisterController {
             Stage stage = (Stage) registerButton.getScene().getWindow();
             Parent openRegistrationTab = FXMLLoader.load(getClass().getClassLoader().getResource("successful_registration.fxml"));
             Scene scene = new Scene(openRegistrationTab, 600, 400);
-            stage.setScene(scene);
             stage.setResizable(false);
+            stage.setScene(scene);
         } catch (UserWithThisEmailAlreadyExistsException e) {
             registrationMessage.setText("This email is already used by another account.");
         } catch (IOException e) {
@@ -91,8 +101,8 @@ public class RegisterController {
             Stage stage = (Stage) cancelButton.getScene().getWindow();
             Parent openRegistrationTab = FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
             Scene scene = new Scene(openRegistrationTab, 600, 400);
-            stage.setScene(scene);
             stage.setResizable(false);
+            stage.setScene(scene);
         } catch (IOException e) {
             e.printStackTrace();
         }

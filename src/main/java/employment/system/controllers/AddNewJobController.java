@@ -80,9 +80,8 @@ public class AddNewJobController {
             Stage stage = (Stage) addNewJobButton.getScene().getWindow();
             Parent openRegistrationTab = FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
             Scene scene = new Scene(openRegistrationTab, 600, 400);
-            stage.setScene(scene);
             stage.setResizable(false);
-
+            stage.setScene(scene);
         } catch (IOException e) {
             e.printStackTrace();
         }

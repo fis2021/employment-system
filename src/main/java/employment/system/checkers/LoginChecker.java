@@ -12,9 +12,9 @@ import java.util.Objects;
 
 import static employment.system.services.UserService.verifyUserPassword;
 
-public class LoginChecker {
+public abstract class LoginChecker {
 
-    public static int totalPCUserAttempts = 0;
+    private static int totalPCUserAttempts = 0;
     private static final int MAX_ATTEMPTS_LIMIT = 5;
     public static final int BLOCK_TIME_IN_MIN_AMOUNT = 10;
     private static long coolDownStart;

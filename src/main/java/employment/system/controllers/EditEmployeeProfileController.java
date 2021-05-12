@@ -1,6 +1,7 @@
 package employment.system.controllers;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -10,8 +11,10 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class EditEmployeeProfileController {
-    public Button cancelButton;
-    public Button saveButton;
+    @FXML
+    private Button cancelButton;
+    @FXML
+    private Button saveButton;
 
     public void cancelButtonOnAction(ActionEvent actionEvent) {
         try {
@@ -19,7 +22,7 @@ public class EditEmployeeProfileController {
             Parent openProfileTab = FXMLLoader.load(getClass().getClassLoader().getResource("employee_profile.fxml"));
             Scene scene = new Scene(openProfileTab, 780, 510);
             stage.setScene(scene);
-            stage.setResizable(false);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -30,8 +33,8 @@ public class EditEmployeeProfileController {
             Stage stage = (Stage) saveButton.getScene().getWindow();
             Parent openProfileTab = FXMLLoader.load(getClass().getClassLoader().getResource("employee_profile.fxml"));
             Scene scene = new Scene(openProfileTab, 780, 510);
+            stage.setResizable(true);
             stage.setScene(scene);
-            stage.setResizable(false);
         } catch (IOException e) {
             e.printStackTrace();
         }

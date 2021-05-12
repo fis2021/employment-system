@@ -18,7 +18,7 @@ public class ViewWhoAppliedController {
     @FXML
     private TableColumn applicantNameColumn;
     @FXML
-    private TableColumn PositionColumn;
+    private TableColumn positionColumn;
     @FXML
     private TableColumn statusColumn;
     @FXML
@@ -31,8 +31,8 @@ public class ViewWhoAppliedController {
             Stage stage = (Stage) jobOfferButton.getScene().getWindow();
             Parent openViewJobTab = FXMLLoader.load(getClass().getClassLoader().getResource("view_job_offers.fxml"));
             Scene scene = new Scene(openViewJobTab, 912, 624);
+            stage.setResizable(true);
             stage.setScene(scene);
-            stage.setResizable(false);
         } catch (IOException e) {
             e.printStackTrace();
         }
