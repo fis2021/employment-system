@@ -60,7 +60,7 @@ public class ViewJobsController {
         try {
             Stage stage = (Stage) profileButton.getScene().getWindow();
             Parent openProfileTab = FXMLLoader.load(getClass().getClassLoader().getResource("employee_profile.fxml"));
-            Scene scene = new Scene(openProfileTab, 780, 510);
+            Scene scene = new Scene(openProfileTab, 900, 510);
             stage.setResizable(false);
             stage.setScene(scene);
             Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();

@@ -43,7 +43,10 @@
       
           <TextField fx:id="minimumSalaryField" GridPane.columnIndex="2" GridPane.rowIndex="7" />
       
-          <Text fx:id="addNewJobMessage" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+          <Text fx:id="addNewJobMessage" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="2" GridPane.rowIndex="8">
+            <font>
+               <Font size="15.0" />
+            </font></Text>
 
 
           <columnConstraints>

@@ -4,62 +4,62 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="510.0" prefWidth="780.0" styleClass="body" stylesheets="@successful_applying.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="employment.system.controllers.EditEmployeeProfileController">
+<AnchorPane prefHeight="510.0" prefWidth="900.0" styleClass="body" stylesheets="@employee_profile.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="employment.system.controllers.EditEmployeeProfileController">
     <children>
-        <Text fill="RED" layoutX="14.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Employee Name" wrappingWidth="378.73632049560547">
+        <Text fill="#af4900" layoutX="261.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Employee Name" wrappingWidth="378.73632049560547">
             <font>
                 <Font size="36.0" />
             </font>
         </Text>
-        <Text fill="#970000" layoutX="16.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="email@yahoo.com" wrappingWidth="242.267578125">
+        <Text fill="#bd5500" layoutX="261.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="email@yahoo.com" wrappingWidth="242.267578125">
             <font>
                 <Font size="18.0" />
             </font>
         </Text>
-        <Text fill="WHITE" layoutX="447.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date of Birth:">
+        <Text fill="WHITE" layoutX="577.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date of Birth:">
             <font>
                 <Font size="14.0" />
             </font></Text>
-        <TextField layoutX="550.0" layoutY="66.0" />
-        <Text fill="WHITE" layoutX="405.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telephone Number:">
+        <TextField layoutX="684.0" layoutY="64.0" />
+        <Text fill="WHITE" layoutX="536.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telephone Number:">
             <font>
                 <Font size="14.0" />
             </font></Text>
-        <Text fill="WHITE" layoutX="475.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address:">
+        <Text fill="WHITE" layoutX="605.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address:">
             <font>
                 <Font size="14.0" />
             </font></Text>
-        <Text fill="WHITE" layoutX="475.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Country:">
+        <Text fill="WHITE" layoutX="605.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Country:">
             <font>
                 <Font size="14.0" />
             </font></Text>
-        <TextField layoutX="550.0" layoutY="102.0" />
-        <TextField layoutX="550.0" layoutY="137.0" />
-        <TextField layoutX="550.0" layoutY="171.0" />
-        <Text fill="WHITE" layoutX="15.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Personal Description:">
+        <TextField layoutX="684.0" layoutY="100.0" />
+        <TextField layoutX="684.0" layoutY="135.0" />
+        <TextField layoutX="684.0" layoutY="169.0" />
+        <Text fill="WHITE" layoutX="328.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Personal Description:">
             <font>
                 <Font size="14.0" />
             </font>
         </Text>
-        <TextArea layoutX="113.0" layoutY="291.0" prefHeight="148.0" prefWidth="551.0" wrapText="true" />
-        <TextField layoutX="550.0" layoutY="206.0" />
-        <TextField layoutX="550.0" layoutY="241.0" />
-        <Text fill="WHITE" layoutX="500.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City:">
+        <TextArea layoutX="387.0" layoutY="289.0" prefHeight="147.0" prefWidth="446.0" wrapText="true" />
+        <TextField layoutX="684.0" layoutY="204.0" />
+        <TextField layoutX="684.0" layoutY="239.0" />
+        <Text fill="WHITE" layoutX="628.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City:">
             <font>
                 <Font size="14.0" />
             </font>
         </Text>
-        <Text fill="WHITE" layoutX="421.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Native Language:">
+        <Text fill="WHITE" layoutX="551.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Native Language:">
             <font>
                 <Font size="14.0" />
             </font>
         </Text>
-      <Button fx:id="cancelButton" layoutX="28.0" layoutY="453.0" mnemonicParsing="false" onAction="#cancelButtonOnAction" style="-fx-background-color: red;" text="Cancel" textFill="WHITE">
+      <Button fx:id="cancelButton" layoutX="386.0" layoutY="464.0" mnemonicParsing="false" onAction="#cancelButtonOnAction" style="-fx-background-color: #8a4204;" text="Cancel" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Button fx:id="saveButton" layoutX="688.0" layoutY="453.0" mnemonicParsing="false" onAction="#saveButtonOnAction" style="-fx-background-color: red;" text="Save" textFill="WHITE">
+      <Button fx:id="saveButton" layoutX="477.0" layoutY="464.0" mnemonicParsing="false" onAction="#saveButtonOnAction" style="-fx-background-color: #8a4204;" text="Save" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>

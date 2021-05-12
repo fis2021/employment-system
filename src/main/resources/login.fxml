@@ -36,7 +36,10 @@
       
           <BorderPane prefHeight="200.0" prefWidth="200.0" />
       
-          <Text fx:id="loginMessage" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+          <Text fx:id="loginMessage" fill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="6">
+            <font>
+               <Font size="15.0" />
+            </font></Text>
       
           <columnConstraints>
               <ColumnConstraints maxWidth="128.0" minWidth="0.0" prefWidth="0.0" />

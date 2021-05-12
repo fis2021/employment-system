@@ -32,7 +32,7 @@ public class EmployeeProfileController {
         try {
             Stage stage = (Stage) editProfileButton.getScene().getWindow();
             Parent openEditProfileTab = FXMLLoader.load(getClass().getClassLoader().getResource("edit_employee_profile.fxml"));
-            Scene scene = new Scene(openEditProfileTab, 780, 510);
+            Scene scene = new Scene(openEditProfileTab, 900, 510);
             stage.setScene(scene);
             stage.setResizable(false);
         } catch (IOException e) {
