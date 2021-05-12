@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="510.0" prefWidth="780.0" styleClass="body" stylesheets="@successful_applying.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="employment.system.controllers.EditEmployeeProfileController">
+    <children>
+        <Text fill="RED" layoutX="14.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Employee Name" wrappingWidth="378.73632049560547">
+            <font>
+                <Font size="36.0" />
+            </font>
+        </Text>
+        <Text fill="#970000" layoutX="16.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="email@yahoo.com" wrappingWidth="242.267578125">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Text>
+        <Text fill="WHITE" layoutX="447.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date of Birth:">
+            <font>
+                <Font size="14.0" />
+            </font></Text>
+        <TextField layoutX="550.0" layoutY="66.0" />
+        <Text fill="WHITE" layoutX="405.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telephone Number:">
+            <font>
+                <Font size="14.0" />
+            </font></Text>
+        <Text fill="WHITE" layoutX="475.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address:">
+            <font>
+                <Font size="14.0" />
+            </font></Text>
+        <Text fill="WHITE" layoutX="475.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Country:">
+            <font>
+                <Font size="14.0" />
+            </font></Text>
+        <TextField layoutX="550.0" layoutY="102.0" />
+        <TextField layoutX="550.0" layoutY="137.0" />
+        <TextField layoutX="550.0" layoutY="171.0" />
+        <Text fill="WHITE" layoutX="15.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Personal Description:">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Text>
+        <TextArea layoutX="113.0" layoutY="291.0" prefHeight="148.0" prefWidth="551.0" wrapText="true" />
+        <TextField layoutX="550.0" layoutY="206.0" />
+        <TextField layoutX="550.0" layoutY="241.0" />
+        <Text fill="WHITE" layoutX="500.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City:">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Text>
+        <Text fill="WHITE" layoutX="421.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Native Language:">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Text>
+      <Button fx:id="cancelButton" layoutX="28.0" layoutY="453.0" mnemonicParsing="false" onAction="#cancelButtonOnAction" style="-fx-background-color: red;" text="Cancel" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="saveButton" layoutX="688.0" layoutY="453.0" mnemonicParsing="false" onAction="#saveButtonOnAction" style="-fx-background-color: red;" text="Save" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+
+    </children>
+</AnchorPane>

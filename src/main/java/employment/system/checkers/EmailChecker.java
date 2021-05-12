@@ -1,6 +1,4 @@
-package employment.system.checkers;/*
- * Created by Adrian Dragoș on 3/18/2021 Mar 2021.
- */
+package employment.system.checkers;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

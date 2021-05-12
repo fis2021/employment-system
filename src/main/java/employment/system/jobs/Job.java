@@ -1,7 +1,4 @@
-package employment.system.jobs;/*
- * Created by Adrian Dragoș on 5/11/2021 May 2021.
- */
-
+package employment.system.jobs;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;

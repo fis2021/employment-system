@@ -1,7 +1,5 @@
 package employment.system.checkers;
-/*
- * Created by Adrian Dragoș on 4/16/2021 Apr 2021.
- */
+
 
 import employment.system.exceptions.UserWithThisEmailAlreadyExistsException;
 import employment.system.services.UserService;

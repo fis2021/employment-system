@@ -28,6 +28,7 @@ public class Main extends Application {
 //        viewJobsController.createTable();
 
         primaryStage.setMaximized(false);
+        primaryStage.setResizable(false);
 
         primaryStage.setTitle("Worker");
         // primaryStage.setScene(new Scene(root, 500, 370));

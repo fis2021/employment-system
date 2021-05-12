@@ -30,8 +30,9 @@ public class ViewWhoAppliedController {
         try {
             Stage stage = (Stage) jobOfferButton.getScene().getWindow();
             Parent openViewJobTab = FXMLLoader.load(getClass().getClassLoader().getResource("view_job_offers.fxml"));
-            Scene scene = new Scene(openViewJobTab, 600, 400);
+            Scene scene = new Scene(openViewJobTab, 912, 624);
             stage.setScene(scene);
+            stage.setResizable(false);
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -78,6 +78,7 @@ public class ApplyForJobController {
             Parent openApplyingTab = FXMLLoader.load(getClass().getClassLoader().getResource("successful_applying.fxml"));
             Scene scene = new Scene(openApplyingTab, 600, 400);
             stage.setScene(scene);
+            stage.setResizable(false);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -90,8 +91,9 @@ public class ApplyForJobController {
         try {
             Stage stage = (Stage) cancelButton.getScene().getWindow();
             Parent openRegistrationTab = FXMLLoader.load(getClass().getClassLoader().getResource("view_job_offers.fxml"));
-            Scene scene = new Scene(openRegistrationTab, 600, 400);
+            Scene scene = new Scene(openRegistrationTab, 912, 624);
             stage.setScene(scene);
+            stage.setResizable(false);
         } catch (IOException e) {
             e.printStackTrace();
         }
