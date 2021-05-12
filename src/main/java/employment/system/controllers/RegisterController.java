@@ -4,6 +4,7 @@ package employment.system.controllers;
 import employment.system.checkers.EmailChecker;
 import employment.system.exceptions.UserWithThisEmailAlreadyExistsException;
 import employment.system.services.UserService;
+import employment.system.user.AccountType;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -45,7 +46,6 @@ public class RegisterController {
         String firstName = firstNameField.getText();
         String lastName = lastNameField.getText();
 
-
         if (firstName.isEmpty()) {
             registrationMessage.setText("Please enter your first name!");
         }
@@ -80,8 +80,17 @@ public class RegisterController {
             return;
         }
 
+        Object selectedItem = roleChoiceBox.getSelectionModel().getSelectedItem();
+        if (selectedItem.equals("")) {
+            registrationMessage.setText("Please choose a role!");
+            return;
+        }
+
+
+        AccountType accountType = AccountType.valueOf(selectedItem.toString().toUpperCase());
+
         try {
-            UserService.addUser(emailField.getText(), firstNameField.getText(), lastNameField.getText(), passwordField.getText(), null);
+            UserService.addUser(emailField.getText(), firstNameField.getText(), lastNameField.getText(), passwordField.getText(), accountType);
 
             Stage stage = (Stage) registerButton.getScene().getWindow();
             Parent openRegistrationTab = FXMLLoader.load(getClass().getClassLoader().getResource("successful_registration.fxml"));

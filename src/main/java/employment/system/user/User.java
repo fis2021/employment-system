@@ -9,15 +9,15 @@ public class User {
     @Id
     private String email;
     private String password;
-    private String role;
+    private AccountType accountType;
 
 
-    public User(String email, String firstName, String lastName, String password, String role) {
+    public User(String email, String firstName, String lastName, String password, AccountType accountType) {
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
-        this.role = role;
+        this.accountType = accountType;
     }
 
     public User() {
@@ -55,18 +55,14 @@ public class User {
         this.password = password;
     }
 
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
 
         User user = (User) o;
 
@@ -74,14 +70,14 @@ public class User {
         if (firstName != null ? !firstName.equals(user.firstName) : user.firstName != null) return false;
         if (lastName != null ? !lastName.equals(user.lastName) : user.lastName != null) return false;
         if (password != null ? !password.equals(user.password) : user.password != null) return false;
-        return role != null ? role.equals(user.role) : user.role == null;
+        return accountType != null ? accountType.equals(user.accountType) : user.accountType == null;
     }
 
     @Override
     public int hashCode() {
         int result = email != null ? email.hashCode() : 0;
         result = 31 * result + (password != null ? password.hashCode() : 0);
-        result = 31 * result + (role != null ? role.hashCode() : 0);
+        result = 31 * result + (accountType != null ? accountType.hashCode() : 0);
         return result;
     }
 }

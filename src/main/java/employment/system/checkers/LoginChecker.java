@@ -1,8 +1,4 @@
 package employment.system.checkers;
-/*
- * Created by Adrian Dragoș on 4/16/2021 Apr 2021.
- */
-
 
 import employment.system.services.UserService;
 import employment.system.user.User;
@@ -14,7 +10,7 @@ import static employment.system.services.UserService.verifyUserPassword;
 
 public abstract class LoginChecker {
 
-    private static int totalPCUserAttempts = 0;
+    public static int totalPCUserAttempts = 0;
     private static final int MAX_ATTEMPTS_LIMIT = 5;
     public static final int BLOCK_TIME_IN_MIN_AMOUNT = 10;
     private static long coolDownStart;
