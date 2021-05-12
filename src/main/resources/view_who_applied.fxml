@@ -18,7 +18,7 @@
                                     <TableView fx:id="appliedTable" layoutX="-1.0" layoutY="-2.0" prefHeight="541.0" prefWidth="532.0">
                                       <columns>
                                         <TableColumn fx:id="applicantNameColumn" prefWidth="164.19997864961624" style="-fx-background-color: #FFBB96 " text="Name" />
-                                        <TableColumn fx:id="PositionColumn" prefWidth="168.19996643066406" style="-fx-background-color: #FF8848;" text="Position" />
+                                        <TableColumn fx:id="positionColumn" prefWidth="168.19996643066406" style="-fx-background-color: #FF8848;" text="Position" />
                                           <TableColumn fx:id="statusColumn" prefWidth="200.60003662109375" style="-fx-background-color: #FF7931 ;" text="Status" />
                                       </columns>
                                     </TableView>

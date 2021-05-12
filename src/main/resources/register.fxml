@@ -64,7 +64,7 @@
                <Font size="14.0" />
             </font>
          </Label>
-          <ChoiceBox fx:id="roleChoiceBox" value=" " GridPane.columnIndex="2" GridPane.rowIndex="7">
+          <ChoiceBox fx:id="roleChoiceBox" value="" GridPane.columnIndex="2" GridPane.rowIndex="7">
               <items>
                   <FXCollections fx:factory="observableArrayList">
                       <String fx:value="Recruiter" />

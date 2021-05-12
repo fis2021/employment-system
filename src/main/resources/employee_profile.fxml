@@ -16,42 +16,42 @@
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="454.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date of Birth:">
+      <Text fill="WHITE" layoutX="454.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date of Birth:" AnchorPane.leftAnchor="454.0">
          <font>
             <Font size="14.0" />
          </font></Text>
-      <Text fill="WHITE" layoutX="412.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telephone Number:">
+      <Text fill="WHITE" layoutX="412.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telephone Number:" AnchorPane.leftAnchor="412.0">
          <font>
             <Font size="14.0" />
          </font></Text>
-      <Text fill="WHITE" layoutX="482.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address:">
+      <Text fill="WHITE" layoutX="482.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address:" AnchorPane.leftAnchor="482.0">
          <font>
             <Font size="14.0" />
          </font></Text>
-      <Text fill="WHITE" layoutX="482.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Country:">
+      <Text fill="WHITE" layoutX="482.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Country:" AnchorPane.leftAnchor="482.0">
          <font>
             <Font size="14.0" />
          </font></Text>
-      <Text fill="WHITE" layoutX="14.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Personal Description:">
+      <Text fill="WHITE" layoutX="14.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Personal Description:" AnchorPane.leftAnchor="10.0">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="507.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City:">
+      <Text fill="WHITE" layoutX="507.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City:" AnchorPane.leftAnchor="507.0">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="428.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Native Language:">
+      <Text fill="WHITE" layoutX="428.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Native Language:" AnchorPane.leftAnchor="454.0">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Button fx:id="cancelButton" cancelButton="true" layoutX="609.0" layoutY="454.0" mnemonicParsing="false" onAction="#cancelButtonOnAction" style="-fx-background-color: #ff0000;" text="Back to Job Offers" textFill="WHITE">
+      <Button fx:id="cancelButton" cancelButton="true" layoutX="609.0" layoutY="454.0" mnemonicParsing="false" onAction="#cancelButtonOnAction" style="-fx-background-color: #ff0000;" text="Back to Job Offers" textFill="WHITE" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
          <font>
             <Font size="15.0" />
          </font></Button>
-      <Button fx:id="editProfileButton" layoutX="26.0" layoutY="454.0" mnemonicParsing="false" onAction="#editProfileButtonOnAction" style="-fx-background-color: red;" text="Edit Profile" textFill="WHITE">
+      <Button fx:id="editProfileButton" layoutX="26.0" layoutY="454.0" mnemonicParsing="false" onAction="#editProfileButtonOnAction" style="-fx-background-color: red;" text="Edit Profile" textFill="WHITE" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0">
          <font>
             <Font size="14.0" />
          </font>

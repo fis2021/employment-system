@@ -1,8 +1,4 @@
 package employment.system.checkers;
-/*
- * Created by Adrian Dragoș on 4/16/2021 Apr 2021.
- */
-
 
 import employment.system.services.UserService;
 import employment.system.user.User;
@@ -12,7 +8,7 @@ import java.util.Objects;
 
 import static employment.system.services.UserService.verifyUserPassword;
 
-public class LoginChecker {
+public abstract class LoginChecker {
 
     public static int totalPCUserAttempts = 0;
     private static final int MAX_ATTEMPTS_LIMIT = 5;

@@ -1,6 +1,7 @@
 package employment.system.services;
 
 import employment.system.checkers.RegisterChecker;
+import employment.system.user.AccountType;
 import employment.system.user.User;
 import static employment.system.services.FileSystemService.getPathToFile;
 import employment.system.exceptions.UserWithThisEmailAlreadyExistsException;
@@ -28,9 +29,9 @@ public class UserService {
         userRepository = database.getRepository(User.class);
     }
 
-    public static void addUser(String email, String firstName, String lastName, String password, String role) throws UserWithThisEmailAlreadyExistsException {
+    public static void addUser(String email, String firstName, String lastName, String password, AccountType accountType) throws UserWithThisEmailAlreadyExistsException {
         RegisterChecker.checkEmailDoesNotAlreadyExist(email);
-        userRepository.insert(new User(email, firstName, lastName, encodePassword(password, email), role));
+        userRepository.insert(new User(email, firstName, lastName, encodePassword(password, email), accountType));
     }
 
     public static String encodePassword(String password, String salt) {

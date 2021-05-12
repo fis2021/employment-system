@@ -1,13 +1,11 @@
 package employment.system;
 
-import employment.system.controllers.ViewJobsController;
 import employment.system.services.FileSystemService;
 import employment.system.services.UserService;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.nio.file.Files;
@@ -31,7 +29,6 @@ public class Main extends Application {
         primaryStage.setResizable(false);
 
         primaryStage.setTitle("Worker");
-        // primaryStage.setScene(new Scene(root, 500, 370));
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }

@@ -20,8 +20,8 @@ public class SuccessfulApplyingController {
             Stage stage = (Stage) okButton.getScene().getWindow();
             Parent openApplyingTab = FXMLLoader.load(getClass().getClassLoader().getResource("view_job_offers.fxml"));
             Scene scene = new Scene(openApplyingTab, 912, 624);
+            stage.setResizable(true);
             stage.setScene(scene);
-            stage.setResizable(false);
         } catch (IOException e) {
             e.printStackTrace();
         }
