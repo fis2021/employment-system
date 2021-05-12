@@ -1,6 +1,5 @@
-package employment.system.controllers;/*
- ~ Created by Anca Esanu on 6 Aprilie 2021 ~
- */
+package employment.system.controllers;
+
 
 import employment.system.checkers.EmailChecker;
 import employment.system.exceptions.UserWithThisEmailAlreadyExistsException;
@@ -78,6 +77,7 @@ public class RegisterController {
             Parent openRegistrationTab = FXMLLoader.load(getClass().getClassLoader().getResource("successful_registration.fxml"));
             Scene scene = new Scene(openRegistrationTab, 600, 400);
             stage.setScene(scene);
+            stage.setResizable(false);
         } catch (UserWithThisEmailAlreadyExistsException e) {
             registrationMessage.setText("This email is already used by another account.");
         } catch (IOException e) {
@@ -92,6 +92,7 @@ public class RegisterController {
             Parent openRegistrationTab = FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
             Scene scene = new Scene(openRegistrationTab, 600, 400);
             stage.setScene(scene);
+            stage.setResizable(false);
         } catch (IOException e) {
             e.printStackTrace();
         }

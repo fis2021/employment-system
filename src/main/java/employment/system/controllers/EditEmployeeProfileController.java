@@ -9,15 +9,15 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class EmployeeProfileController {
+public class EditEmployeeProfileController {
     public Button cancelButton;
-    public Button editProfileButton;
+    public Button saveButton;
 
     public void cancelButtonOnAction(ActionEvent actionEvent) {
         try {
             Stage stage = (Stage) cancelButton.getScene().getWindow();
-            Parent openViewJobsTab = FXMLLoader.load(getClass().getClassLoader().getResource("view_job_offers.fxml"));
-            Scene scene = new Scene(openViewJobsTab, 780, 510);
+            Parent openProfileTab = FXMLLoader.load(getClass().getClassLoader().getResource("employee_profile.fxml"));
+            Scene scene = new Scene(openProfileTab, 780, 510);
             stage.setScene(scene);
             stage.setResizable(false);
         } catch (IOException e) {
@@ -25,11 +25,11 @@ public class EmployeeProfileController {
         }
     }
 
-    public void editProfileButtonOnAction(ActionEvent actionEvent) {
+    public void saveButtonOnAction(ActionEvent actionEvent) {
         try {
-            Stage stage = (Stage) editProfileButton.getScene().getWindow();
-            Parent openEditProfileTab = FXMLLoader.load(getClass().getClassLoader().getResource("edit_employee_profile.fxml"));
-            Scene scene = new Scene(openEditProfileTab, 780, 510);
+            Stage stage = (Stage) saveButton.getScene().getWindow();
+            Parent openProfileTab = FXMLLoader.load(getClass().getClassLoader().getResource("employee_profile.fxml"));
+            Scene scene = new Scene(openProfileTab, 780, 510);
             stage.setScene(scene);
             stage.setResizable(false);
         } catch (IOException e) {

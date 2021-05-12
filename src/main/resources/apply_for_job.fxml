@@ -1,95 +1,130 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
-<?import javafx.collections.FXCollections?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.ChoiceBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.text.Text?>
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<?import javafx.scene.control.Button?>
+<AnchorPane prefHeight="571.0" prefWidth="796.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="employment.system.controllers.ApplyForJobController">
+   <children>
+      <GridPane alignment="CENTER_LEFT" hgap="10" prefHeight="571.0" prefWidth="796.0" styleClass="body" stylesheets="@login.css" vgap="10" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+          <padding>
+              <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+          </padding>
+          <Text id="title-text" fill="#ff9500" style="-fx-font-weight: bold" text="Apply for job" textAlignment="RIGHT" wrappingWidth="334.1885132789612" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1">
+            <font>
+               <Font size="23.0" />
+            </font>
+         </Text>
+      
+          <Label text="First Name:" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+          <TextField fx:id="firstNameField" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+      
+          <Label text="Last Name:" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+          <TextField fx:id="lastNameField" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+      
+          <Label text="Email:" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+          <TextField fx:id="emailField" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+      
+          <Label text="Age:" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="5">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+          <TextField fx:id="ageField" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+      
+          <Label text="Address:" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="6">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+          <TextField fx:id="addressField" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+      
+          <Label prefHeight="18.0" prefWidth="182.0" text="Native Language (optional):" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="7">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+          <TextField fx:id="nativeLanguageField" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+      
+          <Label text="Other Languages (optional):" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="8">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+          <TextField fx:id="otherLanguagesField" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+      
+      
+      
+          <Label text="Gender:" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="9">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+          <ChoiceBox prefHeight="35.0" prefWidth="106.0" value="Non Specified" GridPane.columnIndex="2" GridPane.rowIndex="9">
+              <items>
+                  <FXCollections fx:factory="observableArrayList">
+                      <String fx:value="F" />
+                      <String fx:value="M" />
+                      <String fx:value="Not Specified" />
+                  </FXCollections>
+              </items>
+          </ChoiceBox>
+      
+          <Text fx:id="applyForJobMessage" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="2" GridPane.rowIndex="10" />
+      
 
-<GridPane alignment="center" hgap="10" prefHeight="400" prefWidth="600" vgap="10"
-          xmlns="http://javafx.com/javafx/16"
-          xmlns:fx="http://javafx.com/fxml/1"
-          fx:controller="employment.system.controllers.ApplyForJobController">
-    <padding>
-        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
-    </padding>
-    <Text id="title-text" text="Apply for job" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+      
+          <columnConstraints>
+              <ColumnConstraints />
+              <ColumnConstraints />
+              <ColumnConstraints />
+          </columnConstraints>
+          <rowConstraints>
+              <RowConstraints maxHeight="16.999996185302734" minHeight="0.0" prefHeight="16.999996185302734" />
+              <RowConstraints maxHeight="52.6" minHeight="12.600000000000009" prefHeight="35.80000381469728" />
+              <RowConstraints maxHeight="54.20000000000002" minHeight="0.5999999999999943" prefHeight="23.400000000000006" />
+              <RowConstraints maxHeight="52.599999999999994" minHeight="21.80000000000001" prefHeight="21.80000000000001" />
+              <RowConstraints maxHeight="51.599999999999994" minHeight="24.19999999999999" prefHeight="24.19999999999999" />
+              <RowConstraints maxHeight="61.600015258789085" minHeight="28.400000000000006" prefHeight="29.400000000000006" />
+              <RowConstraints maxHeight="53.60000000000002" minHeight="18.399984741210915" prefHeight="26.399984741210915" />
+              <RowConstraints maxHeight="52.60000000000002" minHeight="24.80000000000001" prefHeight="24.80000000000001" />
+              <RowConstraints maxHeight="54.60000000000002" minHeight="23.399999999999977" prefHeight="23.399999999999977" />
+              <RowConstraints maxHeight="51.19999999999999" minHeight="22.19999999999999" prefHeight="27.19999999999999" />
+              <RowConstraints maxHeight="43.0" minHeight="0.0" prefHeight="0.0" />
+              <RowConstraints maxHeight="39.19999999999999" minHeight="0.0" prefHeight="39.19999999999999" />
+              <RowConstraints maxHeight="39.19999999999999" minHeight="0.0" prefHeight="0.0" />
+              <RowConstraints />
+              <RowConstraints />
+              <RowConstraints />
+              <RowConstraints />
+              <RowConstraints />
+          </rowConstraints>
+      </GridPane>
+           <Button fx:id="applyForJobButton" layoutX="282.0" layoutY="488.0" onAction="#applyForJobButtonAction" prefHeight="50.0" prefWidth="132.0" style="-fx-background-color: transparent" text="Apply" textFill="#ff9500">
+               <font>
+                   <Font size="25.0" />
+               </font>
+           </Button>
 
-    <Label text="First Name:" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-    <TextField fx:id="firstNameField" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-
-    <Label text="Last Name:" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-    <TextField fx:id="lastNameField" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-
-    <Label text="Email:" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-    <TextField fx:id="emailField" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-
-    <Label text="Age:" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-    <TextField fx:id="ageField" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-
-    <Label text="Address:" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-    <TextField fx:id="addressField" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-
-    <Label prefHeight="18.0" prefWidth="182.0" text="Native Language (optional):" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-    <TextField fx:id="nativeLanguageField" GridPane.columnIndex="2" GridPane.rowIndex="7" />
-
-    <Label text="Other Languages (optional):" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-    <TextField fx:id="otherLanguagesField" GridPane.columnIndex="2" GridPane.rowIndex="8" />
-
-
-
-    <Label text="Gender:" GridPane.columnIndex="1" GridPane.rowIndex="9" />
-    <ChoiceBox value="Non Specified" GridPane.columnIndex="2" GridPane.rowIndex="9">
-        <items>
-            <FXCollections fx:factory="observableArrayList">
-                <String fx:value="F" />
-                <String fx:value="M" />
-                <String fx:value="Not Specified" />
-            </FXCollections>
-        </items>
-    </ChoiceBox>
-
-    <Text fx:id="applyForJobMessage" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="2" GridPane.rowIndex="10" />
-
-
-    <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="2" GridPane.rowIndex="11">
-        <Button fx:id="applyForJobButton" onAction="#applyForJobButtonAction" text="Apply" />
-    </HBox>
-
-    <Button fx:id="cancelButton" cancelButton="true" mnemonicParsing="false" onAction="#cancelButtonOnAction" text="Cancel"
-            GridPane.columnIndex="1" GridPane.rowIndex="11" />
-
-    <columnConstraints>
-        <ColumnConstraints />
-        <ColumnConstraints />
-        <ColumnConstraints />
-    </columnConstraints>
-    <rowConstraints>
-        <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
-        <RowConstraints maxHeight="42.60000000000001" minHeight="12.600000000000009" prefHeight="21.599999999999994" />
-        <RowConstraints maxHeight="30.599999999999994" minHeight="0.5999999999999943" prefHeight="22.599999999999994" />
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints />
-    </rowConstraints>
-</GridPane>
+       <Button fx:id="cancelButton" cancelButton="true" layoutX="12.0" layoutY="492.0" mnemonicParsing="false" onAction="#cancelButtonOnAction" prefHeight="50.0" prefWidth="106.0" style="-fx-background-color: transparent" text="Cancel" textFill="#ff9500" GridPane.columnIndex="1" GridPane.rowIndex="11">
+           <font>
+               <Font size="23.0" />
+           </font>
+       </Button>
+   </children>
+</AnchorPane>

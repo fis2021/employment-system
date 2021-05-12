@@ -5,49 +5,66 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<GridPane alignment="center" hgap="10" prefHeight="400" prefWidth="600" vgap="10"
-          xmlns="http://javafx.com/javafx/16"
-          xmlns:fx="http://javafx.com/fxml/1"
-          fx:controller="employment.system.controllers.LoginAndRegisterController">
+<AnchorPane styleClass="body" stylesheets="@login.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="employment.system.controllers.LoginAndRegisterController">
+   <children>
+      <GridPane alignment="CENTER_LEFT" hgap="10" prefHeight="400" prefWidth="600" vgap="10">
+      
+          <padding>
+              <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+          </padding>
+      
+          <Text id="title-text" fill="#ff9500" text="Employment System For IT" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1">
+            <font>
+               <Font size="20.0" />
+            </font></Text>
+      
+          <Label text="Email:" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <font>
+               <Font size="14.0" />
+            </font></Label>
+      
+          <TextField fx:id="emailField" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+      
+          <Label text="Password:" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <font>
+               <Font size="14.0" />
+            </font></Label>
+      
+          <PasswordField fx:id="passwordField" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+      
 
-    <padding>
-        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
-    </padding>
-
-    <Text id="title-text" text="Employment System For IT" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
-
-    <Label text="Email:" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-
-    <TextField fx:id="emailField" GridPane.columnIndex="4" GridPane.rowIndex="2" />
-
-    <Label text="Password:" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-
-    <PasswordField fx:id="passwordField" GridPane.columnIndex="4" GridPane.rowIndex="3" />
-
-    <Button  mnemonicParsing="false" onAction="#loginButtonOnAction" text="Log In" GridPane.columnIndex="4" GridPane.rowIndex="9" />
-    <Button  mnemonicParsing="false" onAction="#registerButtonOnAction" text="Register" GridPane.columnIndex="2" GridPane.rowIndex="9" />
-
-    <BorderPane prefHeight="200.0" prefWidth="200.0" />
-
-    <Text fx:id="loginMessage" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
-
-    <columnConstraints>
-        <ColumnConstraints />
-        <ColumnConstraints maxWidth="72.8" minWidth="57.59998779296875" prefWidth="72.8" />
-        <ColumnConstraints maxWidth="186.4000122070312" minWidth="171.19999999999996" prefWidth="171.19999999999996" />
-        <ColumnConstraints maxWidth="47.199951171875" minWidth="0.0" prefWidth="0.0" />
-        <ColumnConstraints maxWidth="201.59999999999997" minWidth="153.60004882812507" prefWidth="201.59999999999997" />
-    </columnConstraints>
-    <rowConstraints>
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints />
-    </rowConstraints>
-</GridPane>
+      
+          <BorderPane prefHeight="200.0" prefWidth="200.0" />
+      
+          <Text fx:id="loginMessage" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+      
+          <columnConstraints>
+              <ColumnConstraints maxWidth="128.0" minWidth="0.0" prefWidth="0.0" />
+              <ColumnConstraints maxWidth="178.8" minWidth="57.59998779296875" prefWidth="116.19999999999997" />
+              <ColumnConstraints maxWidth="247.2" minWidth="153.4" prefWidth="161.4" />
+              <ColumnConstraints maxWidth="84.0" minWidth="0.0" prefWidth="0.0" />
+              <ColumnConstraints maxWidth="231.20000000000005" minWidth="106.60000000000002" prefWidth="231.20000000000005" />
+          </columnConstraints>
+          <rowConstraints>
+              <RowConstraints maxHeight="143.0" minHeight="79.00000000000001" prefHeight="84.00000000000001" />
+              <RowConstraints maxHeight="85.0" minHeight="21.0" prefHeight="42.0" />
+              <RowConstraints maxHeight="63.599999999999994" minHeight="31.599999999999994" prefHeight="37.0" />
+              <RowConstraints maxHeight="55.599999999999994" minHeight="30.599999999999994" prefHeight="33.0" />
+              <RowConstraints maxHeight="19.0" minHeight="5.0" prefHeight="18.0" />
+              <RowConstraints />
+              <RowConstraints />
+              <RowConstraints />
+              <RowConstraints />
+              <RowConstraints />
+          </rowConstraints>
+      </GridPane>
+       <Button layoutX="242.0" layoutY="347.0" mnemonicParsing="false" onAction="#loginButtonOnAction" prefHeight="38.0" prefWidth="109.0" style="-fx-background-color: transparent" text="Log In" textFill="#ff9500" GridPane.columnIndex="2" GridPane.rowIndex="9">
+           <font>
+               <Font size="18.0" />
+           </font></Button>
+       <Button layoutX="20.0" layoutY="347.0" mnemonicParsing="false" onAction="#registerButtonOnAction" style="-fx-background-color: transparent" text="Register" textFill="#ff9500" GridPane.columnIndex="1" GridPane.rowIndex="9">
+           <font>
+               <Font size="18.0" />
+           </font></Button>
+   </children>
+</AnchorPane>

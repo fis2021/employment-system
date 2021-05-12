@@ -65,8 +65,9 @@ public class LoginAndRegisterController {
                 LoginChecker.resetAttempts();
                 Stage stage = (Stage) loginMessage.getScene().getWindow();
                 Parent openViewJobsTab = FXMLLoader.load(getClass().getClassLoader().getResource("view_job_offers.fxml"));
-                Scene scene = new Scene(openViewJobsTab, 600, 400);
+                Scene scene = new Scene(openViewJobsTab, 912, 624);
                 stage.setScene(scene);
+                stage.setResizable(false);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -88,6 +89,7 @@ public class LoginAndRegisterController {
             Parent openRegistrationTab = FXMLLoader.load(getClass().getClassLoader().getResource("register.fxml"));
             Scene scene = new Scene(openRegistrationTab, 600, 400);
             stage.setScene(scene);
+            stage.setResizable(false);
         } catch (IOException e) {
             e.printStackTrace();
         }

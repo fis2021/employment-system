@@ -1,6 +1,4 @@
-package employment.system.controllers;/*
- * Created by Adrian Dragoș on 5/11/2021 May 2021.
- */
+package employment.system.controllers;
 
 
 import employment.system.jobs.Job;
@@ -60,8 +58,9 @@ public class ViewJobsController {
         try {
             Stage stage = (Stage) profileButton.getScene().getWindow();
             Parent openProfileTab = FXMLLoader.load(getClass().getClassLoader().getResource("employee_profile.fxml"));
-            Scene scene = new Scene(openProfileTab, 600, 400);
+            Scene scene = new Scene(openProfileTab, 780, 510);
             stage.setScene(scene);
+            stage.setResizable(false);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -71,8 +70,9 @@ public class ViewJobsController {
         try {
             Stage stage = (Stage) applyButton.getScene().getWindow();
             Parent openApplicationTab = FXMLLoader.load(getClass().getClassLoader().getResource("apply_for_job.fxml"));
-            Scene scene = new Scene(openApplicationTab, 600, 400);
+            Scene scene = new Scene(openApplicationTab, 796, 571);
             stage.setScene(scene);
+            stage.setResizable(false);
         } catch (IOException e) {
             e.printStackTrace();
         }
