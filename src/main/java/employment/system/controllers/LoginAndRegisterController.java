@@ -3,6 +3,8 @@ package employment.system.controllers;
 
 import employment.system.checkers.EmailChecker;
 import employment.system.checkers.LoginChecker;
+import employment.system.services.JobService;
+import employment.system.services.UserService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -63,8 +65,14 @@ public class LoginAndRegisterController {
         if (LoginChecker.isLoginValid(email, password)) {
             try {
                 LoginChecker.resetAttempts();
+                UserService.closeDatabase();
+                JobService.openJobDataBase();
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(ClassLoader.getSystemResource("view_job_offers.fxml"));
+                Parent openViewJobsTab = loader.load();
+                ViewJobsController viewJobsController = loader.getController();
+                viewJobsController.createTable();
                 Stage stage = (Stage) loginMessage.getScene().getWindow();
-                Parent openViewJobsTab = FXMLLoader.load(getClass().getClassLoader().getResource("view_job_offers.fxml"));
                 Scene scene = new Scene(openViewJobsTab, 912, 624);
                 stage.setResizable(true);
                 stage.setScene(scene);

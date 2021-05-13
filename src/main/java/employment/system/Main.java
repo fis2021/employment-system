@@ -1,6 +1,7 @@
 package employment.system;
 
 import employment.system.services.FileSystemService;
+import employment.system.services.JobService;
 import employment.system.services.UserService;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -16,14 +17,14 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         initDirectory();
-        UserService.initDatabase();
+        UserService.initUserDatabase();
+        JobService.initJobDatabase();
+        UserService.openUserDatabase();
 
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(ClassLoader.getSystemResource("login.fxml"));
         Parent root  = loader.load();
 
-//        ViewJobsController viewJobsController = loader.getController();
-//        viewJobsController.createTable();
 
         primaryStage.setMaximized(false);
         primaryStage.setResizable(false);

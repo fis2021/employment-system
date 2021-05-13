@@ -1,6 +1,9 @@
 package employment.system.user;
 
+import employment.system.job.Job;
 import org.dizitart.no2.objects.Id;
+
+import java.util.ArrayList;
 
 public class User {
 
@@ -53,6 +56,14 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public AccountType getAccountType() {
+        return accountType;
+    }
+
+    public void setAccountType(AccountType accountType) {
+        this.accountType = accountType;
     }
 
     @Override
