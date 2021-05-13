@@ -14,7 +14,16 @@ import java.io.IOException;
 
 
 public class ViewWhoAppliedController {
-
+    @FXML
+    private Button applicantProfileButton;
+    @FXML
+    private Button downLoadButton;
+    @FXML
+    private Button acceptButton;
+    @FXML
+    private Button inProgressButton;
+    @FXML
+    private Button RejectButton;
     @FXML
     private TableColumn applicantNameColumn;
     @FXML
@@ -37,5 +46,7 @@ public class ViewWhoAppliedController {
             e.printStackTrace();
         }
     }
+
+
 }
 

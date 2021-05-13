@@ -53,9 +53,6 @@ public class ApplyForJobController {
 
             ApplyService.apply(HWYLTBCField.getText(), CVField.getText());
 
-
-            ApplyService.apply(firstNameField.getText(), lastNameField.getText(), emailField.getText(), ageField.getText(), addressField.getText(), nativeLanguageField.getText(), otherLanguagesField.getText());
-
             Stage stage = (Stage) applyForJobButton.getScene().getWindow();
             Parent openApplyingTab = FXMLLoader.load(getClass().getClassLoader().getResource("successful_applying.fxml"));
             Scene scene = new Scene(openApplyingTab, 600, 400);
