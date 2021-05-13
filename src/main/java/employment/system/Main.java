@@ -22,8 +22,6 @@ public class Main extends Application {
         loader.setLocation(ClassLoader.getSystemResource("login.fxml"));
         Parent root  = loader.load();
 
-//        ViewJobsController viewJobsController = loader.getController();
-//        viewJobsController.createTable();
 
         primaryStage.setMaximized(false);
         primaryStage.setResizable(false);

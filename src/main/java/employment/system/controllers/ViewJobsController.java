@@ -91,15 +91,15 @@ public class ViewJobsController {
 
     private void initJobData() {
         // Add some sample data
-        jobData.add(new Job("Full Stack Engineer", "Full Stack", "Google", new Image("google.png")));
-        jobData.add(new Job("Full Stack Engineer", "Full Stack", "Amazon", new Image("amazon.png")));
-        jobData.add(new Job("Full Stack Engineer", "Full Stack", "Facebook", new Image("facebook.png")));
-        jobData.add(new Job("Web Designer", "Web Designer", "Advanced Supreme", null));
-        jobData.add(new Job("ASAP.Net Developer", "Back End", "ASsOQ", null));
-        jobData.add(new Job("PHP programmer", "Front End", "BPay", null));
-        jobData.add(new Job("Java Developer", "Back End", "Google", new Image("google.png")));
-        jobData.add(new Job("C/C++", "Embedded", "Mantis", null));
-        jobData.add(new Job("Android Developer", "Mobile", "Amazon", new Image("amazon.png")));
+        jobData.add(new Job("Full Stack Engineer", "Full Stack", "Google"));
+        jobData.add(new Job("Full Stack Engineer", "Full Stack", "Amazon"));
+        jobData.add(new Job("Full Stack Engineer", "Full Stack", "Facebook"));
+        jobData.add(new Job("Web Designer", "Web Designer", "Advanced Supreme"));
+        jobData.add(new Job("ASAP.Net Developer", "Back End", "ASsOQ"));
+        jobData.add(new Job("PHP programmer", "Front End", "BPay"));
+        jobData.add(new Job("Java Developer", "Back End", "Google"));
+        jobData.add(new Job("C/C++", "Embedded", "Mantis"));
+        jobData.add(new Job("Android Developer", "Mobile", "Amazon"));
 
         // Initialize the person table with the two columns.
         jobNameColumn.setCellValueFactory(
@@ -129,7 +129,6 @@ public class ViewJobsController {
             jobSalaryField.setText(job.getJobSalary());
             jobDescriptionField.setText(job.getJobDescription());
             jobRequirementsField.setText(job.getJobRequirements());
-            imageField.setImage(job.getImage());
         } else {
             // Person is null, remove all the text.
             companyNameField.setText("");

@@ -1,6 +1,9 @@
 package employment.system.user;
 
+import employment.system.jobs.Job;
 import org.dizitart.no2.objects.Id;
+
+import java.util.ArrayList;
 
 public class User {
 
@@ -10,14 +13,16 @@ public class User {
     private String email;
     private String password;
     private AccountType accountType;
+    private  ArrayList<Job> jobs;
 
 
-    public User(String email, String firstName, String lastName, String password, AccountType accountType) {
+    public User(String email, String firstName, String lastName, String password, AccountType accountType, ArrayList<Job> jobs) {
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
         this.accountType = accountType;
+        this.jobs = jobs;
     }
 
     public User() {
@@ -53,6 +58,22 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public AccountType getAccountType() {
+        return accountType;
+    }
+
+    public void setAccountType(AccountType accountType) {
+        this.accountType = accountType;
+    }
+
+    public ArrayList<Job> getJobs() {
+        return jobs;
+    }
+
+    public void setJobs(ArrayList<Job> jobs) {
+        this.jobs = jobs;
     }
 
     @Override

@@ -13,13 +13,12 @@ public class Job {
     private StringProperty jobDescription;
     private StringProperty jobRequirements;
     private StringProperty jobCategory;
-    private Image image;
 
     public Job() {
-        this(null, null, null, null);
+        this(null, null, null);
     }
 
-    public Job(String jobName, String jobCategory, String companyName, Image image) {
+    public Job(String jobName, String jobCategory, String companyName) {
         this.jobName = new SimpleStringProperty(jobName);
         this.jobCategory = new SimpleStringProperty(jobCategory);
         this.companyName = new SimpleStringProperty(companyName);
@@ -29,7 +28,6 @@ public class Job {
         this.jobDescription = new SimpleStringProperty("Not specified");
         this.jobSalary = new SimpleStringProperty("Not specified.");
         this.jobRequirements = new SimpleStringProperty("Not Specified");
-        this.image = image;
     }
 
     public String getJobName() {
@@ -128,11 +126,4 @@ public class Job {
         this.jobCategory.set(jobCategory);
     }
 
-    public Image getImage() {
-        return image;
-    }
-
-    public void setImage(Image image) {
-        this.image = image;
-    }
 }

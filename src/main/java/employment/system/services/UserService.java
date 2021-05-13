@@ -1,6 +1,7 @@
 package employment.system.services;
 
 import employment.system.checkers.RegisterChecker;
+import employment.system.jobs.Job;
 import employment.system.user.AccountType;
 import employment.system.user.User;
 import static employment.system.services.FileSystemService.getPathToFile;
@@ -9,6 +10,7 @@ import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Base64;
 import javax.crypto.SecretKeyFactory;
@@ -31,7 +33,7 @@ public class UserService {
 
     public static void addUser(String email, String firstName, String lastName, String password, AccountType accountType) throws UserWithThisEmailAlreadyExistsException {
         RegisterChecker.checkEmailDoesNotAlreadyExist(email);
-        userRepository.insert(new User(email, firstName, lastName, encodePassword(password, email), accountType));
+        userRepository.insert(new User(email, firstName, lastName, encodePassword(password, email), accountType, new ArrayList<Job>()) );
     }
 
     public static String encodePassword(String password, String salt) {

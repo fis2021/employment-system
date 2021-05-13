@@ -63,8 +63,12 @@ public class LoginAndRegisterController {
         if (LoginChecker.isLoginValid(email, password)) {
             try {
                 LoginChecker.resetAttempts();
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(ClassLoader.getSystemResource("view_job_offers.fxml"));
+                Parent openViewJobsTab  = loader.load();
+                ViewJobsController viewJobsController = loader.getController();
+                viewJobsController.createTable();
                 Stage stage = (Stage) loginMessage.getScene().getWindow();
-                Parent openViewJobsTab = FXMLLoader.load(getClass().getClassLoader().getResource("view_job_offers.fxml"));
                 Scene scene = new Scene(openViewJobsTab, 912, 624);
                 stage.setResizable(true);
                 stage.setScene(scene);
