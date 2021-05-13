@@ -16,40 +16,33 @@
                 <Font size="18.0" />
             </font>
         </Text>
-        <Text fill="WHITE" layoutX="577.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date of Birth:">
+        <Text fill="WHITE" layoutX="427.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Experience in IT domain:">
             <font>
                 <Font size="14.0" />
             </font></Text>
-        <TextField layoutX="684.0" layoutY="64.0" />
-        <Text fill="WHITE" layoutX="536.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telephone Number:">
+        <TextField layoutX="610.0" layoutY="106.0" />
+        <Text fill="WHITE" layoutX="522.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Birthday:">
             <font>
                 <Font size="14.0" />
             </font></Text>
-        <Text fill="WHITE" layoutX="605.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address:">
+        <Text fill="WHITE" layoutX="461.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telephone number:">
             <font>
                 <Font size="14.0" />
             </font></Text>
-        <Text fill="WHITE" layoutX="605.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Country:">
+        <Text fill="WHITE" layoutX="528.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Country:">
             <font>
                 <Font size="14.0" />
             </font></Text>
-        <TextField layoutX="684.0" layoutY="100.0" />
-        <TextField layoutX="684.0" layoutY="135.0" />
-        <TextField layoutX="684.0" layoutY="169.0" />
-        <Text fill="WHITE" layoutX="328.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Personal Description:">
+        <TextField layoutX="610.0" layoutY="178.0" />
+        <TextField layoutX="610.0" layoutY="214.0" />
+        <TextField layoutX="610.0" layoutY="251.0" />
+        <TextField layoutX="610.0" layoutY="323.0" />
+        <Text fill="WHITE" layoutX="554.0" layoutY="269.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City:">
             <font>
                 <Font size="14.0" />
             </font>
         </Text>
-        <TextArea layoutX="387.0" layoutY="289.0" prefHeight="147.0" prefWidth="446.0" wrapText="true" />
-        <TextField layoutX="684.0" layoutY="204.0" />
-        <TextField layoutX="684.0" layoutY="239.0" />
-        <Text fill="WHITE" layoutX="628.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City:">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Text>
-        <Text fill="WHITE" layoutX="551.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Native Language:">
+        <Text fill="WHITE" layoutX="476.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Native Language:">
             <font>
                 <Font size="14.0" />
             </font>
@@ -64,6 +57,19 @@
             <Font size="15.0" />
          </font>
       </Button>
+      <Text fill="WHITE" layoutX="510.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Citizenship:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <TextField layoutX="610.0" layoutY="287.0" />
+      <Text fill="WHITE" layoutX="479.0" layoutY="377.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Other languages:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <TextField layoutX="610.0" layoutY="359.0" />
+      <DatePicker layoutX="609.0" layoutY="141.0" prefHeight="26.0" prefWidth="149.0" />
 
     </children>
 </AnchorPane>

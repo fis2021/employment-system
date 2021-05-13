@@ -6,47 +6,53 @@
 
 <AnchorPane prefHeight="510.0" prefWidth="900.0" styleClass="body" stylesheets="@employee_profile.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="employment.system.controllers.EmployeeProfileController">
    <children>
-      <Text fill="#af4900" layoutX="240.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Employee Name" wrappingWidth="378.73632049560547">
+      <Text fill="#af4900" layoutX="261.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Employee Name" wrappingWidth="378.73632049560547">
          <font>
             <Font size="36.0" />
          </font>
       </Text>
-      <Text fill="#bd5500" layoutX="240.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="email@yahoo.com" wrappingWidth="242.267578125">
+      <Text fill="#bd5500" layoutX="261.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="email@yahoo.com" wrappingWidth="242.267578125">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="630.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date of Birth:" AnchorPane.leftAnchor="630.0">
+      <Text fill="WHITE" layoutX="427.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Experience in IT domain:">
          <font>
             <Font size="14.0" />
          </font></Text>
-      <Text fill="WHITE" layoutX="588.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telephone Number:" AnchorPane.leftAnchor="588.0">
+      <Text fill="WHITE" layoutX="522.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Birthday:">
          <font>
             <Font size="14.0" />
          </font></Text>
-      <Text fill="WHITE" layoutX="658.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address:" AnchorPane.leftAnchor="658.0">
+      <Text fill="WHITE" layoutX="461.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telephone number:">
          <font>
             <Font size="14.0" />
          </font></Text>
-      <Text fill="WHITE" layoutX="658.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Country:" AnchorPane.leftAnchor="658.0">
+      <Text fill="WHITE" layoutX="528.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Country:">
          <font>
             <Font size="14.0" />
          </font></Text>
-      <Text fill="WHITE" layoutX="450.0" layoutY="292.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Personal Description:" AnchorPane.leftAnchor="450.0">
+      <Text fill="WHITE" layoutX="554.0" layoutY="269.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City:">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="684.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City:" AnchorPane.leftAnchor="684.0">
+      <Text fill="WHITE" layoutX="476.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Native Language:">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="604.0" layoutY="241.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Native Language:" AnchorPane.leftAnchor="604.0">
+      <Text fill="WHITE" layoutX="510.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Citizenship:">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
+      <Text fill="WHITE" layoutX="479.0" layoutY="377.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Other languages:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+
       <Button fx:id="cancelButton" cancelButton="true" layoutX="609.0" layoutY="454.0" mnemonicParsing="false" onAction="#cancelButtonOnAction" style="-fx-background-color: #8a4204;" text="Back to Job Offers" textFill="WHITE" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
          <font>
             <Font size="15.0" />
@@ -56,6 +62,6 @@
             <Font size="14.0" />
          </font>
       </Button>
-      
+
    </children>
 </AnchorPane>
