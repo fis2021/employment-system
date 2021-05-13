@@ -1,7 +1,9 @@
 package employment.system.controllers;
 
 
-import employment.system.jobs.Job;
+import employment.system.job.Job;
+import employment.system.services.JobService;
+import employment.system.services.UserService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -14,7 +16,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
@@ -52,12 +53,12 @@ public class ViewJobsController {
     @FXML
     private TableColumn<Job, String> companyNameColumn;
 
-
     private ObservableList<Job> jobData = FXCollections.observableArrayList();
-
 
     public void profileButtonOnAction(ActionEvent actionEvent) {
         try {
+            JobService.closeJobDataBase();
+            UserService.openUserDatabase();
             Stage stage = (Stage) profileButton.getScene().getWindow();
             Parent openProfileTab = FXMLLoader.load(getClass().getClassLoader().getResource("employee_profile.fxml"));
             Scene scene = new Scene(openProfileTab, 900, 510);
@@ -73,11 +74,16 @@ public class ViewJobsController {
 
     public void applyButtonOnAction(ActionEvent actionEvent) {
         try {
-            Stage stage = (Stage) applyButton.getScene().getWindow();
-            Parent openApplicationTab = FXMLLoader.load(getClass().getClassLoader().getResource("apply_for_job.fxml"));
-            Scene scene = new Scene(openApplicationTab, 796, 571);
+            JobService.closeJobDataBase();
+            UserService.openUserDatabase();
+            Stage stage = (Stage) profileButton.getScene().getWindow();
+            Parent openProfileTab = FXMLLoader.load(getClass().getClassLoader().getResource("apply_for_job.fxml"));
+            Scene scene = new Scene(openProfileTab, 796, 571);
             stage.setResizable(false);
             stage.setScene(scene);
+            Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
+            stage.setX((primScreenBounds.getWidth() - stage.getWidth()) / 2);
+            stage.setY((primScreenBounds.getHeight() - stage.getHeight()) / 2);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -91,15 +97,7 @@ public class ViewJobsController {
 
     private void initJobData() {
         // Add some sample data
-        jobData.add(new Job("Full Stack Engineer", "Full Stack", "Google", new Image("google.png")));
-        jobData.add(new Job("Full Stack Engineer", "Full Stack", "Amazon", new Image("amazon.png")));
-        jobData.add(new Job("Full Stack Engineer", "Full Stack", "Facebook", new Image("facebook.png")));
-        jobData.add(new Job("Web Designer", "Web Designer", "Advanced Supreme", null));
-        jobData.add(new Job("ASAP.Net Developer", "Back End", "ASsOQ", null));
-        jobData.add(new Job("PHP programmer", "Front End", "BPay", null));
-        jobData.add(new Job("Java Developer", "Back End", "Google", new Image("google.png")));
-        jobData.add(new Job("C/C++", "Embedded", "Mantis", null));
-        jobData.add(new Job("Android Developer", "Mobile", "Amazon", new Image("amazon.png")));
+        jobData = FXCollections.observableArrayList(JobService.extractJobsFromDataBase());
 
         // Initialize the person table with the two columns.
         jobNameColumn.setCellValueFactory(
@@ -129,7 +127,6 @@ public class ViewJobsController {
             jobSalaryField.setText(job.getJobSalary());
             jobDescriptionField.setText(job.getJobDescription());
             jobRequirementsField.setText(job.getJobRequirements());
-            imageField.setImage(job.getImage());
         } else {
             // Person is null, remove all the text.
             companyNameField.setText("");

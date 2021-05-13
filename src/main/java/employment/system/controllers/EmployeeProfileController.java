@@ -1,5 +1,7 @@
 package employment.system.controllers;
 
+import employment.system.services.JobService;
+import employment.system.services.UserService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,8 +20,14 @@ public class EmployeeProfileController {
 
     public void cancelButtonOnAction(ActionEvent actionEvent) {
         try {
+            UserService.closeDatabase();
+            JobService.openJobDataBase();
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(ClassLoader.getSystemResource("view_job_offers.fxml"));
+            Parent openViewJobsTab = loader.load();
+            ViewJobsController viewJobsController = loader.getController();
+            viewJobsController.createTable();
             Stage stage = (Stage) cancelButton.getScene().getWindow();
-            Parent openViewJobsTab = FXMLLoader.load(getClass().getClassLoader().getResource("view_job_offers.fxml"));
             Scene scene = new Scene(openViewJobsTab, 780, 510);
             stage.setResizable(true);
             stage.setScene(scene);

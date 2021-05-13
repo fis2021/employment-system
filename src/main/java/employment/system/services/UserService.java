@@ -7,6 +7,8 @@ import static employment.system.services.FileSystemService.getPathToFile;
 import employment.system.exceptions.UserWithThisEmailAlreadyExistsException;
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
+
+import java.io.File;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.Arrays;
@@ -15,18 +17,49 @@ import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
 
 
-public class UserService {
+public abstract class UserService {
 
     private static final int KEY_LENGTH = 256;
     private static final int ITERATIONS = 10000;
+    public final static String PASSWORD = "a";
     private static ObjectRepository<User> userRepository;
+    private static Nitrite userDatabase;
 
-    public static void initDatabase() {
-        Nitrite database = Nitrite.builder()
-                .filePath(getPathToFile("users.db").toFile())
-                .openOrCreate("admin", "admin");
+    public static void initUserDatabase() {
+        File file = getPathToFile("users.db").toFile();
+        if (!file.exists()) {
+            userDatabase = Nitrite.builder()
+                    .filePath(getPathToFile("users.db").toFile())
+                    .openOrCreate("admin", "admin");
 
-        userRepository = database.getRepository(User.class);
+            userRepository = userDatabase.getRepository(User.class);
+            // This initiate the initial userDatabase with predefined recruiters
+            addGhostRecruitersToDatabase();
+            // This initiate the initial userDatabase with predefined candidates
+            addGhostApplicantsToDatabase();
+            userDatabase.close();
+        }
+    }
+
+    public static void addGhostRecruitersToDatabase() {
+        try {
+            addUser("jeff.bezos@amazon.com", "Jef", "Bezos", PASSWORD, AccountType.RECRUITER);
+            addUser("bill.gates@microsoft.com", "Bill", "Gates", PASSWORD , AccountType.RECRUITER);
+            addUser("mark.zuckerberg@facebook.com", "Mark", "Zuckerberg", PASSWORD, AccountType.RECRUITER);
+        } catch (UserWithThisEmailAlreadyExistsException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void addGhostApplicantsToDatabase()
+    {
+        try {
+            addUser("jhon.smith@gmail.com", "jhon", "smith", PASSWORD, AccountType.EMPLOYEE);
+            addUser("employer@gmail.com", "employer", "employer", PASSWORD, AccountType.EMPLOYEE);
+            addUser("a@gmail.com", "Sam", "Sung", PASSWORD, AccountType.EMPLOYEE);
+        } catch (UserWithThisEmailAlreadyExistsException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void addUser(String email, String firstName, String lastName, String password, AccountType accountType) throws UserWithThisEmailAlreadyExistsException {
@@ -69,5 +102,20 @@ public class UserService {
         String newSecurePassword = encodePassword(providedPassword, salt);
         returnValue = newSecurePassword.equalsIgnoreCase(securedPassword);
         return returnValue;
+    }
+
+    public static void openUserDatabase() {
+        userDatabase = Nitrite.builder()
+                .filePath(getPathToFile("users.db").toFile())
+                .openOrCreate("admin", "admin");
+        userRepository = userDatabase.getRepository(User.class);
+    }
+
+    public static void closeDatabase() {
+        userDatabase.close();
+    }
+
+    public static boolean isUserDataBaseClosed() {
+        return userDatabase.isClosed();
     }
 }

@@ -91,7 +91,6 @@ public class RegisterController {
 
         try {
             UserService.addUser(emailField.getText(), firstNameField.getText(), lastNameField.getText(), passwordField.getText(), accountType);
-
             Stage stage = (Stage) registerButton.getScene().getWindow();
             Parent openRegistrationTab = FXMLLoader.load(getClass().getClassLoader().getResource("successful_registration.fxml"));
             Scene scene = new Scene(openRegistrationTab, 600, 400);

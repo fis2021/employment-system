@@ -1,5 +1,6 @@
 package employment.system.controllers;
 
+import employment.system.exceptions.JobWithThisIdAlreadyExistsException;
 import employment.system.services.JobService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -74,14 +75,17 @@ public class AddNewJobController {
         }
 
         try {
-            JobService.addJob(jobNameField.getText(), companyField.getText(), departmentField.getText(),
-                    programField.getText(), locationField.getText(), minimumSalaryField.getText());
+            JobService.addJob(jobNameField.getText(), companyField.getText(), departmentField.getText());
 
             Stage stage = (Stage) addNewJobButton.getScene().getWindow();
             Parent openRegistrationTab = FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
             Scene scene = new Scene(openRegistrationTab, 600, 400);
             stage.setResizable(false);
             stage.setScene(scene);
+        }
+        catch (JobWithThisIdAlreadyExistsException e) {
+            // TODO: change error message later.
+            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
