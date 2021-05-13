@@ -85,7 +85,10 @@
               </items>
           </ChoiceBox>
       
-          <Text fx:id="applyForJobMessage" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="2" GridPane.rowIndex="10" />
+          <Text fx:id="applyForJobMessage" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="2" GridPane.rowIndex="10">
+            <font>
+               <Font size="15.0" />
+            </font></Text>
       
 
       
