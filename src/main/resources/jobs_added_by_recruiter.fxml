@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane minHeight="620.0" minWidth="900.0" prefHeight="620.0" prefWidth="910.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="employment.system.controllers.JobsAddedByRecruiterController">
+    <children>
+        <SplitPane layoutX="290.0" layoutY="134.0" prefHeight="620.0" prefWidth="910.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <items>
+                <AnchorPane prefHeight="621.0" prefWidth="916.0" style="-fx-background-color: #2A2A2A;">
+                    <children>
+                        <BorderPane layoutX="7.0" layoutY="36.0" prefHeight="539.0" prefWidth="881.0">
+                            <center>
+                                <SplitPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                                    <items>
+                                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                            <children>
+                                                <TableView fx:id="appliedTable" layoutX="-1.0" layoutY="-2.0" prefHeight="541.0" prefWidth="532.0">
+                                                    <columns>
+                                                        <TableColumn fx:id="jobNameColumn" prefWidth="257.4000547528267" style="-fx-background-color: #C0C0C0;" text="Jobs" />
+                                                        <TableColumn fx:id="jobCategoryColumn" minWidth="0.0" prefWidth="273.7999572753906" style="-fx-background-color: #F3F3F3;" text="Category" />
+                                                    </columns>
+                                                </TableView>
+
+                                                <AnchorPane layoutX="531.0" layoutY="-1.0" prefHeight="542.0" prefWidth="360.0" style="-fx-background-color: #CCCCCC;">
+                                                    <GridPane layoutX="21.0" layoutY="243.0" prefWidth="290.0" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="49.0" AnchorPane.topAnchor="243.0">
+                                                        <columnConstraints>
+                                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="132.6" minWidth="10.0" prefWidth="132.6" />
+                                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="145.19999999999996" minWidth="10.0" prefWidth="132.19999999999996" />
+                                                        </columnConstraints>
+                                                        <rowConstraints>
+                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                             <RowConstraints />
+                                             <RowConstraints />
+                                                        </rowConstraints>
+                                                        <children>
+                                                            <Button fx:id="deleteButton" layoutX="37.0" layoutY="495.0" mnemonicParsing="false" style="-fx-background-color: #FFBB96;" text="Delete" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                                                            <Button fx:id="addJobButton" mnemonicParsing="false" onAction="#addJobButtonOnAction" style="-fx-background-color: #FF8848;" text="Add Job" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+                                                        </children>
+                                                    </GridPane>
+                                                </AnchorPane>
+                                            </children>
+                                        </AnchorPane>
+                                    </items></SplitPane>
+                            </center></BorderPane>
+                        <Button fx:id="jobOfferButton" layoutX="23.0" layoutY="578.0" mnemonicParsing="false" onAction="#jobOfferButtonOnAction" style="-fx-background-color: #FF8848;" text="Back to profile" />
+                    </children></AnchorPane>
+            </items></SplitPane>
+    </children>
+</AnchorPane>

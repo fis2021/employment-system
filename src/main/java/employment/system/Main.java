@@ -22,7 +22,7 @@ public class Main extends Application {
         UserService.openUserDatabase();
 
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(ClassLoader.getSystemResource("login.fxml"));
+        loader.setLocation(ClassLoader.getSystemResource("recruiter_profile.fxml"));
         Parent root  = loader.load();
 
 

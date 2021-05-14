@@ -96,8 +96,8 @@ public class AddNewJobController {
     public void cancelButtonOnAction(ActionEvent actionEvent) {
         try {
             Stage stage = (Stage) cancelButton.getScene().getWindow();
-            Parent openRegistrationTab = FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
-            Scene scene = new Scene(openRegistrationTab, 600, 400);
+            Parent openRegistrationTab = FXMLLoader.load(getClass().getClassLoader().getResource("jobs_added_by_recruiter.fxml"));
+            Scene scene = new Scene(openRegistrationTab, 910, 620);
             stage.setScene(scene);
             stage.setResizable(false);
         } catch (IOException e) {

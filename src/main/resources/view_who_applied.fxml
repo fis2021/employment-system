@@ -22,6 +22,7 @@
                                           <TableColumn fx:id="statusColumn" prefWidth="200.60003662109375" style="-fx-background-color: #FF7931 ;" text="Status" />
                                       </columns>
                                     </TableView>
+
                                     <AnchorPane layoutX="531.0" layoutY="-3.0" prefHeight="542.0" prefWidth="360.0" style="-fx-background-color: #CCCCCC;">
 
                                        <GridPane alignment="CENTER" layoutX="25.0" layoutY="74.0" prefHeight="178.0" prefWidth="310.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="74.0">
