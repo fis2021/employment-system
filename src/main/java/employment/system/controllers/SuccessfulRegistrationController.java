@@ -18,7 +18,7 @@ public class SuccessfulRegistrationController {
     public void okButtonOnAction(ActionEvent actionEvent) {
         try {
             Stage stage = (Stage) okButton.getScene().getWindow();
-            Parent openRegistrationTab = FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
+            Parent openRegistrationTab = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/login.fxml"));
             Scene scene = new Scene(openRegistrationTab, 600, 400);
             stage.setResizable(false);
             stage.setScene(scene);

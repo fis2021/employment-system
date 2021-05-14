@@ -19,7 +19,7 @@ public class EditEmployeeProfileController {
     public void cancelButtonOnAction(ActionEvent actionEvent) {
         try {
             Stage stage = (Stage) cancelButton.getScene().getWindow();
-            Parent openProfileTab = FXMLLoader.load(getClass().getClassLoader().getResource("employee_profile.fxml"));
+            Parent openProfileTab = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/employee_profile.fxml"));
             Scene scene = new Scene(openProfileTab, 900, 510);
             stage.setScene(scene);
 
@@ -31,7 +31,7 @@ public class EditEmployeeProfileController {
     public void saveButtonOnAction(ActionEvent actionEvent) {
         try {
             Stage stage = (Stage) saveButton.getScene().getWindow();
-            Parent openProfileTab = FXMLLoader.load(getClass().getClassLoader().getResource("employee_profile.fxml"));
+            Parent openProfileTab = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/employee_profile.fxml"));
             Scene scene = new Scene(openProfileTab, 900, 510);
             stage.setResizable(true);
             stage.setScene(scene);

@@ -60,7 +60,7 @@ public class ViewJobsController {
             JobService.closeJobDataBase();
             UserService.openUserDatabase();
             Stage stage = (Stage) profileButton.getScene().getWindow();
-            Parent openProfileTab = FXMLLoader.load(getClass().getClassLoader().getResource("employee_profile.fxml"));
+            Parent openProfileTab = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/employee_profile.fxml"));
             Scene scene = new Scene(openProfileTab, 900, 510);
             stage.setResizable(false);
             stage.setScene(scene);
@@ -77,7 +77,7 @@ public class ViewJobsController {
             JobService.closeJobDataBase();
             UserService.openUserDatabase();
             Stage stage = (Stage) profileButton.getScene().getWindow();
-            Parent openProfileTab = FXMLLoader.load(getClass().getClassLoader().getResource("apply_for_job.fxml"));
+            Parent openProfileTab = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/apply_for_job.fxml"));
             Scene scene = new Scene(openProfileTab, 796, 571);
             stage.setResizable(false);
             stage.setScene(scene);

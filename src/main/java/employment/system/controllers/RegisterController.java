@@ -92,7 +92,7 @@ public class RegisterController {
         try {
             UserService.addUser(emailField.getText(), firstNameField.getText(), lastNameField.getText(), passwordField.getText(), accountType);
             Stage stage = (Stage) registerButton.getScene().getWindow();
-            Parent openRegistrationTab = FXMLLoader.load(getClass().getClassLoader().getResource("successful_registration.fxml"));
+            Parent openRegistrationTab = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/successful_registration.fxml"));
             Scene scene = new Scene(openRegistrationTab, 600, 400);
             stage.setResizable(false);
             stage.setScene(scene);
@@ -107,7 +107,7 @@ public class RegisterController {
     public void cancelButtonOnAction(ActionEvent actionEvent) {
         try {
             Stage stage = (Stage) cancelButton.getScene().getWindow();
-            Parent openRegistrationTab = FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
+            Parent openRegistrationTab = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/login.fxml"));
             Scene scene = new Scene(openRegistrationTab, 600, 400);
             stage.setResizable(false);
             stage.setScene(scene);

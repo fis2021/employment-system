@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="571.0" prefWidth="796.0" styleClass="body" stylesheets="@login.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="employment.system.controllers.ApplyForJobController">
+<AnchorPane prefHeight="571.0" prefWidth="796.0" styleClass="body" stylesheets="@../css/login.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="employment.system.controllers.ApplyForJobController">
    <children>
 
        <Text id="title-text" fill="#ff9500" layoutX="43.0" layoutY="120.0" style="-fx-font-weight: bold" text="Apply for " wrappingWidth="265.1885209083557" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1">

@@ -7,7 +7,7 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="employment.system.controllers.AddNewJobController">
    <children>
-      <GridPane alignment="center" hgap="10" prefHeight="510.0" prefWidth="780.0" styleClass="body" stylesheets="@add_new_job.css" vgap="10">
+      <GridPane alignment="center" hgap="10" prefHeight="510.0" prefWidth="780.0" styleClass="body" stylesheets="@../css/add_new_job.css" vgap="10">
       
           <padding>
               <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />

@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane styleClass="body" stylesheets="@login.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="employment.system.controllers.LoginAndRegisterController">
+<AnchorPane styleClass="body" stylesheets="@../css/login.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="employment.system.controllers.LoginAndRegisterController">
    <children>
       <GridPane alignment="CENTER_LEFT" hgap="10" prefHeight="400" prefWidth="600" vgap="10">
       

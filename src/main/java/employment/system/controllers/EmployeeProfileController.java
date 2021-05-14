@@ -23,7 +23,7 @@ public class EmployeeProfileController {
             UserService.closeDatabase();
             JobService.openJobDataBase();
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(ClassLoader.getSystemResource("view_job_offers.fxml"));
+            loader.setLocation(ClassLoader.getSystemResource("fxml/view_job_offers.fxml"));
             Parent openViewJobsTab = loader.load();
             ViewJobsController viewJobsController = loader.getController();
             viewJobsController.createTable();
@@ -39,7 +39,7 @@ public class EmployeeProfileController {
     public void editProfileButtonOnAction(ActionEvent actionEvent) {
         try {
             Stage stage = (Stage) editProfileButton.getScene().getWindow();
-            Parent openEditProfileTab = FXMLLoader.load(getClass().getClassLoader().getResource("edit_employee_profile.fxml"));
+            Parent openEditProfileTab = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/edit_employee_profile.fxml"));
             Scene scene = new Scene(openEditProfileTab, 900, 510);
             stage.setScene(scene);
             stage.setResizable(false);

@@ -1,0 +1,4 @@
+.body{
+    -fx-background-image: url('../images/addJobBG.jpg') ;
+    -fx-background-size: cover ;
+}

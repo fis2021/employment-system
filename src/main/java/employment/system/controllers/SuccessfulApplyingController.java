@@ -22,7 +22,7 @@ public class SuccessfulApplyingController {
             UserService.closeDatabase();
             JobService.openJobDataBase();
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(ClassLoader.getSystemResource("view_job_offers.fxml"));
+            loader.setLocation(ClassLoader.getSystemResource("fxml/view_job_offers.fxml"));
             Parent openViewJobsTab = loader.load();
             ViewJobsController viewJobsController = loader.getController();
             viewJobsController.createTable();

@@ -68,7 +68,7 @@ public class LoginAndRegisterController {
                 UserService.closeDatabase();
                 JobService.openJobDataBase();
                 FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(ClassLoader.getSystemResource("view_job_offers.fxml"));
+                loader.setLocation(ClassLoader.getSystemResource("fxml/view_job_offers.fxml"));
                 Parent openViewJobsTab = loader.load();
                 ViewJobsController viewJobsController = loader.getController();
                 viewJobsController.createTable();
@@ -94,7 +94,7 @@ public class LoginAndRegisterController {
     public void registerButtonOnAction(ActionEvent actionEvent) throws Exception {
         try {
             Stage stage = (Stage) loginMessage.getScene().getWindow();
-            Parent openRegistrationTab = FXMLLoader.load(getClass().getClassLoader().getResource("register.fxml"));
+            Parent openRegistrationTab = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/register.fxml"));
             Scene scene = new Scene(openRegistrationTab, 600, 400);
             stage.setScene(scene);
             stage.setResizable(false);
