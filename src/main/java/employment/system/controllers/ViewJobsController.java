@@ -4,6 +4,8 @@ package employment.system.controllers;
 import employment.system.job.Job;
 import employment.system.services.JobService;
 import employment.system.services.UserService;
+import employment.system.user.AccountType;
+import employment.system.user.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -63,11 +65,24 @@ public class ViewJobsController {
             UserService.openUserDatabase();
             Stage stage = (Stage) profileButton.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(ClassLoader.getSystemResource("fxml/employee_profile.fxml"));
-            Parent employeeProfileTab = loader.load();
-            EmployeeProfileController employeeProfileController = loader.getController();
-            employeeProfileController.initiate();
-            Scene scene = new Scene(employeeProfileTab, 900, 510);
+            String fxmlFile = null;
+            User user= UserService.getCurrentUser();
+            Scene scene = null;
+            if (user.getAccountType() == AccountType.EMPLOYEE) {
+                fxmlFile = "fxml/employee_profile.fxml";
+                loader.setLocation(ClassLoader.getSystemResource(fxmlFile));
+                Parent employeeProfileTab = loader.load();
+                EmployeeProfileController employeeProfileController = loader.getController();
+                employeeProfileController.initiate();
+                scene = new Scene(employeeProfileTab, 900, 510);
+            } else {
+                fxmlFile = "fxml/recruiter_profile.fxml";
+                loader.setLocation(ClassLoader.getSystemResource(fxmlFile));
+                Parent recruiterProfileTab = loader.load();
+                RecruiterProfileController recruiterProfileController = loader.getController();
+                recruiterProfileController.initiate();
+                scene = new Scene(recruiterProfileTab, 900, 510);
+            }
             stage.setResizable(false);
             stage.setScene(scene);
             Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();

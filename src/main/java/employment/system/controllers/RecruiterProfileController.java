@@ -1,7 +1,10 @@
 package employment.system.controllers;
 
+import employment.system.services.RecruiterService;
 import employment.system.services.JobService;
 import employment.system.services.UserService;
+import employment.system.user.Recruiter;
+import employment.system.user.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,6 +18,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class RecruiterProfileController {
+    @FXML
+    private Label messageField;
     @FXML
     private Button cancelButton;
     @FXML
@@ -35,6 +40,8 @@ public class RecruiterProfileController {
     private Label telephoneNumberLabel;
     @FXML
     private Label addressLabel;
+
+    private final String NOT_SET_YET_MESSAGE = "not set yet";
 
     public void cancelButtonOnAction(ActionEvent actionEvent) {
         try {
@@ -91,15 +98,40 @@ public class RecruiterProfileController {
     }
 
 
-    public void addNewJobButtonOnAction(ActionEvent actionEvent) {
-        try {
-            Stage stage = (Stage) addNewJobButton.getScene().getWindow();
-            Parent openEditProfileTab = FXMLLoader.load(getClass().getClassLoader().getResource("jobs_added_by_recruiter.fxml"));
-            Scene scene = new Scene(openEditProfileTab, 910, 620);
-            stage.setScene(scene);
-            stage.setResizable(false);
-        } catch (IOException e) {
-            e.printStackTrace();
+    public void initiate() {
+        User currentUser = UserService.getCurrentUser();
+        recruiterEmailText.setText(currentUser.getEmail());
+        recruiterNameText.setText(currentUser.getFirstName() + " " + currentUser.getLastName());
+
+        UserService.closeDatabase();
+        RecruiterService.openDatabase();
+        RecruiterService.setCurrentRecruiter(currentUser.getEmail());
+        Recruiter recruiter = RecruiterService.getCurrentRecruiter();
+
+
+        if (recruiter == null || recruiter.getCompanyName() == null || recruiter.getCompanyName().isEmpty()) {
+            companyNameLabel.setText(NOT_SET_YET_MESSAGE);
+        } else {
+            companyNameLabel.setText(recruiter.getCompanyName());
+        }
+
+        if (recruiter != null && (!recruiter.hasNullFields() || !recruiter.hasEmptyFields())) {
+            messageField.setText("Please complete your profile!");
+        } else {
+            messageField.setVisible(false);
+        }
+
+
+        if (recruiter == null || recruiter.getTelephone() == null || recruiter.getTelephone().isEmpty()) {
+            telephoneNumberLabel.setText(NOT_SET_YET_MESSAGE);
+        } else {
+            telephoneNumberLabel.setText(recruiter.getTelephone());
+        }
+
+        if (recruiter == null || recruiter.getCompanyAddress() == null || recruiter.getCompanyAddress().isEmpty()) {
+            addressLabel.setText(NOT_SET_YET_MESSAGE);
+        } else {
+            addressLabel.setText(recruiter.getCompanyAddress());
         }
     }
 }
