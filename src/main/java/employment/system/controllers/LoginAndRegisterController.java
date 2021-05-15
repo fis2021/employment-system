@@ -64,10 +64,9 @@ public class LoginAndRegisterController {
 
         if (LoginChecker.isLoginValid(email, password)) {
             try {
-                LoginChecker.resetAttempts();
-                UserService.closeDatabase();
                 JobService.openJobDataBase();
                 FXMLLoader loader = new FXMLLoader();
+                UserService.storeCurrentPersonData(email);
                 loader.setLocation(ClassLoader.getSystemResource("fxml/view_job_offers.fxml"));
                 Parent openViewJobsTab = loader.load();
                 ViewJobsController viewJobsController = loader.getController();
@@ -76,6 +75,8 @@ public class LoginAndRegisterController {
                 Scene scene = new Scene(openViewJobsTab, 912, 624);
                 stage.setResizable(true);
                 stage.setScene(scene);
+                LoginChecker.resetAttempts();
+                UserService.closeDatabase();
             } catch (IOException e) {
                 e.printStackTrace();
             }

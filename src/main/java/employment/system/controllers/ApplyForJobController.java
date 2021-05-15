@@ -1,20 +1,19 @@
 package employment.system.controllers;
 
-
-
-
 import employment.system.services.ApplyService;
 import employment.system.services.JobService;
 import employment.system.services.UserService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 import javafx.scene.text.Text;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -56,6 +55,9 @@ public class ApplyForJobController {
             Stage stage = (Stage) applyForJobButton.getScene().getWindow();
             Parent openApplyingTab = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/successful_applying.fxml"));
             Scene scene = new Scene(openApplyingTab, 600, 400);
+            Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
+            stage.setX((primScreenBounds.getWidth() - stage.getWidth()) / 2);
+            stage.setY((primScreenBounds.getHeight() - stage.getHeight()) / 2);
             stage.setScene(scene);
             stage.setResizable(false);
         } catch (IOException e) {

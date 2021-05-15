@@ -3,17 +3,21 @@ package employment.system.controllers;
 
 import employment.system.checkers.EmailChecker;
 import employment.system.exceptions.UserWithThisEmailAlreadyExistsException;
+import employment.system.services.ApplicantService;
 import employment.system.services.UserService;
 import employment.system.user.AccountType;
+import employment.system.user.Applicant;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -91,9 +95,17 @@ public class RegisterController {
 
         try {
             UserService.addUser(emailField.getText(), firstNameField.getText(), lastNameField.getText(), passwordField.getText(), accountType);
+            UserService.closeDatabase();
+            ApplicantService.openDatabase();
+            ApplicantService.addApplicant(email, null);
+            ApplicantService.closeDatabase();
+            UserService.openUserDatabase();
             Stage stage = (Stage) registerButton.getScene().getWindow();
             Parent openRegistrationTab = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/successful_registration.fxml"));
             Scene scene = new Scene(openRegistrationTab, 600, 400);
+            Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
+            stage.setX((primScreenBounds.getWidth() - stage.getWidth()) / 2);
+            stage.setY((primScreenBounds.getHeight() - stage.getHeight()) / 2);
             stage.setResizable(false);
             stage.setScene(scene);
         } catch (UserWithThisEmailAlreadyExistsException e) {

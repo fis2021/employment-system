@@ -8,11 +8,11 @@ import employment.system.exceptions.UserWithThisEmailAlreadyExistsException;
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
 
-import java.io.File;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.Arrays;
 import java.util.Base64;
+import java.util.Objects;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
 
@@ -24,41 +24,16 @@ public abstract class UserService {
     public final static String PASSWORD = "a";
     private static ObjectRepository<User> userRepository;
     private static Nitrite userDatabase;
+    private static User currentChosenUser;
 
     public static void initUserDatabase() {
-        File file = getPathToFile("users.db").toFile();
-        if (!file.exists()) {
+        if (!existUserDatabase()) {
             userDatabase = Nitrite.builder()
                     .filePath(getPathToFile("users.db").toFile())
                     .openOrCreate("admin", "admin");
 
             userRepository = userDatabase.getRepository(User.class);
-            // This initiate the initial userDatabase with predefined recruiters
-            addGhostRecruitersToDatabase();
-            // This initiate the initial userDatabase with predefined candidates
-            addGhostApplicantsToDatabase();
             userDatabase.close();
-        }
-    }
-
-    public static void addGhostRecruitersToDatabase() {
-        try {
-            addUser("jeff.bezos@amazon.com", "Jef", "Bezos", PASSWORD, AccountType.RECRUITER);
-            addUser("bill.gates@microsoft.com", "Bill", "Gates", PASSWORD , AccountType.RECRUITER);
-            addUser("mark.zuckerberg@facebook.com", "Mark", "Zuckerberg", PASSWORD, AccountType.RECRUITER);
-        } catch (UserWithThisEmailAlreadyExistsException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static void addGhostApplicantsToDatabase()
-    {
-        try {
-            addUser("jhon.smith@gmail.com", "jhon", "smith", PASSWORD, AccountType.EMPLOYEE);
-            addUser("employer@gmail.com", "employer", "employer", PASSWORD, AccountType.EMPLOYEE);
-            addUser("a@gmail.com", "Sam", "Sung", PASSWORD, AccountType.EMPLOYEE);
-        } catch (UserWithThisEmailAlreadyExistsException e) {
-            e.printStackTrace();
         }
     }
 
@@ -112,10 +87,28 @@ public abstract class UserService {
     }
 
     public static void closeDatabase() {
-        userDatabase.close();
+        if (!userDatabase.isClosed()) {
+            userDatabase.close();
+        }
     }
 
     public static boolean isUserDataBaseClosed() {
         return userDatabase.isClosed();
+    }
+
+    public static void storeCurrentPersonData(String email) {
+        for (User user : UserService.getUserRepository().find()) {
+            if (Objects.equals(email, user.getEmail())) {
+                currentChosenUser = user;
+            }
+        }
+    }
+
+    public static User getCurrentUser() {
+        return currentChosenUser;
+    }
+
+    public static boolean existUserDatabase() {
+        return getPathToFile("users.db").toFile().exists();
     }
 }

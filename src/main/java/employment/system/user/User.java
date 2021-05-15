@@ -1,16 +1,13 @@
 package employment.system.user;
 
-import employment.system.job.Job;
 import org.dizitart.no2.objects.Id;
-
-import java.util.ArrayList;
 
 public class User {
 
     private String firstName;
     private String lastName;
     @Id
-    private String email;
+    protected String email;
     private String password;
     private AccountType accountType;
 

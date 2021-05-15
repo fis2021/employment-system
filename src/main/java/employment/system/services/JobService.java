@@ -18,39 +18,20 @@ public abstract class JobService {
     private static ObjectRepository<Job> jobRepository;
     private static Nitrite jobDatabase;
 
-    public static void addJob(String jobName, String company, String department) throws JobWithThisIdAlreadyExistsException {
+    public static void addJob(String recruiterEmail, String jobName, String category, String company) throws JobWithThisIdAlreadyExistsException {
         String ID = Job.createID(jobName, company);
         JobChecker.checkIfValidId(ID);
-        jobRepository.insert(new Job(jobName,company,department));
+        jobRepository.insert(new Job(recruiterEmail, jobName,category, company));
     }
 
     public static void initJobDatabase() {
-        File file = getPathToFile("jobs.db").toFile();
-        if (!file.exists()) {
+        if (!existJobDatabase()) {
             jobDatabase = Nitrite.builder()
                     .filePath(getPathToFile("jobs.db").toFile())
                     .openOrCreate("admin", "admin");
 
             jobRepository = jobDatabase.getRepository(Job.class);
-            // This initiate the initial database with predefined jobs
-            addGhostJobsOfGhostRecruiters();
             jobDatabase.close();
-        }
-    }
-
-    private static void addGhostJobsOfGhostRecruiters() {
-        try {
-            JobService.addJob("Full Stack Engineer", "Full Stack", "Google");
-            JobService.addJob("Full Stack Engineer", "Full Stack", "Amazon");
-            JobService.addJob("Full Stack Engineer", "Full Stack", "Facebook");
-            JobService.addJob("Web Designer", "Web Designer", "Advanced Supreme");
-            JobService.addJob("ASAP.Net Developer", "Back End", "ASsOQ");
-            JobService.addJob("PHP programmer", "Front End", "BPay");
-            JobService.addJob("Java Developer", "Back End", "Google");
-            JobService.addJob("C/C++", "Embedded", "Mantis");
-            JobService.addJob("Android Developer", "Mobile", "Amazon");
-        } catch (JobWithThisIdAlreadyExistsException e) {
-            e.printStackTrace();
         }
     }
 
@@ -74,6 +55,12 @@ public abstract class JobService {
     }
 
     public static void closeJobDataBase() {
-        jobDatabase.close();
+        if (!jobDatabase.isClosed()) {
+            jobDatabase.close();
+        }
+    }
+
+    public static boolean existJobDatabase() {
+        return getPathToFile("jobs.db").toFile().exists();
     }
 }

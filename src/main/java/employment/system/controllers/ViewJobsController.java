@@ -2,8 +2,10 @@ package employment.system.controllers;
 
 
 import employment.system.job.Job;
+import employment.system.services.ApplicantService;
 import employment.system.services.JobService;
 import employment.system.services.UserService;
+import employment.system.user.Applicant;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -60,8 +62,12 @@ public class ViewJobsController {
             JobService.closeJobDataBase();
             UserService.openUserDatabase();
             Stage stage = (Stage) profileButton.getScene().getWindow();
-            Parent openProfileTab = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/employee_profile.fxml"));
-            Scene scene = new Scene(openProfileTab, 900, 510);
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(ClassLoader.getSystemResource("fxml/employee_profile.fxml"));
+            Parent employeeProfileTab = loader.load();
+            EmployeeProfileController employeeProfileController = loader.getController();
+            employeeProfileController.initiate();
+            Scene scene = new Scene(employeeProfileTab, 900, 510);
             stage.setResizable(false);
             stage.setScene(scene);
             Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();

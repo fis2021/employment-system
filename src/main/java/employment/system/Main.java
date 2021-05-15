@@ -1,8 +1,6 @@
 package employment.system;
 
-import employment.system.services.FileSystemService;
-import employment.system.services.JobService;
-import employment.system.services.UserService;
+import employment.system.services.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -19,6 +17,8 @@ public class Main extends Application {
         initDirectory();
         UserService.initUserDatabase();
         JobService.initJobDatabase();
+        ApplicantService.initApplicantDatabase();
+        GhostsAccounts.createGhostsAccounts();
         UserService.openUserDatabase();
 
         FXMLLoader loader = new FXMLLoader();

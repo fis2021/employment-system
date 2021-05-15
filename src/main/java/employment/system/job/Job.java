@@ -23,28 +23,22 @@ public class Job {
     private String jobDescription;
     private String jobRequirements;
     private String jobCategory;
+    private  String recruiterEmail;
     @Id
     private String ID;
 
     public Job() {
-        this(null, null, null);
+        this(null, null, null, null);
     }
 
-    public Job(String jobName, String jobCategory, String companyName) {
-//        this.jobName = new SimpleStringProperty(jobName);
-//        this.jobCategory = new SimpleStringProperty(jobCategory);
-//        this.companyName = new SimpleStringProperty(companyName);
-//
-//        this.jobLocation = new SimpleStringProperty("Not specified");
-//        this.jobSchedule = new SimpleStringProperty("Not specified");
-//        this.jobDescription = new SimpleStringProperty("Not specified");
-//        this.jobSalary = new SimpleStringProperty("Not specified.");
-//        this.jobRequirements = new SimpleStringProperty("Not Specified");
+    public Job(String recruiterEmail, String jobName, String jobCategory, String companyName) {
+        this.recruiterEmail = recruiterEmail;
         this.jobName = jobName;
         this.jobCategory = jobCategory;
         this.companyName = companyName;
         this.ID = createID(jobName, companyName);
     }
+
 
     public static String createID(String jobName, String companyName) {
         return  jobName + companyName;
@@ -114,14 +108,6 @@ public class Job {
         this.jobCategory = jobCategory;
     }
 
-    public String getID() {
-        return ID;
-    }
-
-    public void setID(String ID) {
-        this.ID = ID;
-    }
-
     public ObservableValue<String> jobNameProperty() {
         return new SimpleStringProperty(jobName);
     }
@@ -133,4 +119,13 @@ public class Job {
     public ObservableValue<String> companyNameProperty() {
         return  new SimpleStringProperty(companyName);
     }
+
+    public String getJobID() {
+        return this.ID;
+    }
+
+    public void setJobID(String ID) {
+        this.ID = ID;
+    }
+
 }

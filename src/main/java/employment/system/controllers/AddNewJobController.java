@@ -75,8 +75,7 @@ public class AddNewJobController {
         }
 
         try {
-            JobService.addJob(jobNameField.getText(), companyField.getText(), departmentField.getText());
-
+            JobService.addJob(null, jobNameField.getText(), companyField.getText(), departmentField.getText());
             Stage stage = (Stage) addNewJobButton.getScene().getWindow();
             Parent openRegistrationTab = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/login.fxml"));
             Scene scene = new Scene(openRegistrationTab, 600, 400);
