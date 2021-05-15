@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="510.0" prefWidth="900.0" styleClass="body" stylesheets="@employee_profile.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="employment.system.controllers.EditRecruiterProfileController">
+<AnchorPane prefHeight="510.0" prefWidth="900.0" styleClass="body" stylesheets="@../css/employee_profile.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="employment.system.controllers.EditRecruiterProfileController">
     <children>
         <Text fill="#af4900" layoutX="261.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recruiter Name" wrappingWidth="378.73632049560547">
             <font>
