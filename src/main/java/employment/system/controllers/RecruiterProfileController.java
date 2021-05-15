@@ -3,20 +3,38 @@ package employment.system.controllers;
 import employment.system.services.JobService;
 import employment.system.services.UserService;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class RecruiterProfileController {
-    public Button cancelButton;
-    public Button editProfileButton;
-    public Button viewApplicantsButton;
-    public Button jobsAddedByMeButton;
-    public Button addNewJobButton;
+    @FXML
+    private Button cancelButton;
+    @FXML
+    private Button editProfileButton;
+    @FXML
+    private Button viewApplicantsButton;
+    @FXML
+    private Button jobsAddedByMeButton;
+    @FXML
+    private Button addNewJobButton;
+    @FXML
+    private Text recruiterNameText;
+    @FXML
+    private Text recruiterEmailText;
+    @FXML
+    private Label companyNameLabel;
+    @FXML
+    private Label telephoneNumberLabel;
+    @FXML
+    private Label addressLabel;
 
     public void cancelButtonOnAction(ActionEvent actionEvent) {
         try {

@@ -9,7 +9,7 @@
 
 <AnchorPane prefHeight="510.0" prefWidth="900.0" styleClass="body" stylesheets="@../css/employee_profile.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="employment.system.controllers.RecruiterProfileController">
     <children>
-        <Text fx:id="recuriterNameText" fill="#af4900" layoutX="261.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recruiter Name" wrappingWidth="378.73632049560547">
+        <Text fx:id="recruiterNameText" fill="#af4900" layoutX="261.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recruiter Name" wrappingWidth="378.73632049560547">
             <font>
                 <Font size="36.0" />
             </font>
@@ -34,7 +34,7 @@
                 <Font size="16.0" />
             </font>
         </Text>
-      <Label fx:id="addresslLabel" layoutX="633.0" layoutY="215.0" text="Label" textFill="WHITE" />
+      <Label fx:id="addressLabel" layoutX="633.0" layoutY="215.0" text="Label" textFill="WHITE" />
       <ButtonBar layoutX="374.0" layoutY="400.0" prefHeight="40.0" prefWidth="345.0" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="15.0">
         <buttons>
             <Button fx:id="jobsAddedByMeButton" cancelButton="true" mnemonicParsing="false" onAction="#jobsAddedByMeButtonOnAction" style="-fx-background-color: #8a4204;" text="My Jobs" textFill="WHITE">

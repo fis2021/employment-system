@@ -13,7 +13,7 @@
                 <Font size="36.0" />
             </font>
         </Text>
-        <Text fx:id="recrioterEmailField" fill="#bd5500" layoutX="261.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="email@yahoo.com" wrappingWidth="242.267578125">
+        <Text fx:id="recruiterEmailField" fill="#bd5500" layoutX="261.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="email@yahoo.com" wrappingWidth="242.267578125">
             <font>
                 <Font size="18.0" />
             </font>
@@ -42,8 +42,8 @@
             </font>
         </Button>
       <TextField fx:id="companyField" layoutX="632.0" layoutY="163.0" />
-      <TextField fx:id="TelephonNumberField" layoutX="632.0" layoutY="253.0" />
-      <TextField fx:id="AddresField" layoutX="632.0" layoutY="211.0" />
+      <TextField fx:id="telephoneNumberField" layoutX="632.0" layoutY="253.0" />
+      <TextField fx:id="addressField" layoutX="632.0" layoutY="211.0" />
 
     </children>
 </AnchorPane>

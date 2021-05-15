@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
@@ -14,6 +15,26 @@ import java.io.IOException;
 
 
 public class ViewWhoAppliedController {
+    @FXML
+    private Button rejectButton;
+    @FXML
+    private Label expInItField;
+    @FXML
+    private Label ageField;
+    @FXML
+    private Label telephoneField;
+    @FXML
+    private Label countryField;
+    @FXML
+    private Label cityField;
+    @FXML
+    private Label citizenshipField;
+    @FXML
+    private Label otherLanguagesField;
+    @FXML
+    private Label nativeLanguageField;
+    @FXML
+    private Button cvButton;
     @FXML
     private Button applicantProfileButton;
     @FXML
