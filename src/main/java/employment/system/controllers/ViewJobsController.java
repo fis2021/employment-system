@@ -2,10 +2,8 @@ package employment.system.controllers;
 
 
 import employment.system.job.Job;
-import employment.system.services.ApplicantService;
 import employment.system.services.JobService;
 import employment.system.services.UserService;
-import employment.system.user.Applicant;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -26,6 +24,8 @@ import java.io.IOException;
 
 
 public class ViewJobsController {
+    @FXML
+    private Label messageField;
     @FXML
     private Button applyButton;
     @FXML
@@ -80,16 +80,24 @@ public class ViewJobsController {
 
     public void applyButtonOnAction(ActionEvent actionEvent) {
         try {
-            JobService.closeJobDataBase();
-            UserService.openUserDatabase();
-            Stage stage = (Stage) profileButton.getScene().getWindow();
-            Parent openProfileTab = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/apply_for_job.fxml"));
-            Scene scene = new Scene(openProfileTab, 796, 571);
-            stage.setResizable(false);
-            stage.setScene(scene);
-            Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
-            stage.setX((primScreenBounds.getWidth() - stage.getWidth()) / 2);
-            stage.setY((primScreenBounds.getHeight() - stage.getHeight()) / 2);
+            if (JobService.getSelectedJob() != null) {
+                JobService.closeJobDataBase();
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(ClassLoader.getSystemResource("fxml/apply_for_job.fxml"));
+                Parent applicationTab = loader.load();
+                ApplyForJobController applyForJobController = loader.getController();
+                applyForJobController.initiate();
+                Stage stage = (Stage) applyButton.getScene().getWindow();
+                Scene scene = new Scene(applicationTab, 796, 500);
+                stage.setResizable(false);
+                stage.setScene(scene);
+                Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
+                stage.setX((primScreenBounds.getWidth() - stage.getWidth()) / 2);
+                stage.setY((primScreenBounds.getHeight() - stage.getHeight()) / 2);
+            } else {
+                messageField.setText("Please select a Job in order to apply");
+                return;
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -98,8 +106,8 @@ public class ViewJobsController {
     public void createTable() {
         initJobData();
         jobTable.setItems(jobData);
+        messageField.setText("");
     }
-
 
     private void initJobData() {
         // Add some sample data
@@ -119,7 +127,16 @@ public class ViewJobsController {
 
         // Listen for selection changes and show the person details when changed.
         jobTable.getSelectionModel().selectedItemProperty().addListener(
-                (observable, oldValue, newValue) -> showJobsDetails(newValue));
+                (observable, oldJob, newJob) -> showJobsDetails(newJob));
+
+        jobTable.getSelectionModel().selectedItemProperty().addListener(
+                (observable, oldJob, newJob) -> setCurrentJob(newJob));
+    }
+
+    private void setCurrentJob(Job job) {
+        if (job != null) {
+            JobService.setSelectedJob(job);
+        }
     }
 
 

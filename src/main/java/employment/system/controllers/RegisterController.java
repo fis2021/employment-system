@@ -6,7 +6,6 @@ import employment.system.exceptions.UserWithThisEmailAlreadyExistsException;
 import employment.system.services.ApplicantService;
 import employment.system.services.UserService;
 import employment.system.user.AccountType;
-import employment.system.user.Applicant;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -102,7 +101,7 @@ public class RegisterController {
             UserService.openUserDatabase();
             Stage stage = (Stage) registerButton.getScene().getWindow();
             Parent openRegistrationTab = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/successful_registration.fxml"));
-            Scene scene = new Scene(openRegistrationTab, 600, 400);
+            Scene scene = new Scene(openRegistrationTab, 600, 350);
             Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
             stage.setX((primScreenBounds.getWidth() - stage.getWidth()) / 2);
             stage.setY((primScreenBounds.getHeight() - stage.getHeight()) / 2);

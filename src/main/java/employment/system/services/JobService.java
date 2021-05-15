@@ -7,7 +7,6 @@ import employment.system.job.Job;
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
 
-import java.io.File;
 import java.util.ArrayList;
 
 
@@ -17,6 +16,7 @@ public abstract class JobService {
 
     private static ObjectRepository<Job> jobRepository;
     private static Nitrite jobDatabase;
+    private static Job selectedJob;
 
     public static void addJob(String recruiterEmail, String jobName, String category, String company) throws JobWithThisIdAlreadyExistsException {
         String ID = Job.createID(jobName, company);
@@ -62,5 +62,13 @@ public abstract class JobService {
 
     public static boolean existJobDatabase() {
         return getPathToFile("jobs.db").toFile().exists();
+    }
+
+    public static void setSelectedJob(Job job) {
+        selectedJob = job;
+    }
+
+    public static Job getSelectedJob() {
+        return selectedJob;
     }
 }

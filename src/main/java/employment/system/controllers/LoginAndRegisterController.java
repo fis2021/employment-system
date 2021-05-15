@@ -50,6 +50,7 @@ public class LoginAndRegisterController {
 
         if (password.isEmpty()) {
             loginMessage.setText("Please type in your password!");
+            return;
         }
 
         if (!EmailChecker.validate(email)) {
@@ -72,7 +73,7 @@ public class LoginAndRegisterController {
                 ViewJobsController viewJobsController = loader.getController();
                 viewJobsController.createTable();
                 Stage stage = (Stage) loginMessage.getScene().getWindow();
-                Scene scene = new Scene(openViewJobsTab, 912, 624);
+                Scene scene = new Scene(openViewJobsTab, 900, 510);
                 stage.setResizable(true);
                 stage.setScene(scene);
                 LoginChecker.resetAttempts();

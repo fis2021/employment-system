@@ -1,16 +1,14 @@
 package employment.system.services;
 
 import employment.system.user.Applicant;
-import employment.system.user.User;
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
 
-import java.io.File;
 import java.util.Objects;
 
 import static employment.system.services.FileSystemService.getPathToFile;
 
-public class ApplicantService {
+public abstract class ApplicantService {
 
     private static Nitrite applicantDatabase;
     private static ObjectRepository<Applicant> applicantRepository;

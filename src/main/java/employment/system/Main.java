@@ -39,6 +39,10 @@ public class Main extends Application {
         Path applicationHomePath = FileSystemService.APPLICATION_HOME_PATH;
         if (!Files.exists(applicationHomePath))
             applicationHomePath.toFile().mkdirs();
+        Path cvHomePath = FileSystemService.CV_PATH;
+        if (!Files.exists(cvHomePath)) {
+            cvHomePath.toFile().mkdirs();
+        }
     }
 
 
