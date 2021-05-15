@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane minHeight="620.0" minWidth="900.0" prefHeight="620.0" prefWidth="910.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="employment.system.controllers.ViewWhoAppliedController">
+<AnchorPane minHeight="620.0" minWidth="900.0" prefHeight="620.0" prefWidth="910.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="employment.system.controllers.ViewWhoAppliedController">
    <children>
       <SplitPane layoutX="290.0" layoutY="134.0" prefHeight="620.0" prefWidth="910.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <items>
@@ -24,20 +34,6 @@
                                     </TableView>
 
                                     <AnchorPane layoutX="531.0" layoutY="-3.0" prefHeight="542.0" prefWidth="360.0" style="-fx-background-color: #CCCCCC;">
-
-                                       <GridPane alignment="CENTER" layoutX="25.0" layoutY="74.0" prefHeight="178.0" prefWidth="310.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="74.0">
-                                          <columnConstraints>
-                                             <ColumnConstraints hgrow="SOMETIMES" maxWidth="310.0" minWidth="10.0" prefWidth="129.0" />
-                                          </columnConstraints>
-                                          <rowConstraints>
-                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                          </rowConstraints>
-                                          <children>
-                                             <Button fx:id="applicantProfileButton" layoutX="119.0" layoutY="49.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="159.0" style="-fx-background-color: #4f4f4f;" text="Go to applicant profile" textFill="WHITE" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                                             <Button fx:id="downLoadButton" layoutX="79.0" layoutY="140.0" mnemonicParsing="false" prefHeight="3.0" prefWidth="249.0" style="-fx-background-color: #2A2A2A;" text="Download applicant CV" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-                                          </children>
-                                       </GridPane>
                                        <GridPane layoutX="35.0" layoutY="456.0" prefWidth="290.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="456.0">
                                           <columnConstraints>
                                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="129.0" minWidth="10.0" prefWidth="108.6" />
@@ -46,13 +42,51 @@
                                           </columnConstraints>
                                           <rowConstraints>
                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                             <RowConstraints />
+                                             <RowConstraints />
                                           </rowConstraints>
+                                       </GridPane>
+                                       <ButtonBar layoutX="146.0" layoutY="486.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="15.0">
+                                         <buttons>
+                                             <Button fx:id="acceptButton" mnemonicParsing="false" style="-fx-background-color: #FFBB96;" text="Accept" />
+                                             <Button fx:id="rejectButton" mnemonicParsing="false" style="-fx-background-color: #FF7931;" text="Reject" />
+                                         </buttons>
+                                       </ButtonBar>
+                                       <GridPane alignment="CENTER" layoutX="52.0" layoutY="-1.0" prefHeight="231.0" prefWidth="241.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="5.0">
+                                         <columnConstraints>
+                                           <ColumnConstraints hgrow="SOMETIMES" maxWidth="139.0" minWidth="10.0" prefWidth="124.0" />
+                                           <ColumnConstraints hgrow="SOMETIMES" maxWidth="94.0" minWidth="10.0" prefWidth="76.0" />
+                                         </columnConstraints>
+                                         <rowConstraints>
+                                           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                         </rowConstraints>
                                           <children>
-                                             <Button fx:id="acceptButton" layoutX="37.0" layoutY="495.0" mnemonicParsing="false" style="-fx-background-color: #FFBB96;" text="Accept" GridPane.rowIndex="2" />
-                                             <Button fx:id="inProgressButton" layoutX="142.0" layoutY="495.0" mnemonicParsing="false" style="-fx-background-color: #FF8848;" text="In Progress" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                             <Button fx:id="RejectButton" layoutX="268.0" layoutY="495.0" mnemonicParsing="false" style="-fx-background-color: #FF7931;" text="Reject" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Experience in Domain:" />
+                                             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Age:" GridPane.rowIndex="1" />
+                                             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Telephone Number:" GridPane.rowIndex="2" />
+                                             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Country:" GridPane.rowIndex="3" />
+                                             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="City:" GridPane.rowIndex="4" />
+                                             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Citizenship:" GridPane.rowIndex="5" />
+                                             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Native Language:" GridPane.rowIndex="6" />
+                                             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Other Languages" GridPane.rowIndex="7" />
+                                             <Label fx:id="expInItField" GridPane.columnIndex="1" />
+                                             <Label fx:id="ageField" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                             <Label fx:id="telephoneField" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                             <Label fx:id="countryField" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                             <Label fx:id="cityField" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                             <Label fx:id="citizenshipField" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                             <Label fx:id="nativeLanguageField" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                             <Label fx:id="otherLanguagesField" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="7" />
                                           </children>
                                        </GridPane>
+                                       <Button fx:id="cvButton" layoutX="14.0" layoutY="246.0" mnemonicParsing="false" text="CV" />
                                     </AnchorPane>
                                  </children>
                               </AnchorPane>

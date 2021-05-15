@@ -59,7 +59,7 @@ public class ApplyForJobController {
         }
 
         if (uploadedFile == null) {
-            applyForJobMessageLabel.setText("Pleas upload your cv!");
+            applyForJobMessageLabel.setText("Please upload your cv!");
         }
 
         try {
