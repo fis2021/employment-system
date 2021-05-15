@@ -100,4 +100,14 @@ public class Applicant extends User {
     public void setOtherLanguages(String otherLanguages) {
         this.otherLanguages = otherLanguages;
     }
+
+    public boolean applicantHasNullFields() {
+        return experienceInItDomain != null && birthday != null && telephoneNumber != null && country != null
+                && city != null && citizenship != null && nativeLanguage != null && otherLanguages != null;
+    }
+
+    public boolean hasEmptyFields() {
+        return !experienceInItDomain.isEmpty() && !telephoneNumber.isEmpty() && !country.isEmpty()
+                && !city.isEmpty() && !citizenship.isEmpty() && !nativeLanguage.isEmpty() && !otherLanguages.isEmpty();
+    }
 }

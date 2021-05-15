@@ -8,13 +8,11 @@ import employment.system.user.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.text.Text;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -22,6 +20,8 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 public class EmployeeProfileController {
+    @FXML
+    private Label messageField;
     @FXML
     private Label experienceInITLabel;
     @FXML
@@ -101,6 +101,7 @@ public class EmployeeProfileController {
     }
 
     public void initiate() {
+
         User currentUser = UserService.getCurrentUser();
         emailField.setText(currentUser.getEmail());
         employeeName.setText(currentUser.getFirstName() + " " + currentUser.getLastName());
@@ -115,6 +116,12 @@ public class EmployeeProfileController {
             experienceInITLabel.setText(NOT_SET_YET_MESSAGE);
         } else {
             experienceInITLabel.setText(applicant.getExperienceInItDomain());
+        }
+
+        if (applicant != null && (!applicant.applicantHasNullFields() || !applicant.hasEmptyFields())) {
+            messageField.setText("Please complete your profile!");
+        } else {
+            messageField.setVisible(false);
         }
 
         if (applicant == null || applicant.getBirthday() == null) {

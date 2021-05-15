@@ -70,45 +70,21 @@ public class EditEmployeeProfileController {
         // Save to applicant Database
         Applicant applicant = ApplicantService.getCurrentApplicant();
 
-
-        if (!expInITField.getText().isEmpty()) {
-            applicant.setExperienceInItDomain(expInITField.getText());
-        }
-
+        applicant.setExperienceInItDomain(expInITField.getText());
         if (birthdayField.getValue() != null) {
             LocalDate ld = birthdayField.getValue();
             Calendar c = Calendar.getInstance();
             c.set(ld.getYear(), ld.getMonthValue(), ld.getDayOfMonth());
             applicant.setBirthday(c.getTime());
         }
-
-        if (!telephoneNumberField.getText().isEmpty()) {
-            applicant.setTelephoneNumber(telephoneNumberField.getText());
-        }
-
-        if (!countryField.getText().isEmpty()) {
-            applicant.setCountry(countryField.getText());
-        }
-
-        if (!cityField.getText().isEmpty()) {
-            applicant.setCity(cityField.getText());
-        }
-
-        if (!citizenshipField.getText().isEmpty()) {
-            applicant.setCitizenship(citizenshipField.getText());
-        }
-
-        if (!nativeLanguageField.getText().isEmpty()) {
-            applicant.setNativeLanguage(nativeLanguageField.getText());
-        }
-
-        if (!otherLanguageField.getText().isEmpty()) {
-            applicant.setOtherLanguages(otherLanguageField.getText());
-        }
+        applicant.setTelephoneNumber(telephoneNumberField.getText());
+        applicant.setCountry(countryField.getText());
+        applicant.setCity(cityField.getText());
+        applicant.setCitizenship(citizenshipField.getText());
+        applicant.setNativeLanguage(nativeLanguageField.getText());
+        applicant.setOtherLanguages(otherLanguageField.getText());
 
         ApplicantService.update(applicant);
-
-
         ApplicantService.closeDatabase();
         UserService.openUserDatabase();
         try {
