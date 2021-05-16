@@ -70,7 +70,7 @@ public class RecruiterProfileController {
             Parent editTabRecruiter = loader.load();
             EditRecruiterProfileController editRecruiterProfileController = loader.getController();
             editRecruiterProfileController.initiate();
-            Scene scene = new Scene(editTabRecruiter, 780, 510);
+            Scene scene = new Scene(editTabRecruiter, 900, 510);
             stage.setResizable(false);
             stage.setScene(scene);
         } catch (IOException e) {
@@ -81,10 +81,10 @@ public class RecruiterProfileController {
     public void viewApplicantsButtonOnAction(ActionEvent actionEvent) {
         try {
             Stage stage = (Stage) viewApplicantsButton.getScene().getWindow();
-            Parent openEditProfileTab = FXMLLoader.load(getClass().getClassLoader().getResource("view_who_applied.fxml"));
+            Parent openEditProfileTab = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/view_who_applied.fxml"));
             Scene scene = new Scene(openEditProfileTab, 780, 620);
             stage.setScene(scene);
-            stage.setResizable(false);
+            stage.setResizable(true);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -93,10 +93,10 @@ public class RecruiterProfileController {
     public void jobsAddedByMeButtonOnAction(ActionEvent actionEvent) {
         try {
             Stage stage = (Stage) jobsAddedByMeButton.getScene().getWindow();
-            Parent openEditProfileTab = FXMLLoader.load(getClass().getClassLoader().getResource("jobs_added_by_recruiter.fxml"));
+            Parent openEditProfileTab = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/jobs_added_by_recruiter.fxml"));
             Scene scene = new Scene(openEditProfileTab, 780, 620);
             stage.setScene(scene);
-            stage.setResizable(false);
+            stage.setResizable(true);
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -43,7 +43,7 @@ public class EditRecruiterProfileController {
             Parent recruiterTab = loader.load();
             RecruiterProfileController recruiterProfileController = loader.getController();
             recruiterProfileController.initiate();
-            Scene scene = new Scene(recruiterTab, 780, 510);
+            Scene scene = new Scene(recruiterTab, 900, 510);
             stage.setResizable(false);
             stage.setScene(scene);
         } catch (IOException e) {
@@ -70,7 +70,7 @@ public class EditRecruiterProfileController {
             Parent recruiterProfileTab = loader.load();
             RecruiterProfileController recruiterProfileController = loader.getController();
             recruiterProfileController.initiate();
-            Scene scene = new Scene(recruiterProfileTab, 780, 510);
+            Scene scene = new Scene(recruiterProfileTab, 900, 510);
             stage.setResizable(false);
             stage.setScene(scene);
         } catch (IOException e) {

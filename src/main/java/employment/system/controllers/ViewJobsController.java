@@ -72,13 +72,13 @@ public class ViewJobsController {
                 Parent employeeProfileTab = loader.load();
                 EmployeeProfileController employeeProfileController = loader.getController();
                 employeeProfileController.initiate();
-                scene = new Scene(employeeProfileTab, 780, 510);
+                scene = new Scene(employeeProfileTab, 900, 510);
             } else {
                 loader.setLocation(ClassLoader.getSystemResource("fxml/recruiter_profile.fxml"));
                 Parent recruiterProfileTab = loader.load();
                 RecruiterProfileController recruiterProfileController = loader.getController();
                 recruiterProfileController.initiate();
-                scene = new Scene(recruiterProfileTab, 780, 510);
+                scene = new Scene(recruiterProfileTab, 900, 510);
             }
             stage.setResizable(false);
             stage.setScene(scene);

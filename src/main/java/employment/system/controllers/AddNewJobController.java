@@ -17,15 +17,13 @@ import java.io.IOException;
 
 public class AddNewJobController {
     @FXML
-    private Button cancelButton;
+    private Button addJobButton;
     @FXML
-    private Button addNewJobButton;
+    private Button cancelButton;
     @FXML
     private Text addNewJobMessage;
     @FXML
     private TextField jobNameField;
-    @FXML
-    private TextField companyField;
     @FXML
     private TextField departmentField;
     @FXML
@@ -37,7 +35,6 @@ public class AddNewJobController {
 
     public void addNewJobButtonAction(ActionEvent actionEvent) {
         String jobName =  jobNameField.getText();
-        String company = companyField.getText();
         String department = departmentField.getText();
         String program = programField.getText();
         String location = locationField.getText();
@@ -60,10 +57,6 @@ public class AddNewJobController {
         }
 
 
-        if (company.isEmpty()) {
-            addNewJobMessage.setText("Please enter the company!");
-            return;
-        }
 
         if (department.isEmpty()) {
             addNewJobMessage.setText("Please enter the department!");
@@ -75,17 +68,15 @@ public class AddNewJobController {
         }
 
         try {
-            JobService.addJob(null, jobNameField.getText(), companyField.getText(), departmentField.getText());
-            Stage stage = (Stage) addNewJobButton.getScene().getWindow();
-            Parent openRegistrationTab = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/login.fxml"));
-            Scene scene = new Scene(openRegistrationTab, 600, 400);
+            JobService.addJob(null, null, null, null);
+            Stage stage = (Stage) addJobButton.getScene().getWindow();
+            Parent openRegistrationTab = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/jobs_added_by_recruiter.fxml"));
+            Scene scene = new Scene(openRegistrationTab, 900, 620);
             stage.setResizable(false);
             stage.setScene(scene);
         }
-        catch (JobWithThisIdAlreadyExistsException e) {
-            // TODO: change error message later.
-            e.printStackTrace();
-        } catch (IOException e) {
+        catch (JobWithThisIdAlreadyExistsException ignore) {}
+        catch (IOException e) {
             e.printStackTrace();
         }
 
@@ -95,8 +86,8 @@ public class AddNewJobController {
     public void cancelButtonOnAction(ActionEvent actionEvent) {
         try {
             Stage stage = (Stage) cancelButton.getScene().getWindow();
-            Parent openRegistrationTab = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/login.fxml"));
-            Scene scene = new Scene(openRegistrationTab, 600, 400);
+            Parent openRegistrationTab = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/jobs_added_by_recruiter.fxml"));
+            Scene scene = new Scene(openRegistrationTab, 900, 620);
             stage.setScene(scene);
             stage.setResizable(false);
         } catch (IOException e) {

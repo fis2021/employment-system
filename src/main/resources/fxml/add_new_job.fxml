@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="employment.system.controllers.AddNewJobController">
+<AnchorPane xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="employment.system.controllers.AddNewJobController">
    <children>
       <GridPane alignment="center" hgap="10" prefHeight="510.0" prefWidth="780.0" styleClass="body" stylesheets="@../css/add_new_job.css" vgap="10">
       
@@ -13,19 +19,15 @@
               <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
           </padding>
       
-          <Text id="title-text" fill="#2b8f07" style="-fx-font-weight: bold" text="Adding a new job" textAlignment="CENTER" wrappingWidth="150.939453125" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="1">
+          <Text id="title-text" fill="#2b8f07" style="-fx-font-weight: bold" text="Job Description" textAlignment="CENTER" wrappingWidth="150.939453125" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="2">
             <font>
                <Font size="18.0" />
             </font>
          </Text>
       
-          <Label text="Name of Job:" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+          <Label text="Job name:" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3" />
       
-          <TextField fx:id="jobNameField" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-      
-          <Label text="Company:" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-      
-          <TextField fx:id="companyField" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+          <TextField fx:id="jobNameField" GridPane.columnIndex="2" GridPane.rowIndex="3" />
       
           <Label text="Department:" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="4" />
       
@@ -39,7 +41,7 @@
       
           <TextField fx:id="locationField" GridPane.columnIndex="2" GridPane.rowIndex="6" />
       
-          <Label text="Minimum Salary:" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+          <Label text="Salary:" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="7" />
       
           <TextField fx:id="minimumSalaryField" GridPane.columnIndex="2" GridPane.rowIndex="7" />
       
@@ -77,7 +79,7 @@
            </font>
        </Button>
 
-       <Button fx:id="addNewJobButton" layoutX="517.0" layoutY="399.0" onAction="#addNewJobButtonAction" style="-fx-background-color: transparent" text="Add" textFill="#2b8f07" GridPane.columnIndex="4" GridPane.rowIndex="10">
+       <Button fx:id="addJobButton" layoutX="517.0" layoutY="399.0" onAction="#addNewJobButtonAction" style="-fx-background-color: transparent" text="Add" textFill="#2b8f07" GridPane.columnIndex="4" GridPane.rowIndex="10">
            <font>
                <Font size="24.0" />
            </font>

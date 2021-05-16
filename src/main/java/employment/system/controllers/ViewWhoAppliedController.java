@@ -16,6 +16,8 @@ import java.io.IOException;
 
 public class ViewWhoAppliedController {
     @FXML
+    public Button backButton;
+    @FXML
     private Button rejectButton;
     @FXML
     private Label expInItField;
@@ -52,14 +54,14 @@ public class ViewWhoAppliedController {
     @FXML
     private TableColumn statusColumn;
     @FXML
-    private Button jobOfferButton;
-    @FXML
     private TableView appliedTable;
 
-    public void jobOfferButtonOnAction(ActionEvent actionEvent) {
+
+
+    public void backButtonOnAction(ActionEvent actionEvent) {
         try {
-            Stage stage = (Stage) jobOfferButton.getScene().getWindow();
-            Parent openViewJobTab = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/view_job_offers.fxml"));
+            Stage stage = (Stage) backButton.getScene().getWindow();
+            Parent openViewJobTab = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/recruiter_profile.fxml"));
             Scene scene = new Scene(openViewJobTab, 780, 624);
             stage.setResizable(true);
             stage.setScene(scene);
@@ -67,7 +69,5 @@ public class ViewWhoAppliedController {
             e.printStackTrace();
         }
     }
-
-
 }
 

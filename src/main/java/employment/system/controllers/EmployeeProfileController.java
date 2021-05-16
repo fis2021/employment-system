@@ -92,7 +92,7 @@ public class EmployeeProfileController {
             Parent employeeProfileTab = loader.load();
             EditEmployeeProfileController employeeProfileController = loader.getController();
             employeeProfileController.initiate();
-            Scene scene = new Scene(employeeProfileTab, 780, 510);
+            Scene scene = new Scene(employeeProfileTab, 900, 510);
             stage.setResizable(false);
             stage.setScene(scene);
         } catch (IOException e) {
