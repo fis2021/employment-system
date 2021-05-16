@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 import static employment.system.services.FileSystemService.getPathToFile;
 
-public abstract class JobService {
+public  class JobService {
 
     private static ObjectRepository<Job> jobRepository;
     private static Nitrite jobDatabase;

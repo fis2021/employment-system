@@ -12,6 +12,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.Arrays;
 import java.util.Base64;
+import java.util.List;
 import java.util.Objects;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
@@ -110,5 +111,9 @@ public abstract class UserService {
 
     public static boolean existUserDatabase() {
         return getPathToFile("users.db").toFile().exists();
+    }
+
+    public static List<User> getAllUsers() {
+        return userRepository.find().toList();
     }
 }
