@@ -20,6 +20,11 @@ public class Recruiter extends User {
         this.telephone = telephone;
     }
 
+    public Recruiter(String email, String companyName) {
+        this.companyName = companyName;
+        super.email = email;
+    }
+
     public String getCompanyName() {
         return companyName;
     }

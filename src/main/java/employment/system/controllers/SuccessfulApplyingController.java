@@ -25,9 +25,9 @@ public class SuccessfulApplyingController {
             loader.setLocation(ClassLoader.getSystemResource("fxml/view_job_offers.fxml"));
             Parent openViewJobsTab = loader.load();
             ViewJobsController viewJobsController = loader.getController();
-            viewJobsController.createTable();
+            viewJobsController.init();
             Stage stage = (Stage) okButton.getScene().getWindow();
-            Scene scene = new Scene(openViewJobsTab, 912, 624);
+            Scene scene = new Scene(openViewJobsTab, 780, 624);
             stage.setResizable(true);
             stage.setScene(scene);
         } catch (IOException e) {

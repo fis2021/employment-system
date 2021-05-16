@@ -71,9 +71,9 @@ public class LoginAndRegisterController {
                 loader.setLocation(ClassLoader.getSystemResource("fxml/view_job_offers.fxml"));
                 Parent openViewJobsTab = loader.load();
                 ViewJobsController viewJobsController = loader.getController();
-                viewJobsController.createTable();
+                viewJobsController.init();
                 Stage stage = (Stage) loginMessage.getScene().getWindow();
-                Scene scene = new Scene(openViewJobsTab, 900, 510);
+                Scene scene = new Scene(openViewJobsTab, 780, 510);
                 stage.setResizable(true);
                 stage.setScene(scene);
                 LoginChecker.resetAttempts();

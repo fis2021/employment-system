@@ -4,8 +4,10 @@ package employment.system.controllers;
 import employment.system.checkers.EmailChecker;
 import employment.system.exceptions.UserWithThisEmailAlreadyExistsException;
 import employment.system.services.ApplicantService;
+import employment.system.services.RecruiterService;
 import employment.system.services.UserService;
 import employment.system.user.AccountType;
+import employment.system.user.Recruiter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -95,9 +97,15 @@ public class RegisterController {
         try {
             UserService.addUser(emailField.getText(), firstNameField.getText(), lastNameField.getText(), passwordField.getText(), accountType);
             UserService.closeDatabase();
-            ApplicantService.openDatabase();
-            ApplicantService.addApplicant(email, null);
-            ApplicantService.closeDatabase();
+            if (accountType == AccountType.EMPLOYEE) {
+                ApplicantService.openDatabase();
+                ApplicantService.addApplicant(email, null);
+                ApplicantService.closeDatabase();
+            } else {
+                RecruiterService.openDatabase();
+                RecruiterService.addRecruiter(email, null);
+                RecruiterService.closeDatabase();
+            }
             UserService.openUserDatabase();
             Stage stage = (Stage) registerButton.getScene().getWindow();
             Parent openRegistrationTab = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/successful_registration.fxml"));

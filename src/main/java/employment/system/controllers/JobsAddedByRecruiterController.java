@@ -32,7 +32,7 @@ public class JobsAddedByRecruiterController {
         try {
             Stage stage = (Stage) jobOfferButton.getScene().getWindow();
             Parent openViewJobTab = FXMLLoader.load(getClass().getClassLoader().getResource("view_job_offers.fxml"));
-            Scene scene = new Scene(openViewJobTab, 912, 624);
+            Scene scene = new Scene(openViewJobTab, 780, 624);
             stage.setResizable(true);
             stage.setScene(scene);
         } catch (IOException e) {

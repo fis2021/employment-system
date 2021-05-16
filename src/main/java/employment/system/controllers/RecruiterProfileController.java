@@ -46,12 +46,13 @@ public class RecruiterProfileController {
     public void cancelButtonOnAction(ActionEvent actionEvent) {
         try {
             UserService.closeDatabase();
+            RecruiterService.closeDatabase();
             JobService.openJobDataBase();
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(ClassLoader.getSystemResource("view_job_offers.fxml"));
+            loader.setLocation(ClassLoader.getSystemResource("fxml/view_job_offers.fxml"));
             Parent openViewJobsTab = loader.load();
             ViewJobsController viewJobsController = loader.getController();
-            viewJobsController.createTable();
+            viewJobsController.init();
             Stage stage = (Stage) cancelButton.getScene().getWindow();
             Scene scene = new Scene(openViewJobsTab, 780, 510);
             stage.setResizable(true);
@@ -64,10 +65,14 @@ public class RecruiterProfileController {
     public void editProfileButtonOnAction(ActionEvent actionEvent) {
         try {
             Stage stage = (Stage) editProfileButton.getScene().getWindow();
-            Parent openEditProfileTab = FXMLLoader.load(getClass().getClassLoader().getResource("edit_recruiter_profile.fxml"));
-            Scene scene = new Scene(openEditProfileTab, 900, 510);
-            stage.setScene(scene);
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(ClassLoader.getSystemResource("fxml/edit_recruiter_profile.fxml"));
+            Parent editTabRecruiter = loader.load();
+            EditRecruiterProfileController editRecruiterProfileController = loader.getController();
+            editRecruiterProfileController.initiate();
+            Scene scene = new Scene(editTabRecruiter, 780, 510);
             stage.setResizable(false);
+            stage.setScene(scene);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -77,7 +82,7 @@ public class RecruiterProfileController {
         try {
             Stage stage = (Stage) viewApplicantsButton.getScene().getWindow();
             Parent openEditProfileTab = FXMLLoader.load(getClass().getClassLoader().getResource("view_who_applied.fxml"));
-            Scene scene = new Scene(openEditProfileTab, 910, 620);
+            Scene scene = new Scene(openEditProfileTab, 780, 620);
             stage.setScene(scene);
             stage.setResizable(false);
         } catch (IOException e) {
@@ -89,7 +94,7 @@ public class RecruiterProfileController {
         try {
             Stage stage = (Stage) jobsAddedByMeButton.getScene().getWindow();
             Parent openEditProfileTab = FXMLLoader.load(getClass().getClassLoader().getResource("jobs_added_by_recruiter.fxml"));
-            Scene scene = new Scene(openEditProfileTab, 910, 620);
+            Scene scene = new Scene(openEditProfileTab, 780, 620);
             stage.setScene(scene);
             stage.setResizable(false);
         } catch (IOException e) {
@@ -108,17 +113,17 @@ public class RecruiterProfileController {
         RecruiterService.setCurrentRecruiter(currentUser.getEmail());
         Recruiter recruiter = RecruiterService.getCurrentRecruiter();
 
-
         if (recruiter == null || recruiter.getCompanyName() == null || recruiter.getCompanyName().isEmpty()) {
             companyNameLabel.setText(NOT_SET_YET_MESSAGE);
         } else {
             companyNameLabel.setText(recruiter.getCompanyName());
         }
 
-        if (recruiter != null && (!recruiter.hasNullFields() || !recruiter.hasEmptyFields())) {
-            messageField.setText("Please complete your profile!");
-        } else {
+        if (!recruiter.hasNullFields() && !recruiter.hasEmptyFields()) {
             messageField.setVisible(false);
+        } else {
+            messageField.setVisible(true);
+            messageField.setText("Please complete your profile!");
         }
 
 

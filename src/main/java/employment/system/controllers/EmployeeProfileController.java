@@ -74,7 +74,7 @@ public class EmployeeProfileController {
             loader.setLocation(ClassLoader.getSystemResource("fxml/view_job_offers.fxml"));
             Parent openViewJobsTab = loader.load();
             ViewJobsController viewJobsController = loader.getController();
-            viewJobsController.createTable();
+            viewJobsController.init();
             Stage stage = (Stage) cancelButton.getScene().getWindow();
             Scene scene = new Scene(openViewJobsTab, 780, 510);
             stage.setResizable(true);
@@ -92,7 +92,7 @@ public class EmployeeProfileController {
             Parent employeeProfileTab = loader.load();
             EditEmployeeProfileController employeeProfileController = loader.getController();
             employeeProfileController.initiate();
-            Scene scene = new Scene(employeeProfileTab, 900, 510);
+            Scene scene = new Scene(employeeProfileTab, 780, 510);
             stage.setResizable(false);
             stage.setScene(scene);
         } catch (IOException e) {

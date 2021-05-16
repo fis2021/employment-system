@@ -65,23 +65,20 @@ public class ViewJobsController {
             UserService.openUserDatabase();
             Stage stage = (Stage) profileButton.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader();
-            String fxmlFile = null;
             User user= UserService.getCurrentUser();
             Scene scene = null;
             if (user.getAccountType() == AccountType.EMPLOYEE) {
-                fxmlFile = "fxml/employee_profile.fxml";
-                loader.setLocation(ClassLoader.getSystemResource(fxmlFile));
+                loader.setLocation(ClassLoader.getSystemResource("fxml/employee_profile.fxml"));
                 Parent employeeProfileTab = loader.load();
                 EmployeeProfileController employeeProfileController = loader.getController();
                 employeeProfileController.initiate();
-                scene = new Scene(employeeProfileTab, 900, 510);
+                scene = new Scene(employeeProfileTab, 780, 510);
             } else {
-                fxmlFile = "fxml/recruiter_profile.fxml";
-                loader.setLocation(ClassLoader.getSystemResource(fxmlFile));
+                loader.setLocation(ClassLoader.getSystemResource("fxml/recruiter_profile.fxml"));
                 Parent recruiterProfileTab = loader.load();
                 RecruiterProfileController recruiterProfileController = loader.getController();
                 recruiterProfileController.initiate();
-                scene = new Scene(recruiterProfileTab, 900, 510);
+                scene = new Scene(recruiterProfileTab, 780, 510);
             }
             stage.setResizable(false);
             stage.setScene(scene);
@@ -103,7 +100,7 @@ public class ViewJobsController {
                 ApplyForJobController applyForJobController = loader.getController();
                 applyForJobController.initiate();
                 Stage stage = (Stage) applyButton.getScene().getWindow();
-                Scene scene = new Scene(applicationTab, 796, 500);
+                Scene scene = new Scene(applicationTab, 780, 500);
                 stage.setResizable(false);
                 stage.setScene(scene);
                 Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
@@ -118,13 +115,20 @@ public class ViewJobsController {
         }
     }
 
-    public void createTable() {
+
+    public void init() {
+        User user = UserService.getCurrentUser();
+        if (user.getAccountType() == AccountType.RECRUITER) {
+            applyButton.setVisible(false);
+        }
+
         initJobData();
         jobTable.setItems(jobData);
         messageField.setText("");
     }
 
     private void initJobData() {
+
         // Add some sample data
         jobData = FXCollections.observableArrayList(JobService.extractJobsFromDataBase());
 

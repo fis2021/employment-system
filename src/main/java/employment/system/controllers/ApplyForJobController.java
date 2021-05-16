@@ -1,6 +1,7 @@
 package employment.system.controllers;
 
 import employment.system.job.Job;
+import employment.system.services.ApplicantService;
 import employment.system.services.FileSystemService;
 import employment.system.services.JobService;
 import employment.system.services.UserService;
@@ -95,9 +96,9 @@ public class ApplyForJobController {
             loader.setLocation(ClassLoader.getSystemResource("fxml/view_job_offers.fxml"));
             Parent openViewJobsTab = loader.load();
             ViewJobsController viewJobsController = loader.getController();
-            viewJobsController.createTable();
+            viewJobsController.init();
             Stage stage = (Stage) cancelButton.getScene().getWindow();
-            Scene scene = new Scene(openViewJobsTab, 912, 624);
+            Scene scene = new Scene(openViewJobsTab, 780, 624);
             stage.setResizable(true);
             stage.setScene(scene);
         } catch (IOException e) {

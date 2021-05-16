@@ -18,6 +18,7 @@ public class Main extends Application {
         UserService.initUserDatabase();
         JobService.initJobDatabase();
         ApplicantService.initApplicantDatabase();
+        RecruiterService.initRecruiterDatabase();
         GhostsAccounts.createGhostsAccounts();
         UserService.openUserDatabase();
 
