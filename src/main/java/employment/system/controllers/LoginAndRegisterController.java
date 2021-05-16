@@ -73,9 +73,11 @@ public class LoginAndRegisterController {
                 ViewJobsController viewJobsController = loader.getController();
                 viewJobsController.init();
                 Stage stage = (Stage) loginMessage.getScene().getWindow();
-                Scene scene = new Scene(openViewJobsTab, 780, 510);
+                //Scene scene = new Scene(openViewJobsTab, 780, 510);
+                Scene scene = new Scene(openViewJobsTab);
                 stage.setResizable(true);
                 stage.setScene(scene);
+                stage.setMaximized(true);
                 LoginChecker.resetAttempts();
                 UserService.closeDatabase();
             } catch (IOException e) {

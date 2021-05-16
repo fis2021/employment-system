@@ -82,9 +82,11 @@ public class RecruiterProfileController {
         try {
             Stage stage = (Stage) viewApplicantsButton.getScene().getWindow();
             Parent openEditProfileTab = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/view_who_applied.fxml"));
-            Scene scene = new Scene(openEditProfileTab, 780, 620);
+            //Scene scene = new Scene(openEditProfileTab, 780, 620);
+            Scene scene = new Scene(openEditProfileTab);
             stage.setScene(scene);
             stage.setResizable(true);
+            stage.setMaximized(true);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -94,9 +96,11 @@ public class RecruiterProfileController {
         try {
             Stage stage = (Stage) jobsAddedByMeButton.getScene().getWindow();
             Parent openEditProfileTab = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/jobs_added_by_recruiter.fxml"));
-            Scene scene = new Scene(openEditProfileTab, 780, 620);
+            //Scene scene = new Scene(openEditProfileTab, 780, 620);
+            Scene scene = new Scene(openEditProfileTab);
             stage.setScene(scene);
             stage.setResizable(true);
+            stage.setMaximized(true);
         } catch (IOException e) {
             e.printStackTrace();
         }

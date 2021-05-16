@@ -1,9 +1,12 @@
 package employment.system.controllers;
 
 import employment.system.job.Job;
+import employment.system.services.ApplicantService;
 import employment.system.services.FileSystemService;
 import employment.system.services.JobService;
 import employment.system.services.UserService;
+import employment.system.user.Applicant;
+import employment.system.user.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -61,6 +64,16 @@ public class ApplyForJobController {
         if (uploadedFile == null) {
             applyForJobMessageLabel.setText("Please upload your cv!");
         }
+
+
+//        ApplicantService.openDatabase();
+//        Applicant applicant = ApplicantService.getCurrentApplicant();
+//        if (applicant.applicantHasNullFields() || applicant.applicantHasNullFields()) {
+//            applyForJobMessageLabel.setText("Pleas complete your profile in order to apply!");
+//            return;
+//        }
+//        ApplicantService.closeDatabase();
+
 
         try {
             File source = new File(uploadedFile.getAbsolutePath());
