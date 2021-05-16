@@ -21,15 +21,11 @@ public class Main extends Application {
         RecruiterService.initRecruiterDatabase();
         GhostsAccounts.createGhostsAccounts();
         UserService.openUserDatabase();
-
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(ClassLoader.getSystemResource("fxml/login.fxml"));
         Parent root  = loader.load();
-
-
         primaryStage.setMaximized(false);
         primaryStage.setResizable(false);
-
         primaryStage.setTitle("Worker");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();

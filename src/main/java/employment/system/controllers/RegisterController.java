@@ -7,7 +7,6 @@ import employment.system.services.ApplicantService;
 import employment.system.services.RecruiterService;
 import employment.system.services.UserService;
 import employment.system.user.AccountType;
-import employment.system.user.Recruiter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

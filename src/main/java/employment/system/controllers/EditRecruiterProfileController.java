@@ -80,8 +80,8 @@ public class EditRecruiterProfileController {
 
     public void initiate() {
         User currentUser = UserService.getCurrentUser();
-        recruiterNameField.setText(currentUser.getEmail());
-        recruiterEmailField.setText(currentUser.getFirstName() + " " + currentUser.getLastName());
+        recruiterEmailField.setText(currentUser.getEmail());
+        recruiterNameField.setText(currentUser.getFirstName() + " " + currentUser.getLastName());
 
         Recruiter recruiter = RecruiterService.getCurrentRecruiter();
         companyField.setText(recruiter.getCompanyName());

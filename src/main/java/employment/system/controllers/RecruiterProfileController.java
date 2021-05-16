@@ -109,7 +109,9 @@ public class RecruiterProfileController {
         recruiterNameText.setText(currentUser.getFirstName() + " " + currentUser.getLastName());
 
         UserService.closeDatabase();
-        RecruiterService.openDatabase();
+        if (RecruiterService.isClosed()) {
+            RecruiterService.openDatabase();
+        }
         RecruiterService.setCurrentRecruiter(currentUser.getEmail());
         Recruiter recruiter = RecruiterService.getCurrentRecruiter();
 
@@ -125,7 +127,6 @@ public class RecruiterProfileController {
             messageField.setVisible(true);
             messageField.setText("Please complete your profile!");
         }
-
 
         if (recruiter == null || recruiter.getTelephone() == null || recruiter.getTelephone().isEmpty()) {
             telephoneNumberLabel.setText(NOT_SET_YET_MESSAGE);

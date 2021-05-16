@@ -14,6 +14,8 @@ import java.io.IOException;
 
 public class JobsAddedByRecruiterController {
     @FXML
+    private Button backButton;
+    @FXML
     private TableView appliedTable;
     @FXML
     private TableColumn jobNameColumn;
@@ -25,26 +27,29 @@ public class JobsAddedByRecruiterController {
     private Button deleteButton;
     @FXML
     private Button addJobButton;
-    @FXML
-    private Button jobOfferButton;
 
-    public void jobOfferButtonOnAction(ActionEvent actionEvent) {
-        try {
-            Stage stage = (Stage) jobOfferButton.getScene().getWindow();
-            Parent openViewJobTab = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/recruiter_profile.fxml"));
-            Scene scene = new Scene(openViewJobTab, 780, 624);
-            stage.setResizable(true);
-            stage.setScene(scene);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     public void addJobButtonOnAction (ActionEvent actionEvent) {
         try {
             Stage stage = (Stage) addJobButton.getScene().getWindow();
             Parent openProfileTab = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/add_new_job.fxml"));
             Scene scene = new Scene(openProfileTab, 780, 510);
+            stage.setResizable(false);
+            stage.setScene(scene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void backButtonOnAction(ActionEvent actionEvent) {
+        try {
+            Stage stage = (Stage) backButton.getScene().getWindow();
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(ClassLoader.getSystemResource("fxml/recruiter_profile.fxml"));
+            Parent recruiterProfileTab = loader.load();
+            RecruiterProfileController recruiterProfileController = loader.getController();
+            recruiterProfileController.initiate();
+            Scene scene = new Scene(recruiterProfileTab, 900, 510);
             stage.setResizable(false);
             stage.setScene(scene);
         } catch (IOException e) {

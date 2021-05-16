@@ -73,4 +73,8 @@ public abstract class RecruiterService {
     public static void addRecruiter(String email, String companyName) {
         recruiterRepository.insert(new Recruiter(email, companyName));
     }
+
+    public static boolean isClosed() {
+        return recruiterDatabase == null || recruiterDatabase.isClosed();
+    }
 }

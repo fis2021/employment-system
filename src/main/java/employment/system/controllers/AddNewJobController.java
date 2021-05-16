@@ -1,7 +1,6 @@
 package employment.system.controllers;
 
-import employment.system.exceptions.JobWithThisIdAlreadyExistsException;
-import employment.system.services.JobService;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -40,9 +39,18 @@ public class AddNewJobController {
         String location = locationField.getText();
         String minimumSalary = minimumSalaryField.getText();
 
+        if (jobName.isEmpty()) {
+            addNewJobMessage.setText("Please enter the job name!");
+            return;
+        }
+
+        if (department.isEmpty()) {
+            addNewJobMessage.setText("Please enter the department!");
+            return;
+        }
 
         if (program.isEmpty()) {
-            addNewJobMessage.setText("Please enter the program!");
+            addNewJobMessage.setText("Please enter the schedule!");
             return;
         }
 
@@ -51,37 +59,23 @@ public class AddNewJobController {
             return;
         }
 
-        if (jobName.isEmpty()) {
-            addNewJobMessage.setText("Please enter the name of job!");
-            return;
-        }
-
-
-
-        if (department.isEmpty()) {
-            addNewJobMessage.setText("Please enter the department!");
-            return;
-        }
         if (minimumSalary.isEmpty()) {
             addNewJobMessage.setText("Please enter a minimum Salary!");
             return;
         }
 
         try {
-            JobService.addJob(null, null, null, null);
             Stage stage = (Stage) addJobButton.getScene().getWindow();
             Parent openRegistrationTab = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/jobs_added_by_recruiter.fxml"));
             Scene scene = new Scene(openRegistrationTab, 900, 620);
             stage.setResizable(false);
             stage.setScene(scene);
         }
-        catch (JobWithThisIdAlreadyExistsException ignore) {}
         catch (IOException e) {
             e.printStackTrace();
         }
 
     }
-
 
     public void cancelButtonOnAction(ActionEvent actionEvent) {
         try {
