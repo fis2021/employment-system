@@ -1,7 +1,6 @@
 package employment.system;
 
-import employment.system.services.FileSystemService;
-import employment.system.services.UserService;
+import employment.system.services.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,18 +15,17 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         initDirectory();
-        UserService.initDatabase();
-
+        UserService.initUserDatabase();
+        JobService.initJobDatabase();
+        ApplicantService.initApplicantDatabase();
+        RecruiterService.initRecruiterDatabase();
+        GhostsAccounts.createGhostsAccounts();
+        UserService.openUserDatabase();
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(ClassLoader.getSystemResource("login.fxml"));
+        loader.setLocation(ClassLoader.getSystemResource("fxml/login.fxml"));
         Parent root  = loader.load();
-
-//        ViewJobsController viewJobsController = loader.getController();
-//        viewJobsController.createTable();
-
         primaryStage.setMaximized(false);
         primaryStage.setResizable(false);
-
         primaryStage.setTitle("Worker");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
@@ -38,6 +36,10 @@ public class Main extends Application {
         Path applicationHomePath = FileSystemService.APPLICATION_HOME_PATH;
         if (!Files.exists(applicationHomePath))
             applicationHomePath.toFile().mkdirs();
+        Path cvHomePath = FileSystemService.CV_PATH;
+        if (!Files.exists(cvHomePath)) {
+            cvHomePath.toFile().mkdirs();
+        }
     }
 
 

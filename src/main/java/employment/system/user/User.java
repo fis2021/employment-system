@@ -7,7 +7,7 @@ public class User {
     private String firstName;
     private String lastName;
     @Id
-    private String email;
+    protected String email;
     private String password;
     private AccountType accountType;
 
@@ -53,6 +53,14 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public AccountType getAccountType() {
+        return accountType;
+    }
+
+    public void setAccountType(AccountType accountType) {
+        this.accountType = accountType;
     }
 
     @Override

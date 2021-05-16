@@ -1,6 +1,6 @@
 package employment.system.controllers;
 
-import employment.system.services.JobService;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,15 +16,13 @@ import java.io.IOException;
 
 public class AddNewJobController {
     @FXML
-    private Button cancelButton;
+    private Button addJobButton;
     @FXML
-    private Button addNewJobButton;
+    private Button cancelButton;
     @FXML
     private Text addNewJobMessage;
     @FXML
     private TextField jobNameField;
-    @FXML
-    private TextField companyField;
     @FXML
     private TextField departmentField;
     @FXML
@@ -36,15 +34,23 @@ public class AddNewJobController {
 
     public void addNewJobButtonAction(ActionEvent actionEvent) {
         String jobName =  jobNameField.getText();
-        String company = companyField.getText();
         String department = departmentField.getText();
         String program = programField.getText();
         String location = locationField.getText();
         String minimumSalary = minimumSalaryField.getText();
 
+        if (jobName.isEmpty()) {
+            addNewJobMessage.setText("Please enter the job name!");
+            return;
+        }
+
+        if (department.isEmpty()) {
+            addNewJobMessage.setText("Please enter the department!");
+            return;
+        }
 
         if (program.isEmpty()) {
-            addNewJobMessage.setText("Please enter the program!");
+            addNewJobMessage.setText("Please enter the schedule!");
             return;
         }
 
@@ -53,47 +59,29 @@ public class AddNewJobController {
             return;
         }
 
-        if (jobName.isEmpty()) {
-            addNewJobMessage.setText("Please enter the name of job!");
-            return;
-        }
-
-
-        if (company.isEmpty()) {
-            addNewJobMessage.setText("Please enter the company!");
-            return;
-        }
-
-        if (department.isEmpty()) {
-            addNewJobMessage.setText("Please enter the department!");
-            return;
-        }
         if (minimumSalary.isEmpty()) {
             addNewJobMessage.setText("Please enter a minimum Salary!");
             return;
         }
 
         try {
-            JobService.addJob(jobNameField.getText(), companyField.getText(), departmentField.getText(),
-                    programField.getText(), locationField.getText(), minimumSalaryField.getText());
-
-            Stage stage = (Stage) addNewJobButton.getScene().getWindow();
-            Parent openRegistrationTab = FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
-            Scene scene = new Scene(openRegistrationTab, 600, 400);
+            Stage stage = (Stage) addJobButton.getScene().getWindow();
+            Parent openRegistrationTab = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/jobs_added_by_recruiter.fxml"));
+            Scene scene = new Scene(openRegistrationTab, 900, 620);
             stage.setResizable(false);
             stage.setScene(scene);
-        } catch (IOException e) {
+        }
+        catch (IOException e) {
             e.printStackTrace();
         }
 
     }
 
-
     public void cancelButtonOnAction(ActionEvent actionEvent) {
         try {
             Stage stage = (Stage) cancelButton.getScene().getWindow();
-            Parent openRegistrationTab = FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
-            Scene scene = new Scene(openRegistrationTab, 600, 400);
+            Parent openRegistrationTab = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/jobs_added_by_recruiter.fxml"));
+            Scene scene = new Scene(openRegistrationTab, 900, 620);
             stage.setScene(scene);
             stage.setResizable(false);
         } catch (IOException e) {

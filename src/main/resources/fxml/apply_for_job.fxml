@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="571.0" prefWidth="796.0" styleClass="body" stylesheets="@../css/login.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="employment.system.controllers.ApplyForJobController">
+   <children>
+      <Label fx:id="jobNameLabel" layoutX="14.0" layoutY="14.0" prefHeight="30.0" prefWidth="741.0" text="Label" textAlignment="CENTER" textFill="#ff8500" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+
+       <Label layoutX="257.0" layoutY="244.0" text="Name:" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="4">
+           <font>
+               <Font size="14.0" />
+           </font>
+       </Label>
+       <TextField fx:id="nameField" layoutX="317.0" layoutY="234.0" prefHeight="40.0" prefWidth="119.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+      <Button fx:id="cvButton" layoutX="333.0" layoutY="310.0" mnemonicParsing="false" onAction="#cvButtonOnAction" prefHeight="50.0" prefWidth="54.0" text="Click here to upload your CV" />
+
+       <Label layoutX="265.0" layoutY="325.0" text="CV:" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
+           <font>
+               <Font size="14.0" />
+           </font>
+       </Label>
+
+           <Button fx:id="applyForJobButton" layoutX="638.0" layoutY="492.0" onAction="#applyForJobButtonAction" prefHeight="50.0" prefWidth="132.0" style="-fx-background-color: transparent" text="Apply" textFill="#ff8500" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
+               <font>
+                   <Font size="25.0" />
+               </font>
+           </Button>
+
+             <Button fx:id="cancelButton" cancelButton="true" layoutX="14.0" layoutY="509.0" mnemonicParsing="false" onAction="#cancelButtonOnAction" prefHeight="50.0" prefWidth="144.0" style="-fx-background-color: transparent" text="Cancel" textFill="#ff8500" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" GridPane.columnIndex="1" GridPane.rowIndex="11">
+           <font>
+               <Font size="23.0" />
+           </font>
+       </Button>
+      <Label fx:id="applyForJobMessageLabel" layoutX="333.0" layoutY="528.0" text="Label" textFill="WHITE" AnchorPane.bottomAnchor="26.0" />
+      <Label fx:id="cvNameLabel" layoutX="327.0" layoutY="382.0" prefHeight="17.0" prefWidth="445.0" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

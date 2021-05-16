@@ -3,6 +3,8 @@ package employment.system.controllers;
 
 import employment.system.checkers.EmailChecker;
 import employment.system.checkers.LoginChecker;
+import employment.system.services.JobService;
+import employment.system.services.UserService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -48,6 +50,7 @@ public class LoginAndRegisterController {
 
         if (password.isEmpty()) {
             loginMessage.setText("Please type in your password!");
+            return;
         }
 
         if (!EmailChecker.validate(email)) {
@@ -62,12 +65,21 @@ public class LoginAndRegisterController {
 
         if (LoginChecker.isLoginValid(email, password)) {
             try {
-                LoginChecker.resetAttempts();
+                JobService.openJobDataBase();
+                FXMLLoader loader = new FXMLLoader();
+                UserService.storeCurrentPersonData(email);
+                loader.setLocation(ClassLoader.getSystemResource("fxml/view_job_offers.fxml"));
+                Parent openViewJobsTab = loader.load();
+                ViewJobsController viewJobsController = loader.getController();
+                viewJobsController.init();
                 Stage stage = (Stage) loginMessage.getScene().getWindow();
-                Parent openViewJobsTab = FXMLLoader.load(getClass().getClassLoader().getResource("view_job_offers.fxml"));
-                Scene scene = new Scene(openViewJobsTab, 912, 624);
+                //Scene scene = new Scene(openViewJobsTab, 780, 510);
+                Scene scene = new Scene(openViewJobsTab);
                 stage.setResizable(true);
                 stage.setScene(scene);
+                stage.setMaximized(true);
+                LoginChecker.resetAttempts();
+                UserService.closeDatabase();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -86,7 +98,7 @@ public class LoginAndRegisterController {
     public void registerButtonOnAction(ActionEvent actionEvent) throws Exception {
         try {
             Stage stage = (Stage) loginMessage.getScene().getWindow();
-            Parent openRegistrationTab = FXMLLoader.load(getClass().getClassLoader().getResource("register.fxml"));
+            Parent openRegistrationTab = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/register.fxml"));
             Scene scene = new Scene(openRegistrationTab, 600, 400);
             stage.setScene(scene);
             stage.setResizable(false);

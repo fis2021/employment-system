@@ -66,6 +66,7 @@
                                                     </children>
                                                 </GridPane>
                                                 <ImageView fx:id="imageField" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="10.0" />
+                                    <Label fx:id="messageField" layoutX="156.0" layoutY="549.0" text="Label" textFill="#1739ebfc" AnchorPane.bottomAnchor="19.0" AnchorPane.rightAnchor="180.0" />
                                             </children>
                                         </AnchorPane>
                                     </items>

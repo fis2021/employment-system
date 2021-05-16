@@ -7,26 +7,34 @@ import static employment.system.services.FileSystemService.getPathToFile;
 import employment.system.exceptions.UserWithThisEmailAlreadyExistsException;
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
+
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.Arrays;
 import java.util.Base64;
+import java.util.Objects;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
 
 
-public class UserService {
+public abstract class UserService {
 
     private static final int KEY_LENGTH = 256;
     private static final int ITERATIONS = 10000;
+    public final static String PASSWORD = "a";
     private static ObjectRepository<User> userRepository;
+    private static Nitrite userDatabase;
+    private static User currentChosenUser;
 
-    public static void initDatabase() {
-        Nitrite database = Nitrite.builder()
-                .filePath(getPathToFile("users.db").toFile())
-                .openOrCreate("admin", "admin");
+    public static void initUserDatabase() {
+        if (!existUserDatabase()) {
+            userDatabase = Nitrite.builder()
+                    .filePath(getPathToFile("users.db").toFile())
+                    .openOrCreate("admin", "admin");
 
-        userRepository = database.getRepository(User.class);
+            userRepository = userDatabase.getRepository(User.class);
+            userDatabase.close();
+        }
     }
 
     public static void addUser(String email, String firstName, String lastName, String password, AccountType accountType) throws UserWithThisEmailAlreadyExistsException {
@@ -69,5 +77,38 @@ public class UserService {
         String newSecurePassword = encodePassword(providedPassword, salt);
         returnValue = newSecurePassword.equalsIgnoreCase(securedPassword);
         return returnValue;
+    }
+
+    public static void openUserDatabase() {
+        userDatabase = Nitrite.builder()
+                .filePath(getPathToFile("users.db").toFile())
+                .openOrCreate("admin", "admin");
+        userRepository = userDatabase.getRepository(User.class);
+    }
+
+    public static void closeDatabase() {
+        if (!userDatabase.isClosed()) {
+            userDatabase.close();
+        }
+    }
+
+    public static boolean isUserDataBaseClosed() {
+        return userDatabase.isClosed();
+    }
+
+    public static void storeCurrentPersonData(String email) {
+        for (User user : UserService.getUserRepository().find()) {
+            if (Objects.equals(email, user.getEmail())) {
+                currentChosenUser = user;
+            }
+        }
+    }
+
+    public static User getCurrentUser() {
+        return currentChosenUser;
+    }
+
+    public static boolean existUserDatabase() {
+        return getPathToFile("users.db").toFile().exists();
     }
 }

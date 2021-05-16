@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="510.0" prefWidth="900.0" styleClass="body" stylesheets="@../css/employee_profile.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="employment.system.controllers.RecruiterProfileController">
+    <children>
+        <Text fx:id="recruiterNameText" fill="#af4900" layoutX="261.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recruiter Name" wrappingWidth="378.73632049560547">
+            <font>
+                <Font size="36.0" />
+            </font>
+        </Text>
+        <Text fx:id="recruiterEmailText" fill="#bd5500" layoutX="261.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="email@yahoo.com" wrappingWidth="242.267578125">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Text>
+        <Text fill="WHITE" layoutX="484.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telephone number:">
+            <font>
+                <Font size="16.0" />
+            </font></Text>
+      <Label fx:id="companyNameLabel" layoutX="633.0" layoutY="168.0" text="Label" textFill="WHITE" />
+        <Text fill="WHITE" layoutX="540.0" layoutY="182.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Company:">
+            <font>
+                <Font size="16.0" />
+            </font></Text>
+      <Label fx:id="telephoneNumberLabel" layoutX="633.0" layoutY="258.0" text="Label" textFill="WHITE" />
+        <Text fill="WHITE" layoutX="487.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Company Address:">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Text>
+      <Label fx:id="addressLabel" layoutX="633.0" layoutY="215.0" text="Label" textFill="WHITE" />
+      <ButtonBar layoutX="374.0" layoutY="400.0" prefHeight="40.0" prefWidth="345.0" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="15.0">
+        <buttons>
+            <Button fx:id="jobsAddedByMeButton" cancelButton="true" mnemonicParsing="false" onAction="#jobsAddedByMeButtonOnAction" style="-fx-background-color: #8a4204;" text="My Jobs" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="viewApplicantsButton" mnemonicParsing="false" onAction="#viewApplicantsButtonOnAction" style="-fx-background-color: #8a4204;" text="Applicants" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+              <Button fx:id="editProfileButton" mnemonicParsing="false" onAction="#editProfileButtonOnAction" prefHeight="30.0" style="-fx-background-color: #8a4204;" text="Edit Profile" textFill="WHITE">
+                  <font>
+                      <Font size="14.0" />
+                  </font>
+              </Button>
+        </buttons>
+      </ButtonBar>
+
+              <Button fx:id="cancelButton" cancelButton="true" layoutX="835.0" layoutY="14.0" mnemonicParsing="false" onAction="#cancelButtonOnAction" style="-fx-background-color: #8a4204;" text="Back" textFill="WHITE" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+            <font>
+                <Font size="15.0" />
+            </font>
+      </Button>
+      <Label fx:id="messageField" layoutX="261.0" layoutY="467.0" textFill="#08da1d" />
+
+    </children>
+</AnchorPane>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="510.0" prefWidth="900.0" styleClass="body" stylesheets="@../css/employee_profile.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="employment.system.controllers.EditRecruiterProfileController">
+    <children>
+        <Text fx:id="recruiterNameField" fill="#af4900" layoutX="261.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recruiter Name" wrappingWidth="378.73632049560547">
+            <font>
+                <Font size="36.0" />
+            </font>
+        </Text>
+        <Text fx:id="recruiterEmailField" fill="#bd5500" layoutX="261.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="email@yahoo.com" wrappingWidth="242.267578125">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Text>
+        <Text fill="WHITE" layoutX="480.0" layoutY="271.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telephone number:">
+            <font>
+                <Font size="16.0" />
+            </font></Text>
+        <Text fill="WHITE" layoutX="539.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Company:">
+            <font>
+                <Font size="16.0" />
+            </font></Text>
+        <Text fill="WHITE" layoutX="486.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Company Address:">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Text>
+      <TextField fx:id="companyField" layoutX="632.0" layoutY="163.0" />
+      <TextField fx:id="addressField" layoutX="632.0" layoutY="211.0" />
+      <TextField fx:id="telephoneNumberField" layoutX="632.0" layoutY="253.0" />
+        <Button fx:id="saveButton" cancelButton="true" layoutX="835.0" layoutY="465.0" mnemonicParsing="false" onAction="#saveButtonOnAction" style="-fx-background-color: #8a4204;" text="Save" textFill="WHITE" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="15.0">
+            <font>
+                <Font size="15.0" />
+            </font>
+        </Button>
+        <Button fx:id="cancelButton" layoutX="825.0" layoutY="24.0" mnemonicParsing="false" onAction="#cancelButtonOnAction" style="-fx-background-color: #8a4204;" text="Cancel" textFill="WHITE" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>
+
+    </children>
+</AnchorPane>

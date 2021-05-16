@@ -9,7 +9,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="employment.system.controllers.RegisterController">
    <children>
-      <GridPane alignment="BOTTOM_LEFT" hgap="10" prefHeight="400.0" prefWidth="600.0" styleClass="body" stylesheets="@login.css" vgap="15">
+      <GridPane alignment="BOTTOM_LEFT" hgap="10" prefHeight="400.0" prefWidth="600.0" styleClass="body" stylesheets="@../css/login.css" vgap="15">
       
           <padding>
               <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
@@ -74,7 +74,10 @@
           </ChoiceBox>
       
       
-          <Text fx:id="registrationMessage" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+          <Text fx:id="registrationMessage" fill="#fffdfd" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="2" GridPane.rowIndex="8">
+            <font>
+               <Font size="15.0" />
+            </font></Text>
       
       
       
@@ -98,12 +101,12 @@
               <RowConstraints />
           </rowConstraints>
       </GridPane>
-       <Button fx:id="registerButton" layoutX="192.0" layoutY="341.0" onAction="#registerButtonAction" prefHeight="44.0" prefWidth="106.0" style="-fx-background-color: transparent" text="Register" textFill="#ff9500">
+       <Button fx:id="registerButton" layoutX="192.0" layoutY="353.0" onAction="#registerButtonAction" prefHeight="44.0" prefWidth="106.0" style="-fx-background-color: transparent" text="Register" textFill="#ff9500">
            <font>
                <Font size="20.0" />
            </font></Button>
 
-       <Button fx:id="cancelButton" cancelButton="true" layoutX="18.0" layoutY="341.0" mnemonicParsing="false" onAction="#cancelButtonOnAction" prefHeight="39.0" prefWidth="88.0" style="-fx-background-color: transparent" text="Cancel" textFill="#ff9500" GridPane.columnIndex="1" GridPane.rowIndex="9">
+       <Button fx:id="cancelButton" cancelButton="true" layoutX="18.0" layoutY="353.0" mnemonicParsing="false" onAction="#cancelButtonOnAction" prefHeight="39.0" prefWidth="88.0" style="-fx-background-color: transparent" text="Cancel" textFill="#ff9500" GridPane.columnIndex="1" GridPane.rowIndex="9">
            <font>
                <Font size="20.0" />
            </font></Button>
